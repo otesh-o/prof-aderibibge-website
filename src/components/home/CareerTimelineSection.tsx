@@ -238,7 +238,9 @@ export default function CareerTimelineSection() {
 
           {/* RIGHT: Comprehensive Bio & Institutional Appointments (5 cols) */}
           <div className="lg:col-span-5 space-y-6">
-            <div className="border border-[#20232E] bg-[#14161E] p-6 sm:p-8 space-y-5">
+            
+            {/* Academic Profile */}
+            <div className="rounded-xl border border-[#20232E] bg-[#14161E] p-6 sm:p-8 space-y-5">
               <div className="pb-3 border-b border-[#20232E] flex items-baseline justify-between">
                 <h3 className="font-serif text-2xl text-white">
                   Academic Profile
@@ -278,33 +280,78 @@ export default function CareerTimelineSection() {
             </div>
 
             {/* Quick Credentials Summary Card */}
-            <div className="border border-[#20232E] bg-[#14161E] p-6 sm:p-8 space-y-4">
+            <div className="rounded-xl border border-[#20232E] bg-[#14161E] p-6 sm:p-8 space-y-4">
               <span className="font-mono text-[11px] uppercase tracking-wider text-neutral-400 block">
                 Statutory Appointments
               </span>
               <div className="space-y-3 text-xs text-neutral-300">
-                <div className="p-3 bg-[#0D0E12] border border-[#20232E] space-y-1">
+                <div className="rounded-lg p-3 bg-[#0D0E12] border border-[#20232E] space-y-1">
                   <span className="font-mono text-[10px] text-neutral-500 block">National Quality Assurance</span>
                   <p className="font-medium text-white">NUC Ad-hoc Accreditation Panel Chairman</p>
                   <p className="text-neutral-400 text-[11px]">Chrisland University Mass Communication Programme (2025)</p>
                 </div>
-                <div className="p-3 bg-[#0D0E12] border border-[#20232E] space-y-1">
+                <div className="rounded-lg p-3 bg-[#0D0E12] border border-[#20232E] space-y-1">
                   <span className="font-mono text-[10px] text-neutral-500 block">International Development</span>
                   <p className="font-medium text-white">Lead Consultant Facilitator — EU-SDGN II</p>
                   <p className="text-neutral-400 text-[11px]">International Press Council & European Union Media Program (2026)</p>
                 </div>
               </div>
             </div>
+
+            {/* Books & Policy Monographs - DIRECTLY UNDER STATUTORY APPOINTMENTS */}
+            <div className="rounded-xl border border-[#20232E] bg-[#14161E] p-6 sm:p-8 flex flex-col justify-between space-y-5">
+              <div className="space-y-4">
+                <div className="pb-3 border-b border-[#20232E] flex items-baseline justify-between">
+                  <div className="flex items-center gap-2">
+                    <BookOpen className="w-4 h-4 text-neutral-400" />
+                    <h3 className="font-serif text-xl text-white">
+                      Books & Monographs
+                    </h3>
+                  </div>
+                  <Link href="/research" className="font-mono text-[11px] text-neutral-400 hover:text-white">
+                    Vault
+                  </Link>
+                </div>
+
+                <div className="divide-y divide-[#1D202B]">
+                  {booksAndChapters.map((item, idx) => (
+                    <div key={idx} className={idx > 0 ? "pt-3 pb-1 space-y-1" : "pb-3 space-y-1"}>
+                      <div className="flex items-center justify-between text-[10px] font-mono text-neutral-400">
+                        <span className="text-neutral-300 font-medium">{item.journal}</span>
+                        <span>{item.year}</span>
+                      </div>
+                      <h4 className="text-xs font-serif font-normal text-white leading-snug">
+                        {item.title}
+                      </h4>
+                      <p className="text-[11px] text-neutral-400 leading-relaxed line-clamp-3">
+                        {item.abstract}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="pt-3 border-t border-[#1D202B]">
+                <Link
+                  href="/research"
+                  className="inline-flex items-center gap-1.5 font-mono text-xs text-neutral-300 hover:text-white hover:underline"
+                >
+                  <span>View Routledge Chapter & Reports</span>
+                  <ArrowRight className="w-3.5 h-3.5 text-neutral-400" />
+                </Link>
+              </div>
+            </div>
+
           </div>
 
         </div>
 
-        {/* BOTTOM SECTION: 3-Card Equal Grid (Journal Papers, Books & Monographs, Signature Curriculum) */}
+        {/* BOTTOM SECTION: 2-Card Balanced Grid (Selected Journal Papers & Signature Curriculum) */}
         <div className="pt-6 border-t border-[#20232E]">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
 
             {/* CARD 1: Selected Journal Papers */}
-            <div className="border border-[#20232E] bg-[#14161E] p-6 sm:p-7 flex flex-col justify-between space-y-5">
+            <div className="rounded-xl border border-[#20232E] bg-[#14161E] p-6 sm:p-7 flex flex-col justify-between space-y-5">
               <div className="space-y-4">
                 <div className="pb-3 border-b border-[#20232E] flex items-baseline justify-between">
                   <div className="flex items-center gap-2">
@@ -353,52 +400,8 @@ export default function CareerTimelineSection() {
               </div>
             </div>
 
-            {/* CARD 2: Books & Policy Monographs */}
-            <div className="border border-[#20232E] bg-[#14161E] p-6 sm:p-7 flex flex-col justify-between space-y-5">
-              <div className="space-y-4">
-                <div className="pb-3 border-b border-[#20232E] flex items-baseline justify-between">
-                  <div className="flex items-center gap-2">
-                    <BookOpen className="w-4 h-4 text-neutral-400" />
-                    <h3 className="font-serif text-xl text-white">
-                      Books & Monographs
-                    </h3>
-                  </div>
-                  <Link href="/research" className="font-mono text-[11px] text-neutral-400 hover:text-white">
-                    Vault
-                  </Link>
-                </div>
-
-                <div className="divide-y divide-[#1D202B]">
-                  {booksAndChapters.map((item, idx) => (
-                    <div key={idx} className={idx > 0 ? "pt-3 pb-1 space-y-1" : "pb-3 space-y-1"}>
-                      <div className="flex items-center justify-between text-[10px] font-mono text-neutral-400">
-                        <span className="text-neutral-300 font-medium">{item.journal}</span>
-                        <span>{item.year}</span>
-                      </div>
-                      <h4 className="text-xs font-serif font-normal text-white leading-snug">
-                        {item.title}
-                      </h4>
-                      <p className="text-[11px] text-neutral-400 leading-relaxed line-clamp-3">
-                        {item.abstract}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <div className="pt-3 border-t border-[#1D202B]">
-                <Link
-                  href="/research"
-                  className="inline-flex items-center gap-1.5 font-mono text-xs text-neutral-300 hover:text-white hover:underline"
-                >
-                  <span>View Routledge Chapter & Reports</span>
-                  <ArrowRight className="w-3.5 h-3.5 text-neutral-400" />
-                </Link>
-              </div>
-            </div>
-
-            {/* CARD 3: Signature Curriculum */}
-            <div className="border border-[#20232E] bg-[#14161E] p-6 sm:p-7 flex flex-col justify-between space-y-5">
+            {/* CARD 2: Signature Curriculum */}
+            <div className="rounded-xl border border-[#20232E] bg-[#14161E] p-6 sm:p-7 flex flex-col justify-between space-y-5">
               <div className="space-y-4">
                 <div className="pb-3 border-b border-[#20232E] flex items-baseline justify-between">
                   <div className="flex items-center gap-2">
@@ -414,7 +417,7 @@ export default function CareerTimelineSection() {
 
                 <div className="space-y-3">
                   {featuredModulesData.map((m, idx) => (
-                    <div key={idx} className="p-3 bg-[#0D0E12] border border-[#20232E] space-y-1.5">
+                    <div key={idx} className="rounded-lg p-3 bg-[#0D0E12] border border-[#20232E] space-y-1.5">
                       <div className="flex items-center justify-between text-[10px] font-mono text-neutral-400">
                         <span className="font-semibold text-neutral-200">{m.code}</span>
                         <span>{m.duration}</span>
@@ -427,7 +430,7 @@ export default function CareerTimelineSection() {
                       </p>
                       <div className="pt-1 flex flex-wrap gap-1 text-[9px] font-mono text-neutral-500">
                         {m.corePillars.slice(0, 2).map((p, pIdx) => (
-                          <span key={pIdx} className="px-1.5 py-0.5 bg-[#14161E] border border-[#20232E]">
+                          <span key={pIdx} className="rounded px-1.5 py-0.5 bg-[#14161E] border border-[#20232E]">
                             {p}
                           </span>
                         ))}
