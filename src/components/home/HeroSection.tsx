@@ -59,19 +59,19 @@ export default function HeroSection() {
   return (
     <section className="relative pt-12 pb-16 lg:pt-20 lg:pb-24 border-b border-[#1E212B] bg-[#0D0E12] overflow-hidden">
       
-      {/* Editorial Gradient-Out Atmospheric Background Image */}
+      {/* Blurred Editorial Atmospheric Background Image */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <Image
           src="/images/lecture-series-auditorium.jpg"
           alt=""
           fill
           priority
-          className="object-cover object-top opacity-[0.14] filter contrast-125 saturate-50"
+          className="object-cover object-center opacity-[0.22] filter blur-[6px] scale-105 contrast-125 saturate-75"
         />
         {/* Multi-directional vignette gradients to softly feather the background out into dark gray */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0D0E12] via-[#0D0E12]/80 to-[#0D0E12]/90" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0D0E12] via-transparent to-[#0D0E12]" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_transparent_20%,_#0D0E12_80%)]" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#0D0E12] via-[#0D0E12]/75 to-[#0D0E12]/85" />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#0D0E12]/95 via-transparent to-[#0D0E12]/95" />
+        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_transparent_10%,_#0D0E12_85%)]" />
       </div>
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
