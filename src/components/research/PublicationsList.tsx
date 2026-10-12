@@ -1,8 +1,15 @@
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { Search, ExternalLink } from "lucide-react";
 import { publicationsData, Publication } from "@/data/research";
+
+const coverImageMap: Record<string, string> = {
+  "pub-1": "/images/journal-frontiers-ai.jpg",
+  "pub-7": "/images/book-routledge-ethics.jpg",
+  "pub-8": "/images/monograph-electoral-journalism.jpg",
+};
 
 const categories = [
   "All",
@@ -67,49 +74,67 @@ export default function PublicationsList() {
             No publications found matching your search criteria.
           </div>
         ) : (
-          filteredPublications.map((pub) => (
-            <div
-              key={pub.id}
-              className="p-6 border border-[#20232E] bg-[#14161E] hover:border-[#2C3142] transition-colors space-y-3"
-            >
-              <div className="flex flex-wrap items-baseline justify-between gap-2">
-                <span className="font-mono text-[11px] text-[#71788E] uppercase tracking-wider">
-                  {pub.type} • {pub.year}
-                </span>
-                <span className="font-mono text-xs text-[#8A92A6]">
-                  {pub.journal}
-                </span>
-              </div>
+          filteredPublications.map((pub) => {
+            const pubCover = coverImageMap[pub.id];
+            return (
+              <div
+                key={pub.id}
+                className="p-6 border border-[#20232E] bg-[#14161E] hover:border-[#2C3142] transition-colors space-y-3"
+              >
+              <div className="flex flex-col sm:flex-row gap-5 items-start">
+                {pubCover && (
+                  <div className="relative w-20 sm:w-24 aspect-[3/4] shrink-0 rounded-lg overflow-hidden shadow-lg border border-[#20232E] bg-[#0D0E12]">
+                    <Image
+                      src={pubCover}
+                      alt={pub.title}
+                      fill
+                      className="object-cover"
+                      sizes="96px"
+                    />
+                  </div>
+                )}
+                <div className="space-y-3 flex-1 min-w-0">
+                  <div className="flex flex-wrap items-baseline justify-between gap-2">
+                    <span className="font-mono text-[11px] text-[#71788E] uppercase tracking-wider">
+                      {pub.type} • {pub.year}
+                    </span>
+                    <span className="font-mono text-xs text-[#8A92A6]">
+                      {pub.journal}
+                    </span>
+                  </div>
 
-              <h3 className="font-serif text-lg sm:text-xl font-normal text-[#EDEFEF] leading-snug">
-                {pub.title}
-              </h3>
+                  <h3 className="font-serif text-lg sm:text-xl font-normal text-[#EDEFEF] leading-snug">
+                    {pub.title}
+                  </h3>
 
-              <p className="font-mono text-xs text-[#6F778A]">
-                {pub.authors}
-              </p>
+                  <p className="font-mono text-xs text-[#6F778A]">
+                    {pub.authors}
+                  </p>
 
-              {pub.abstract && (
-                <p className="text-xs sm:text-sm text-[#9FA6B2] leading-relaxed pt-1">
-                  {pub.abstract}
-                </p>
-              )}
+                  {pub.abstract && (
+                    <p className="text-xs sm:text-sm text-[#9FA6B2] leading-relaxed pt-1">
+                      {pub.abstract}
+                    </p>
+                  )}
 
-              <div className="flex items-center gap-4 pt-3 border-t border-[#1D202B]">
-                <a
-                  href={pub.scholarUrl || "https://scholar.google.com"}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="font-mono text-[11px] text-[#EDEFEF] hover:text-white flex items-center gap-1.5 hover:underline"
-                >
-                  <ExternalLink className="w-3.5 h-3.5 text-[#6E7588]" />
-                  <span>View on Google Scholar</span>
-                </a>
+                  <div className="flex items-center gap-4 pt-3 border-t border-[#1D202B]">
+                    <a
+                      href={pub.scholarUrl || "https://scholar.google.com"}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="font-mono text-[11px] text-[#EDEFEF] hover:text-white flex items-center gap-1.5 hover:underline"
+                    >
+                      <ExternalLink className="w-3.5 h-3.5 text-[#6E7588]" />
+                      <span>View on Google Scholar</span>
+                    </a>
+                  </div>
+                </div>
               </div>
             </div>
-          ))
-        )}
-      </div>
+          );
+        })
+      )}
     </div>
-  );
+  </div>
+);
 }

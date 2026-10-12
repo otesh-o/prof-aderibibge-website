@@ -49,13 +49,15 @@ export default function FeaturedResearchSection() {
           </div>
         </div>
 
-        {/* 1. Flagship Investigation Spotlight (2025 Study) */}
+        {/* 1. Flagship Investigation Spotlight (2025 Study) with Real Journal Publication Cover */}
         <div className="rounded-xl border border-[#20232E] bg-[#14161E] p-6 sm:p-10 relative overflow-hidden">
-          <div className="space-y-6">
+          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
             
-            {/* Meta Row */}
-            <div className="flex flex-wrap items-center justify-between gap-3 pb-4 border-b border-[#20232E]">
-              <div className="flex flex-wrap items-center gap-2 text-xs font-mono">
+            {/* Left Column: Publication Details */}
+            <div className="lg:col-span-8 space-y-6">
+              
+              {/* Meta Row */}
+              <div className="flex flex-wrap items-center gap-2 text-xs font-mono pb-3 border-b border-[#20232E]">
                 <span className="px-2.5 py-1 rounded-md bg-[#1B1E29] border border-[#262A38] text-neutral-200 font-semibold">
                   Flagship 2025 Study
                 </span>
@@ -64,54 +66,66 @@ export default function FeaturedResearchSection() {
                 <span className="text-neutral-500">·</span>
                 <span className="text-neutral-400">Published {flagshipPaper.year}</span>
               </div>
-              <span className="font-mono text-xs text-neutral-400">
-                Peer-Reviewed Journal Article
-              </span>
-            </div>
 
-            {/* Title & Authors */}
-            <div className="space-y-2.5">
-              <h3 className="font-serif text-2xl sm:text-3xl lg:text-4xl text-white font-normal leading-snug max-w-4xl">
-                {flagshipPaper.title}
-              </h3>
-              <p className="text-xs sm:text-sm font-mono text-neutral-400">
-                Principal Investigator: <span className="text-neutral-200 font-medium">{flagshipPaper.authors}</span>
-              </p>
-            </div>
-
-            {/* Abstract & Empirical Framework */}
-            <div className="space-y-3 max-w-4xl">
-              <p className="text-sm sm:text-base text-neutral-300 leading-relaxed font-sans">
-                {flagshipPaper.abstract}
-              </p>
-              <p className="text-xs sm:text-sm text-neutral-400 leading-relaxed">
-                Articulating an indigenized ethical framework for generative AI deployment in West African journalism, analyzing workflow disruptions, newsroom autonomy, and algorithmic gatekeeping across national dailies.
-              </p>
-            </div>
-
-            {/* Empirical Pillars Tags & Scholar Link */}
-            <div className="pt-4 border-t border-[#1D202B] flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-              <div className="flex flex-wrap gap-2 text-[11px] font-mono text-neutral-400">
-                <span className="rounded-md px-2.5 py-1 bg-[#0D0E12] border border-[#20232E]">
-                  Newsroom Field Audits
-                </span>
-                <span className="rounded-md px-2.5 py-1 bg-[#0D0E12] border border-[#20232E]">
-                  Algorithmic Gatekeeping
-                </span>
-                <span className="rounded-md px-2.5 py-1 bg-[#0D0E12] border border-[#20232E]">
-                  AI Media Ethics
-                </span>
+              {/* Title & Authors */}
+              <div className="space-y-2.5">
+                <h3 className="font-serif text-2xl sm:text-3xl lg:text-4xl text-white font-normal leading-snug">
+                  {flagshipPaper.title}
+                </h3>
+                <p className="text-xs sm:text-sm font-mono text-neutral-400">
+                  Principal Investigator: <span className="text-neutral-200 font-medium">{flagshipPaper.authors}</span>
+                </p>
               </div>
 
-              <a
-                href={flagshipPaper.scholarUrl || profileData.socialLinks.googleScholar}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 font-mono text-xs text-neutral-300 hover:text-white transition-colors"
-              >
-                <span>Google Scholar Citation</span>
-                <ExternalLink className="w-3.5 h-3.5 text-neutral-400" />
-              </a>
+              {/* Abstract & Empirical Framework */}
+              <div className="space-y-3">
+                <p className="text-sm sm:text-base text-neutral-300 leading-relaxed font-sans">
+                  {flagshipPaper.abstract}
+                </p>
+                <p className="text-xs sm:text-sm text-neutral-400 leading-relaxed">
+                  Articulating an indigenized ethical framework for generative AI deployment in West African journalism, analyzing workflow disruptions, newsroom autonomy, and algorithmic gatekeeping across national dailies.
+                </p>
+              </div>
+
+              {/* Empirical Pillars Tags & Scholar Link */}
+              <div className="pt-4 border-t border-[#1D202B] flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                <div className="flex flex-wrap gap-2 text-[11px] font-mono text-neutral-400">
+                  <span className="rounded-md px-2.5 py-1 bg-[#0D0E12] border border-[#20232E]">
+                    Newsroom Field Audits
+                  </span>
+                  <span className="rounded-md px-2.5 py-1 bg-[#0D0E12] border border-[#20232E]">
+                    Algorithmic Gatekeeping
+                  </span>
+                  <span className="rounded-md px-2.5 py-1 bg-[#0D0E12] border border-[#20232E]">
+                    AI Media Ethics
+                  </span>
+                </div>
+
+                <a
+                  href={flagshipPaper.scholarUrl || profileData.socialLinks.googleScholar}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 font-mono text-xs text-neutral-300 hover:text-white transition-colors"
+                >
+                  <span>Google Scholar Citation</span>
+                  <ExternalLink className="w-3.5 h-3.5 text-neutral-400" />
+                </a>
+              </div>
+
+            </div>
+
+            {/* Right Column: Real Publication Journal Cover */}
+            <div className="lg:col-span-4 flex justify-center">
+              <div className="relative w-full max-w-[220px] sm:max-w-[250px] aspect-[3/4] rounded-xl overflow-hidden shadow-2xl border border-[#20232E] group bg-[#0D0E12]">
+                <Image
+                  src="/images/journal-frontiers-ai.jpg"
+                  alt="Frontiers in Psychology - Algorithmic Media and Public Discourse in Africa"
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  sizes="(max-width: 768px) 220px, 250px"
+                />
+                <div className="absolute inset-0 ring-1 ring-inset ring-white/10 rounded-xl pointer-events-none" />
+              </div>
             </div>
 
           </div>
@@ -163,11 +177,11 @@ export default function FeaturedResearchSection() {
           </div>
         </div>
 
-        {/* 3. Doctoral Dissertation & Theoretical Landmark Card */}
+        {/* 3. Doctoral Dissertation & Theoretical Landmark Card with Real Hardbound Book */}
         <div className="rounded-xl border border-[#20232E] bg-[#14161E] p-6 sm:p-8">
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             
-            <div className="lg:col-span-8 space-y-3">
+            <div className="lg:col-span-8 space-y-4">
               <div className="flex items-center gap-2 text-xs font-mono text-neutral-400">
                 <BookOpen className="w-3.5 h-3.5 text-neutral-400" />
                 <span>Doctoral Dissertation • Babcock University ({thesisData.year})</span>
@@ -186,20 +200,31 @@ export default function FeaturedResearchSection() {
                   Participatory Radio & Mobile Channels
                 </span>
               </div>
+
+              <div className="pt-2">
+                <a
+                  href={thesisData.downloadUrl}
+                  download
+                  className="inline-flex items-center gap-2 px-5 py-3 rounded-lg bg-[#1B1E29] hover:bg-[#232735] text-white font-mono text-xs border border-[#2B3040] hover:border-neutral-400 transition-colors"
+                >
+                  <Download className="w-3.5 h-3.5 text-neutral-300" />
+                  <span>Download Thesis Summary (PDF)</span>
+                </a>
+              </div>
             </div>
 
-            <div className="lg:col-span-4 lg:text-right space-y-3">
-              <a
-                href={thesisData.downloadUrl}
-                download
-                className="inline-flex items-center gap-2 px-5 py-3 rounded-lg bg-[#1B1E29] hover:bg-[#232735] text-white font-mono text-xs border border-[#2B3040] hover:border-neutral-400 transition-colors"
-              >
-                <Download className="w-3.5 h-3.5 text-neutral-300" />
-                <span>Download Thesis Summary (PDF)</span>
-              </a>
-              <p className="text-[11px] font-mono text-neutral-500">
-                Verified doctoral dissertation dossier
-              </p>
+            {/* Right Column: Real Hardbound Thesis Book Mockup */}
+            <div className="lg:col-span-4 flex justify-center lg:justify-end">
+              <div className="relative w-full max-w-[200px] sm:max-w-[220px] aspect-[3/4] rounded-xl overflow-hidden shadow-2xl border border-[#20232E] group bg-[#0D0E12]">
+                <Image
+                  src="/images/phd-thesis-monograph.jpg"
+                  alt="Doctoral Dissertation Monograph - Babcock University"
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-105"
+                  sizes="(max-width: 768px) 200px, 220px"
+                />
+                <div className="absolute inset-0 ring-1 ring-inset ring-white/10 rounded-xl pointer-events-none" />
+              </div>
             </div>
 
           </div>

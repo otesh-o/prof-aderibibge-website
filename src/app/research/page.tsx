@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import Image from "next/image";
 import {
   BookOpen,
   Download,
@@ -107,23 +108,40 @@ export default function ResearchPage() {
           </div>
 
           <div className="p-6 sm:p-8 space-y-6">
-            <p className="text-sm text-[#9FA6B2] leading-relaxed">
-              {thesisData.summary}
-            </p>
+            <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+              <div className="lg:col-span-8 space-y-6">
+                <p className="text-sm text-[#9FA6B2] leading-relaxed">
+                  {thesisData.summary}
+                </p>
 
-            <div className="space-y-3 pt-2">
-              <span className="font-mono text-xs uppercase tracking-wider text-[#71788E] block">
-                Key Contributions & Policy Frameworks:
-              </span>
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                {thesisData.keyContributions.map((contrib, idx) => (
-                  <div
-                    key={idx}
-                    className="p-4 border border-[#20232E] bg-[#0D0E12] text-xs text-[#8A92A6] leading-relaxed"
-                  >
-                    {contrib}
+                <div className="space-y-3 pt-2">
+                  <span className="font-mono text-xs uppercase tracking-wider text-[#71788E] block">
+                    Key Contributions & Policy Frameworks:
+                  </span>
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    {thesisData.keyContributions.map((contrib, idx) => (
+                      <div
+                        key={idx}
+                        className="p-4 border border-[#20232E] bg-[#0D0E12] text-xs text-[#8A92A6] leading-relaxed"
+                      >
+                        {contrib}
+                      </div>
+                    ))}
                   </div>
-                ))}
+                </div>
+              </div>
+
+              <div className="lg:col-span-4 flex justify-center lg:justify-end">
+                <div className="relative w-44 sm:w-52 aspect-[3/4] rounded-lg overflow-hidden shadow-2xl border border-[#20232E] bg-[#0D0E12]">
+                  <Image
+                    src="/images/phd-thesis-monograph.jpg"
+                    alt="Doctoral Dissertation Monograph - Babcock University"
+                    fill
+                    className="object-cover"
+                    sizes="208px"
+                  />
+                  <div className="absolute inset-0 ring-1 ring-inset ring-white/10 rounded-lg pointer-events-none" />
+                </div>
               </div>
             </div>
           </div>

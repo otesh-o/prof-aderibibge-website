@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight, BookOpen, Download } from "lucide-react";
 import { publicationsData } from "@/data/research";
 
@@ -309,21 +310,41 @@ export default function CareerTimelineSection() {
                   </Link>
                 </div>
 
-                <div className="divide-y divide-[#1D202B]">
-                  {booksAndChapters.map((item, idx) => (
-                    <div key={idx} className={idx > 0 ? "pt-3 pb-1 space-y-1" : "pb-3 space-y-1"}>
-                      <div className="flex items-center justify-between text-[10px] font-mono text-neutral-400">
-                        <span className="text-neutral-300 font-medium">{item.journal}</span>
-                        <span>{item.year}</span>
+                <div className="space-y-3.5">
+                  {booksAndChapters.map((item, idx) => {
+                    const coverImg =
+                      item.id === "pub-7"
+                        ? "/images/book-routledge-ethics.jpg"
+                        : "/images/monograph-electoral-journalism.jpg";
+                    return (
+                      <div
+                        key={idx}
+                        className="flex gap-4 items-start p-3 rounded-lg bg-[#0D0E12] border border-[#20232E] hover:border-neutral-700 transition-colors group"
+                      >
+                        <div className="relative w-14 sm:w-16 aspect-[3/4] shrink-0 rounded overflow-hidden shadow-lg border border-[#20232E]/80">
+                          <Image
+                            src={coverImg}
+                            alt={item.title}
+                            fill
+                            className="object-cover transition-transform duration-500 group-hover:scale-105"
+                            sizes="70px"
+                          />
+                        </div>
+                        <div className="space-y-1 flex-1 min-w-0">
+                          <div className="flex items-center justify-between text-[10px] font-mono text-neutral-400">
+                            <span className="text-neutral-300 font-medium truncate">{item.journal}</span>
+                            <span className="shrink-0 ml-2">{item.year}</span>
+                          </div>
+                          <h4 className="text-xs font-serif font-medium text-white leading-snug line-clamp-2">
+                            {item.title}
+                          </h4>
+                          <p className="text-[11px] text-neutral-400 leading-relaxed line-clamp-2">
+                            {item.abstract}
+                          </p>
+                        </div>
                       </div>
-                      <h4 className="text-xs font-serif font-normal text-white leading-snug">
-                        {item.title}
-                      </h4>
-                      <p className="text-[11px] text-neutral-400 leading-relaxed line-clamp-3">
-                        {item.abstract}
-                      </p>
-                    </div>
-                  ))}
+                    );
+                  })}
                 </div>
               </div>
 
