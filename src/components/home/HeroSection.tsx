@@ -4,60 +4,8 @@ import { ArrowRight, ExternalLink } from "lucide-react";
 import { profileData } from "@/data/profile";
 
 export default function HeroSection() {
-  const organizations = [
-    {
-      name: "Federal University Oye-Ekiti",
-      role: "Faculty & CSC Directorate",
-      abbr: "FUOYE",
-      badgeClass: "bg-emerald-950/40 border-emerald-800/40 text-emerald-300",
-      dot: "bg-emerald-500",
-    },
-    {
-      name: "National Universities Commission",
-      role: "Accreditation Panel Chair",
-      abbr: "NUC",
-      badgeClass: "bg-amber-950/40 border-amber-800/40 text-amber-300",
-      dot: "bg-amber-500",
-    },
-    {
-      name: "European Union / IPC",
-      role: "Lead Consultant Facilitator",
-      abbr: "EU · IPC",
-      badgeClass: "bg-sky-950/40 border-sky-800/40 text-sky-300",
-      dot: "bg-sky-500",
-    },
-    {
-      name: "Ford Foundation",
-      role: "Research Grant Lead",
-      abbr: "FORD",
-      badgeClass: "bg-indigo-950/40 border-indigo-800/40 text-indigo-300",
-      dot: "bg-indigo-500",
-    },
-    {
-      name: "Babcock University",
-      role: "Doctor of Philosophy (PhD)",
-      abbr: "BABCOCK",
-      badgeClass: "bg-blue-950/40 border-blue-800/40 text-blue-300",
-      dot: "bg-blue-500",
-    },
-    {
-      name: "University of Lagos",
-      role: "Master of Science (MSc)",
-      abbr: "UNILAG",
-      badgeClass: "bg-red-950/40 border-red-800/40 text-red-300",
-      dot: "bg-red-500",
-    },
-    {
-      name: "Bowen University",
-      role: "BSc & Distinguished Alumni",
-      abbr: "BOWEN",
-      badgeClass: "bg-cyan-950/40 border-cyan-800/40 text-cyan-300",
-      dot: "bg-cyan-500",
-    },
-  ];
-
   return (
-    <section className="relative pt-12 pb-16 lg:pt-20 lg:pb-24 border-b border-[#1E212B] bg-[#0D0E12] overflow-hidden">
+    <section className="relative pt-12 pb-16 lg:py-24 border-b border-[#1E212B] bg-[#0D0E12] overflow-hidden">
       
       {/* Blurred Editorial Atmospheric Background Image */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
@@ -196,45 +144,6 @@ export default function HeroSection() {
                   <ExternalLink className="w-3 h-3" />
                 </a>
               </div>
-            </div>
-          </div>
-        </div>
-
-        {/* Prestigious Statutory Organizations & Institutional Trust Strip */}
-        <div className="pt-8 border-t border-[#1E212B]/80">
-          <div className="space-y-4">
-            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-              <span className="text-[11px] font-mono tracking-widest uppercase text-neutral-400">
-                Statutory Appointments · Academic Institutions & Grant Partners
-              </span>
-              <span className="text-[11px] font-mono text-neutral-500">
-                Federal · International · Academic Governance
-              </span>
-            </div>
-
-            {/* Responsive Institutional Logos Ledger */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 lg:grid-cols-7 gap-3">
-              {organizations.map((org, idx) => (
-                <div
-                  key={idx}
-                  className="rounded-xl border border-[#20232E] bg-[#14161E]/90 hover:bg-[#1A1D27] hover:border-neutral-700 transition-colors p-3.5 flex flex-col justify-between space-y-2 group"
-                >
-                  <div className="flex items-center justify-between">
-                    <span className={`px-2 py-0.5 rounded text-[10px] font-mono font-bold border ${org.badgeClass}`}>
-                      {org.abbr}
-                    </span>
-                    <span className={`w-1.5 h-1.5 rounded-full ${org.dot} opacity-70 group-hover:opacity-100 transition-opacity`} />
-                  </div>
-                  <div>
-                    <h4 className="text-xs font-medium text-white group-hover:text-neutral-100 line-clamp-1">
-                      {org.name}
-                    </h4>
-                    <p className="text-[10px] font-mono text-neutral-400 line-clamp-1">
-                      {org.role}
-                    </p>
-                  </div>
-                </div>
-              ))}
             </div>
           </div>
         </div>
