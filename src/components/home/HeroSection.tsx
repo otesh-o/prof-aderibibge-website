@@ -61,13 +61,6 @@ export default function HeroSection() {
               </p>
             </div>
 
-            {/* Positioning Statement */}
-            <div className="py-2">
-              <p className="font-serif italic text-2xl sm:text-3xl text-neutral-100 leading-snug">
-                “Building Nigeria's communicators, from Nigeria.”
-              </p>
-            </div>
-
             {/* Bio paragraph */}
             <p className="text-sm sm:text-base text-neutral-400 leading-relaxed max-w-2xl">
               Over eighteen years of academic leadership across mass communication, strategic policy, media literacy,
@@ -98,18 +91,19 @@ export default function HeroSection() {
             {/* Action Buttons */}
             <div className="flex flex-wrap items-center gap-4 pt-2">
               <Link
-                href="/about"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-neutral-100 text-neutral-900 font-medium text-xs hover:bg-white transition-colors"
+                href="/contact"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-sm bg-neutral-100 text-neutral-900 font-medium text-xs hover:bg-white transition-colors"
               >
-                <span>Read Biography</span>
+                <span>Contact Office</span>
                 <ArrowRight className="w-3.5 h-3.5" />
               </Link>
-              <Link
-                href="/contact?reason=speaking"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-[#14161E] text-neutral-200 font-medium text-xs border border-[#232733] hover:border-neutral-500 hover:text-white transition-colors"
+              <a
+                href="/documents/Prof_Adebola_Aderibigbe_CV.pdf"
+                download
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-sm bg-[#14161E] text-neutral-200 font-medium text-xs border border-[#232733] hover:border-neutral-500 hover:text-white transition-colors"
               >
-                <span>Speaking Inquiries</span>
-              </Link>
+                <span>Download Verified CV</span>
+              </a>
 
               {/* Scholar and LinkedIn */}
               <div className="flex items-center gap-3 sm:ml-auto text-xs font-mono text-neutral-400">

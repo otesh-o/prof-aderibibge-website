@@ -13,9 +13,14 @@ export default function Header() {
       <header className="sticky top-0 z-40 w-full bg-[#0D0E12]/95 border-b border-[#1E212B] transition-all">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
           <Link href="/" className="group flex flex-col justify-center">
-            <span className="text-base sm:text-lg font-bold tracking-tight text-white group-hover:text-neutral-300 transition-colors">
-              Adebola Aderibigbe
-            </span>
+            <div className="flex items-baseline gap-2">
+              <span className="text-base sm:text-lg font-bold tracking-tight text-white group-hover:text-neutral-300 transition-colors">
+                Adebola Aderibigbe
+              </span>
+              <span className="text-xs font-mono font-medium text-neutral-400">
+                BSc, MSc, PhD
+              </span>
+            </div>
             <span className="text-[11px] tracking-wider text-neutral-400 font-mono">
               FUOYE · Mass Communication
             </span>
