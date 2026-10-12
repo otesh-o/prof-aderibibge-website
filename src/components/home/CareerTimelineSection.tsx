@@ -1,14 +1,10 @@
 import Link from "next/link";
-import { ArrowRight, BookOpen, Award, FileText, ExternalLink, Download } from "lucide-react";
+import { ArrowRight, BookOpen, Download } from "lucide-react";
 import { publicationsData } from "@/data/research";
-import { featuredModulesData } from "@/data/teaching";
 
 export default function CareerTimelineSection() {
   const booksAndChapters = publicationsData.filter(
     (p) => p.type === "Book Chapter" || p.type === "Policy Report"
-  );
-  const featuredJournalArticles = publicationsData.filter(
-    (p) => p.type === "Journal Article"
   );
 
   return (
@@ -344,114 +340,6 @@ export default function CareerTimelineSection() {
 
           </div>
 
-        </div>
-
-        {/* BOTTOM SECTION: 2-Card Balanced Grid (Selected Journal Papers & Signature Curriculum) */}
-        <div className="pt-6 border-t border-[#20232E]">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-
-            {/* CARD 1: Selected Journal Papers */}
-            <div className="rounded-xl border border-[#20232E] bg-[#14161E] p-6 sm:p-7 flex flex-col justify-between space-y-5">
-              <div className="space-y-4">
-                <div className="pb-3 border-b border-[#20232E] flex items-baseline justify-between">
-                  <div className="flex items-center gap-2">
-                    <FileText className="w-4 h-4 text-neutral-400" />
-                    <h3 className="font-serif text-xl text-white">
-                      Selected Journal Papers
-                    </h3>
-                  </div>
-                  <a
-                    href="https://scholar.google.com"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="font-mono text-[11px] text-neutral-400 hover:text-white flex items-center gap-1"
-                  >
-                    <span>Scholar</span>
-                    <ExternalLink className="w-3 h-3" />
-                  </a>
-                </div>
-
-                <div className="divide-y divide-[#1D202B]">
-                  {featuredJournalArticles.slice(0, 3).map((pub, idx) => (
-                    <div key={idx} className={idx > 0 ? "pt-3 pb-1 space-y-1" : "pb-3 space-y-1"}>
-                      <div className="flex items-center justify-between text-[10px] font-mono text-neutral-400">
-                        <span className="text-neutral-300 font-medium">{pub.journal}</span>
-                        <span>{pub.year}</span>
-                      </div>
-                      <h4 className="text-xs font-serif font-normal text-white leading-snug">
-                        {pub.title}
-                      </h4>
-                      <p className="text-[11px] text-neutral-400 leading-relaxed line-clamp-2">
-                        {pub.abstract}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <div className="pt-3 border-t border-[#1D202B]">
-                <Link
-                  href="/research"
-                  className="inline-flex items-center gap-1.5 font-mono text-xs text-neutral-300 hover:text-white hover:underline"
-                >
-                  <span>Explore Publications Vault (15+ works)</span>
-                  <ArrowRight className="w-3.5 h-3.5 text-neutral-400" />
-                </Link>
-              </div>
-            </div>
-
-            {/* CARD 2: Signature Curriculum */}
-            <div className="rounded-xl border border-[#20232E] bg-[#14161E] p-6 sm:p-7 flex flex-col justify-between space-y-5">
-              <div className="space-y-4">
-                <div className="pb-3 border-b border-[#20232E] flex items-baseline justify-between">
-                  <div className="flex items-center gap-2">
-                    <Award className="w-4 h-4 text-neutral-400" />
-                    <h3 className="font-serif text-xl text-white">
-                      Signature Curriculum
-                    </h3>
-                  </div>
-                  <Link href="/teaching" className="font-mono text-[11px] text-neutral-400 hover:text-white">
-                    Syllabi
-                  </Link>
-                </div>
-
-                <div className="space-y-3">
-                  {featuredModulesData.map((m, idx) => (
-                    <div key={idx} className="rounded-lg p-3 bg-[#0D0E12] border border-[#20232E] space-y-1.5">
-                      <div className="flex items-center justify-between text-[10px] font-mono text-neutral-400">
-                        <span className="font-semibold text-neutral-200">{m.code}</span>
-                        <span>{m.duration}</span>
-                      </div>
-                      <h4 className="text-xs font-serif font-normal text-white">
-                        {m.title}
-                      </h4>
-                      <p className="text-[11px] text-neutral-400 leading-relaxed line-clamp-2">
-                        {m.subtitle}
-                      </p>
-                      <div className="pt-1 flex flex-wrap gap-1 text-[9px] font-mono text-neutral-500">
-                        {m.corePillars.slice(0, 2).map((p, pIdx) => (
-                          <span key={pIdx} className="rounded px-1.5 py-0.5 bg-[#14161E] border border-[#20232E]">
-                            {p}
-                          </span>
-                        ))}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              <div className="pt-3 border-t border-[#1D202B]">
-                <Link
-                  href="/teaching"
-                  className="inline-flex items-center gap-1.5 font-mono text-xs text-neutral-300 hover:text-white hover:underline"
-                >
-                  <span>Explore 30+ University Syllabi</span>
-                  <ArrowRight className="w-3.5 h-3.5 text-neutral-400" />
-                </Link>
-              </div>
-            </div>
-
-          </div>
         </div>
 
       </div>

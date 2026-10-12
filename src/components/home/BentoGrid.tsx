@@ -123,52 +123,15 @@ export default function BentoGrid() {
             </div>
           </div>
 
-          {/* CELL 3: Research Agenda (Spans 4 columns on lg) */}
-          <div className="lg:col-span-4 bg-[#14161E] border border-[#20232E] rounded-xl p-6 sm:p-8 flex flex-col justify-between">
-            <div>
-              <div className="pb-4 mb-4 border-b border-[#20232E]">
-                <h3 className="font-serif text-xl text-white">
-                  Research Pillars
-                </h3>
-                <span className="text-[11px] font-mono text-neutral-400">
-                  Primary Scholarly Inquiries
-                </span>
-              </div>
-
-              <ul className="divide-y divide-[#20232E]">
-                {profileData.researchInterests.map((interest, idx) => (
-                  <li key={idx} className="py-3 space-y-1">
-                    <span className="text-xs font-semibold text-neutral-200 block">
-                      {interest.title}
-                    </span>
-                    <p className="text-[11px] text-neutral-400 leading-relaxed line-clamp-2">
-                      {interest.description}
-                    </p>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            <div className="pt-4 mt-4 border-t border-[#20232E]">
-              <Link
-                href="/research"
-                className="text-xs font-mono text-neutral-400 hover:text-white flex items-center gap-1"
-              >
-                <span>Publications & PhD Thesis</span>
-                <ArrowRight className="w-3 h-3" />
-              </Link>
-            </div>
-          </div>
-
-          {/* CELL 4: Signature Modules Created (Spans 4 columns on lg) */}
-          <div className="lg:col-span-4 bg-[#14161E] border border-[#20232E] rounded-xl p-6 sm:p-8 flex flex-col justify-between">
+          {/* CELL 3: Signature Modules Created (Spans 6 columns on lg) */}
+          <div className="lg:col-span-6 bg-[#14161E] border border-[#20232E] rounded-xl p-6 sm:p-8 flex flex-col justify-between">
             <div>
               <div className="pb-4 mb-4 border-b border-[#20232E]">
                 <h3 className="font-serif text-xl text-white">
                   Curriculum Innovations
                 </h3>
                 <span className="text-[11px] font-mono text-neutral-400">
-                  Signature Modules
+                  Signature Pedagogy & Modules
                 </span>
               </div>
 
@@ -180,8 +143,8 @@ export default function BentoGrid() {
                     </span>
                     <span className="text-[10px] font-mono text-neutral-400">PSE 101</span>
                   </div>
-                  <p className="text-[11px] text-neutral-400 leading-relaxed">
-                    Rhetorical structure, vocal stamina, and executive delivery for rising scholars and professionals.
+                  <p className="text-xs text-neutral-400 leading-relaxed">
+                    Rhetorical structure, vocal stamina, and executive delivery for rising scholars, media practitioners, and professionals.
                   </p>
                 </div>
 
@@ -192,8 +155,8 @@ export default function BentoGrid() {
                     </span>
                     <span className="text-[10px] font-mono text-neutral-400">PEL 201</span>
                   </div>
-                  <p className="text-[11px] text-neutral-400 leading-relaxed">
-                    Character architecture, ethical decision-making, and life mastery in higher education.
+                  <p className="text-xs text-neutral-400 leading-relaxed">
+                    Character architecture, ethical decision-making, and life mastery in African higher education.
                   </p>
                 </div>
               </div>
@@ -210,15 +173,15 @@ export default function BentoGrid() {
             </div>
           </div>
 
-          {/* CELL 5: Honours & Distinctions (Spans 4 columns on lg) */}
-          <div className="lg:col-span-4 bg-[#14161E] border border-[#20232E] rounded-xl p-6 sm:p-8 flex flex-col justify-between">
+          {/* CELL 4: Honours & Distinctions (Spans 6 columns on lg) */}
+          <div className="lg:col-span-6 bg-[#14161E] border border-[#20232E] rounded-xl p-6 sm:p-8 flex flex-col justify-between">
             <div>
               <div className="pb-4 mb-4 border-b border-[#20232E]">
                 <h3 className="font-serif text-xl text-white">
                   Honours & Leadership
                 </h3>
                 <span className="text-[11px] font-mono text-neutral-400">
-                  Recognitions
+                  National & Continental Distinctions
                 </span>
               </div>
 
