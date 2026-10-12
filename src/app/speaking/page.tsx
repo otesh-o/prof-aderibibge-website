@@ -6,10 +6,7 @@ import {
   MapPin,
   Building,
   ArrowRight,
-  ExternalLink,
-  Award,
   Video,
-  CheckCircle,
 } from "lucide-react";
 import { allSpeakingEvents, speakingTopics } from "@/data/speaking";
 
@@ -21,14 +18,14 @@ export const metadata: Metadata = {
 
 export default function SpeakingPage() {
   return (
-    <div className="py-12 sm:py-20">
+    <div className="py-12 sm:py-20 bg-[#0F1117]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-20">
 
         {/* 1. Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-8 border-b border-white/[0.08]">
           <div className="max-w-3xl space-y-4">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-blue-500/15 text-blue-400 border border-blue-500/20">
-              <Mic className="w-3.5 h-3.5" />
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-white/5 text-gray-300 border border-white/10">
+              <Mic className="w-3.5 h-3.5 text-gray-400" />
               <span>Public Discourse & Keynotes</span>
             </div>
 
@@ -45,7 +42,7 @@ export default function SpeakingPage() {
           <div className="shrink-0">
             <Link
               href="/contact?reason=speaking"
-              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-blue-600 text-white font-medium text-xs hover:bg-blue-500 transition-colors shadow-lg shadow-blue-500/25"
+              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-blue-600 text-white font-medium text-xs hover:bg-blue-500 transition-colors shadow-lg shadow-blue-500/20"
             >
               <span>Invite Prof. Aderibigbe to Speak</span>
               <ArrowRight className="w-4 h-4" />
@@ -56,7 +53,7 @@ export default function SpeakingPage() {
         {/* 2. Topics I Speak On */}
         <div className="space-y-6">
           <div>
-            <span className="text-xs font-semibold tracking-wider uppercase text-blue-400">
+            <span className="text-xs font-semibold tracking-wider uppercase text-gray-400">
               Keynote Focus Areas
             </span>
             <h2 className="text-2xl sm:text-3xl font-extrabold text-white mt-1">
@@ -68,9 +65,9 @@ export default function SpeakingPage() {
             {speakingTopics.map((topic, idx) => (
               <div
                 key={idx}
-                className="p-6 rounded-2xl bg-[#111827] border border-white/10 space-y-2 hover:border-blue-500/40 transition-colors"
+                className="p-6 rounded-2xl bg-[#161822] border border-white/10 space-y-2 hover:border-white/20 transition-colors"
               >
-                <div className="w-8 h-8 rounded-lg bg-blue-500/10 text-blue-400 flex items-center justify-center font-bold text-xs mb-3">
+                <div className="w-8 h-8 rounded-lg bg-white/5 text-gray-300 flex items-center justify-center font-bold text-xs mb-3 border border-white/10">
                   0{idx + 1}
                 </div>
                 <h3 className="text-base font-bold text-white">
@@ -87,7 +84,7 @@ export default function SpeakingPage() {
         {/* 3. Engagements Bento & Tiles (Newest First) */}
         <div className="space-y-6">
           <div>
-            <span className="text-xs font-semibold tracking-wider uppercase text-blue-400">
+            <span className="text-xs font-semibold tracking-wider uppercase text-gray-400">
               Record of Engagements
             </span>
             <h2 className="text-2xl sm:text-3xl font-extrabold text-white mt-1">
@@ -102,15 +99,13 @@ export default function SpeakingPage() {
             {allSpeakingEvents.map((event) => (
               <div
                 key={event.id}
-                className={`rounded-3xl p-6 sm:p-8 flex flex-col justify-between transition-all group ${
-                  event.isFeatured
-                    ? "bg-[#111827] border-2 border-blue-500/40 shadow-xl shadow-blue-500/5 md:col-span-2 lg:col-span-2"
-                    : "bg-[#111827] border border-white/10 hover:border-white/20"
+                className={`rounded-3xl p-6 sm:p-8 flex flex-col justify-between transition-all group bg-[#161822] border border-white/10 hover:border-white/20 ${
+                  event.isFeatured ? "md:col-span-2 lg:col-span-2 border-white/15" : ""
                 }`}
               >
                 <div className="space-y-4">
                   <div className="flex flex-wrap items-center justify-between gap-2">
-                    <span className="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-blue-500/15 text-blue-400 border border-blue-500/20">
+                    <span className="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-white/5 text-gray-300 border border-white/10">
                       {event.role}
                     </span>
                     <span className="text-xs font-medium text-gray-400 flex items-center gap-1.5">
@@ -120,29 +115,29 @@ export default function SpeakingPage() {
                   </div>
 
                   <h3
-                    className={`font-bold text-white group-hover:text-blue-400 transition-colors leading-snug ${
+                    className={`font-bold text-white group-hover:text-white transition-colors leading-snug ${
                       event.isFeatured ? "text-xl sm:text-2xl" : "text-base sm:text-lg"
                     }`}
                   >
                     {event.event}
                   </h3>
 
-                  <div className="p-4 rounded-2xl bg-[#0B0F17]/80 border border-white/5 space-y-1">
+                  <div className="p-4 rounded-2xl bg-[#0F1117] border border-white/5 space-y-1">
                     <span className="text-[10px] uppercase font-semibold text-gray-400 block">
                       Topic / Focus:
                     </span>
-                    <p className="text-xs sm:text-sm font-medium text-blue-300">
+                    <p className="text-xs sm:text-sm font-medium text-gray-200">
                       “{event.topic}”
                     </p>
                   </div>
 
                   <div className="flex flex-wrap items-center gap-4 text-xs text-gray-400 pt-1">
                     <span className="flex items-center gap-1.5">
-                      <Building className="w-3.5 h-3.5 text-blue-400" />
+                      <Building className="w-3.5 h-3.5 text-gray-400" />
                       <span>{event.host}</span>
                     </span>
                     <span className="flex items-center gap-1.5">
-                      <MapPin className="w-3.5 h-3.5 text-blue-400" />
+                      <MapPin className="w-3.5 h-3.5 text-gray-400" />
                       <span>{event.location}</span>
                     </span>
                   </div>
@@ -168,8 +163,8 @@ export default function SpeakingPage() {
         </div>
 
         {/* 4. Speaking Invitation Card */}
-        <div className="rounded-3xl bg-gradient-to-br from-[#1E293B]/70 via-[#111827] to-[#0B0F17] border border-blue-500/30 p-8 sm:p-12 text-center max-w-3xl mx-auto space-y-6">
-          <div className="w-12 h-12 rounded-2xl bg-blue-600/20 border border-blue-500/30 text-blue-400 flex items-center justify-center mx-auto">
+        <div className="rounded-3xl bg-[#161822] border border-white/10 p-8 sm:p-12 text-center max-w-3xl mx-auto space-y-6">
+          <div className="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 text-gray-300 flex items-center justify-center mx-auto">
             <Mic className="w-6 h-6" />
           </div>
 
@@ -185,7 +180,7 @@ export default function SpeakingPage() {
           <div>
             <Link
               href="/contact?reason=speaking"
-              className="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl bg-blue-600 text-white font-medium text-sm hover:bg-blue-500 transition-colors shadow-lg shadow-blue-500/25"
+              className="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl bg-blue-600 text-white font-medium text-sm hover:bg-blue-500 transition-colors shadow-lg shadow-blue-500/20"
             >
               <span>Submit Speaking Invitation</span>
               <ArrowRight className="w-4 h-4" />

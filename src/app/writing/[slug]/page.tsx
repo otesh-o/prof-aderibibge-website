@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, Calendar, Clock, Tag, Share2 } from "lucide-react";
+import { ArrowLeft, Calendar, Clock } from "lucide-react";
 import { articlesData } from "@/data/writing";
 
 interface Props {
@@ -39,13 +39,13 @@ export default async function ArticleDetailPage({ params }: Props) {
   }
 
   return (
-    <article className="py-12 sm:py-20">
+    <article className="py-12 sm:py-20 bg-[#0F1117]">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
 
         {/* Back Link */}
         <Link
           href="/writing"
-          className="inline-flex items-center gap-2 text-xs font-semibold text-gray-400 hover:text-blue-400 transition-colors"
+          className="inline-flex items-center gap-2 text-xs font-semibold text-gray-400 hover:text-white transition-colors"
         >
           <ArrowLeft className="w-4 h-4" />
           <span>Back to All Writing</span>
@@ -54,7 +54,7 @@ export default async function ArticleDetailPage({ params }: Props) {
         {/* Header */}
         <div className="space-y-4 pb-8 border-b border-white/[0.08]">
           <div className="flex flex-wrap items-center gap-3">
-            <span className="px-3 py-1 rounded-full text-xs font-semibold bg-blue-500/15 text-blue-400 border border-blue-500/20">
+            <span className="px-3 py-1 rounded-full text-xs font-semibold bg-white/5 text-gray-300 border border-white/10">
               {article.topic}
             </span>
             <span className="text-xs text-gray-400 flex items-center gap-1.5">
@@ -71,7 +71,7 @@ export default async function ArticleDetailPage({ params }: Props) {
             {article.title}
           </h1>
 
-          <p className="text-lg sm:text-xl text-blue-300/90 font-medium leading-relaxed">
+          <p className="text-lg sm:text-xl text-gray-300 font-medium leading-relaxed">
             {article.subtitle}
           </p>
 
@@ -83,15 +83,15 @@ export default async function ArticleDetailPage({ params }: Props) {
         </div>
 
         {/* Article Body */}
-        <div className="space-y-6 text-gray-200 text-base sm:text-lg leading-relaxed font-normal">
+        <div className="space-y-6 text-gray-300 text-base sm:text-lg leading-relaxed font-normal">
           {article.content.map((paragraph, idx) => (
             <p key={idx}>{paragraph}</p>
           ))}
         </div>
 
         {/* Author Bio Footer in Article */}
-        <div className="p-8 rounded-3xl bg-[#111827] border border-white/10 space-y-4 mt-16">
-          <span className="text-xs font-bold uppercase tracking-wider text-blue-400">
+        <div className="p-8 rounded-3xl bg-[#161822] border border-white/10 space-y-4 mt-16">
+          <span className="text-xs font-bold uppercase tracking-wider text-gray-400">
             About the Author
           </span>
           <h3 className="text-lg font-bold text-white">

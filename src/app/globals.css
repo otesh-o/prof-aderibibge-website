@@ -1,10 +1,10 @@
 @import "tailwindcss";
 
 :root {
-  --background: #0B0F17;
+  --background: #0F1117;
   --foreground: #E5E7EB;
-  --card: #111827;
-  --card-hover: #162032;
+  --card: #161822;
+  --card-hover: #1C1F2B;
   --accent: #3B82F6;
   --accent-hover: #2563EB;
   --muted: #9CA3AF;
@@ -30,42 +30,42 @@ html {
 }
 
 body {
-  background-color: #0B0F17;
+  background-color: #0F1117;
   color: #E5E7EB;
   font-family: var(--font-geist-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   overflow-x: hidden;
 }
 
-/* Custom scrollbar for modern dark theme */
+/* Custom scrollbar for charcoal dark theme */
 ::-webkit-scrollbar {
   width: 8px;
   height: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #0B0F17;
+  background: #0F1117;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #1F2937;
+  background: #252836;
   border-radius: 9999px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #374151;
+  background: #363A4D;
 }
 
-/* Glassmorphic utility */
+/* Glassmorphic utility with neutral charcoal */
 .glass-panel {
-  background: rgba(17, 24, 39, 0.85);
+  background: rgba(22, 24, 34, 0.85);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border: 1px solid rgba(255, 255, 255, 0.08);
 }
 
 .glass-dock {
-  background: rgba(15, 23, 42, 0.88);
+  background: rgba(18, 20, 28, 0.92);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.10);
 }

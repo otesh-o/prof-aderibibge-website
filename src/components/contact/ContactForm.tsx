@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { useSearchParams } from "next/navigation";
-import { Send, CheckCircle2, AlertCircle, Sparkles } from "lucide-react";
+import { Send, CheckCircle2 } from "lucide-react";
 
 export default function ContactForm() {
   const searchParams = useSearchParams();
@@ -41,17 +41,16 @@ export default function ContactForm() {
     e.preventDefault();
     setStatus("submitting");
 
-    // Simulate reliable dispatch (can easily connect to Formspree / Resend / custom API)
     setTimeout(() => {
       setStatus("success");
     }, 800);
   };
 
   return (
-    <div className="rounded-3xl bg-[#111827] border border-white/10 p-6 sm:p-10">
+    <div className="rounded-3xl bg-[#161822] border border-white/10 p-6 sm:p-10">
       {status === "success" ? (
         <div className="py-12 text-center space-y-4">
-          <div className="w-16 h-16 rounded-full bg-blue-500/20 text-blue-400 flex items-center justify-center mx-auto">
+          <div className="w-16 h-16 rounded-full bg-white/10 text-white flex items-center justify-center mx-auto border border-white/10">
             <CheckCircle2 className="w-8 h-8" />
           </div>
           <h3 className="text-xl sm:text-2xl font-bold text-white">
@@ -71,7 +70,7 @@ export default function ContactForm() {
                 message: "",
               });
             }}
-            className="mt-4 px-5 py-2.5 rounded-xl bg-white/10 hover:bg-white/15 text-xs font-semibold text-white transition-colors"
+            className="mt-4 px-5 py-2.5 rounded-xl bg-white/10 hover:bg-white/15 text-xs font-semibold text-white transition-colors border border-white/10"
           >
             Send Another Message
           </button>
@@ -89,7 +88,7 @@ export default function ContactForm() {
                 placeholder="e.g. Dr. Jane Okonkwo"
                 value={formData.name}
                 onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                className="w-full px-4 py-3 rounded-xl bg-[#0B0F17] border border-white/10 text-xs sm:text-sm text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 transition-colors"
+                className="w-full px-4 py-3 rounded-xl bg-[#0F1117] border border-white/10 text-xs sm:text-sm text-white placeholder-gray-500 focus:outline-none focus:border-white/20 transition-colors"
               />
             </div>
 
@@ -103,7 +102,7 @@ export default function ContactForm() {
                 placeholder="e.g. jane@institution.edu.ng"
                 value={formData.email}
                 onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                className="w-full px-4 py-3 rounded-xl bg-[#0B0F17] border border-white/10 text-xs sm:text-sm text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 transition-colors"
+                className="w-full px-4 py-3 rounded-xl bg-[#0F1117] border border-white/10 text-xs sm:text-sm text-white placeholder-gray-500 focus:outline-none focus:border-white/20 transition-colors"
               />
             </div>
           </div>
@@ -118,7 +117,7 @@ export default function ContactForm() {
                 placeholder="e.g. University / Media House / Foundation"
                 value={formData.organisation}
                 onChange={(e) => setFormData({ ...formData, organisation: e.target.value })}
-                className="w-full px-4 py-3 rounded-xl bg-[#0B0F17] border border-white/10 text-xs sm:text-sm text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 transition-colors"
+                className="w-full px-4 py-3 rounded-xl bg-[#0F1117] border border-white/10 text-xs sm:text-sm text-white placeholder-gray-500 focus:outline-none focus:border-white/20 transition-colors"
               />
             </div>
 
@@ -129,7 +128,7 @@ export default function ContactForm() {
               <select
                 value={formData.reason}
                 onChange={(e) => setFormData({ ...formData, reason: e.target.value })}
-                className="w-full px-4 py-3 rounded-xl bg-[#0B0F17] border border-white/10 text-xs sm:text-sm text-white focus:outline-none focus:border-blue-500 transition-colors"
+                className="w-full px-4 py-3 rounded-xl bg-[#0F1117] border border-white/10 text-xs sm:text-sm text-white focus:outline-none focus:border-white/20 transition-colors"
               >
                 <option value="Speaking invitation">Speaking Invitation / Keynote</option>
                 <option value="Academic Collaboration">Academic Research Collaboration</option>
@@ -151,14 +150,14 @@ export default function ContactForm() {
               placeholder="Please describe the theme, event date, objectives, or nature of your request..."
               value={formData.message}
               onChange={(e) => setFormData({ ...formData, message: e.target.value })}
-              className="w-full px-4 py-3 rounded-xl bg-[#0B0F17] border border-white/10 text-xs sm:text-sm text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 transition-colors resize-y"
+              className="w-full px-4 py-3 rounded-xl bg-[#0F1117] border border-white/10 text-xs sm:text-sm text-white placeholder-gray-500 focus:outline-none focus:border-white/20 transition-colors resize-y"
             />
           </div>
 
           <button
             type="submit"
             disabled={status === "submitting"}
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-xl bg-blue-600 text-white font-medium text-sm hover:bg-blue-500 transition-colors disabled:opacity-50 shadow-lg shadow-blue-500/25"
+            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-8 py-3.5 rounded-xl bg-blue-600 text-white font-medium text-sm hover:bg-blue-500 transition-colors disabled:opacity-50 shadow-lg shadow-blue-500/20"
           >
             {status === "submitting" ? (
               <span>Sending Inquiry...</span>

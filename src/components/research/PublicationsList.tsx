@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Search, ExternalLink, BookOpen, FileText, Filter } from "lucide-react";
+import { Search, ExternalLink } from "lucide-react";
 import { publicationsData, Publication } from "@/data/research";
 
 const categories = [
@@ -29,7 +29,7 @@ export default function PublicationsList() {
   return (
     <div className="space-y-6">
       {/* Filters and Search Bar */}
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 p-4 rounded-2xl bg-[#111827] border border-white/10">
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 p-4 rounded-2xl bg-[#161822] border border-white/10">
         {/* Category Pills */}
         <div className="flex flex-wrap items-center gap-1.5">
           {categories.map((cat) => (
@@ -55,7 +55,7 @@ export default function PublicationsList() {
             placeholder="Search publications..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full pl-9 pr-4 py-1.5 rounded-xl bg-[#0B0F17] border border-white/10 text-xs text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 transition-colors"
+            className="w-full pl-9 pr-4 py-1.5 rounded-xl bg-[#0F1117] border border-white/10 text-xs text-white placeholder-gray-500 focus:outline-none focus:border-white/20 transition-colors"
           />
         </div>
       </div>
@@ -63,17 +63,17 @@ export default function PublicationsList() {
       {/* Publications List */}
       <div className="space-y-4">
         {filteredPublications.length === 0 ? (
-          <div className="p-8 text-center rounded-2xl bg-[#111827] border border-white/10 text-sm text-gray-400">
+          <div className="p-8 text-center rounded-2xl bg-[#161822] border border-white/10 text-sm text-gray-400">
             No publications found matching your search criteria.
           </div>
         ) : (
           filteredPublications.map((pub) => (
             <div
               key={pub.id}
-              className="p-6 rounded-2xl bg-[#111827] border border-white/10 hover:border-blue-500/30 transition-all space-y-3 group"
+              className="p-6 rounded-2xl bg-[#161822] border border-white/10 hover:border-white/20 transition-all space-y-3 group"
             >
               <div className="flex flex-wrap items-center justify-between gap-2">
-                <span className="text-[10px] font-semibold px-2.5 py-0.5 rounded-full bg-blue-500/15 text-blue-400 border border-blue-500/20">
+                <span className="text-[10px] font-semibold px-2.5 py-0.5 rounded-full bg-white/5 text-gray-300 border border-white/10">
                   {pub.type} • {pub.year}
                 </span>
                 <span className="text-xs font-semibold text-gray-400">
@@ -81,7 +81,7 @@ export default function PublicationsList() {
                 </span>
               </div>
 
-              <h3 className="text-base sm:text-lg font-bold text-white group-hover:text-blue-400 transition-colors leading-snug">
+              <h3 className="text-base sm:text-lg font-bold text-white group-hover:text-white transition-colors leading-snug">
                 {pub.title}
               </h3>
 
@@ -100,7 +100,7 @@ export default function PublicationsList() {
                   href={pub.scholarUrl || "https://scholar.google.com"}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-xs text-blue-400 hover:text-blue-300 font-medium transition-colors"
+                  className="inline-flex items-center gap-1.5 text-xs text-blue-400 hover:underline font-medium transition-colors"
                 >
                   <ExternalLink className="w-3.5 h-3.5" />
                   <span>View on Google Scholar</span>

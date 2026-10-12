@@ -29,9 +29,6 @@ export default function SearchModal({
       if ((e.metaKey || e.ctrlKey) && e.key === "k") {
         e.preventDefault();
         if (isOpen) onClose();
-        else {
-          // Can be toggled externally
-        }
       }
       if (e.key === "Escape" && isOpen) {
         onClose();
@@ -103,25 +100,25 @@ export default function SearchModal({
   const getCategoryIcon = (category: SearchResult["category"]) => {
     switch (category) {
       case "Publication":
-        return <BookOpen className="w-4 h-4 text-blue-400" />;
+        return <BookOpen className="w-4 h-4 text-gray-400" />;
       case "Course":
-        return <GraduationCap className="w-4 h-4 text-blue-400" />;
+        return <GraduationCap className="w-4 h-4 text-gray-400" />;
       case "Speaking":
-        return <Mic className="w-4 h-4 text-blue-400" />;
+        return <Mic className="w-4 h-4 text-gray-400" />;
       case "Article":
-        return <FileText className="w-4 h-4 text-blue-400" />;
+        return <FileText className="w-4 h-4 text-gray-400" />;
       default:
-        return <User className="w-4 h-4 text-blue-400" />;
+        return <User className="w-4 h-4 text-gray-400" />;
     }
   };
 
   return (
     <div
-      className="fixed inset-0 z-50 bg-black/70 backdrop-blur-md flex items-start justify-center p-4 sm:p-6 pt-20"
+      className="fixed inset-0 z-50 bg-black/75 backdrop-blur-md flex items-start justify-center p-4 sm:p-6 pt-20"
       onClick={onClose}
     >
       <div
-        className="w-full max-w-2xl rounded-3xl bg-[#111827] border border-white/15 shadow-2xl overflow-hidden animate-in fade-in zoom-in-95 duration-150"
+        className="w-full max-w-2xl rounded-3xl bg-[#161822] border border-white/15 shadow-2xl overflow-hidden animate-in fade-in zoom-in-95 duration-150"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Input Bar */}
@@ -159,11 +156,11 @@ export default function SearchModal({
                 className="flex items-center justify-between p-3 rounded-2xl hover:bg-white/5 transition-colors group"
               >
                 <div className="flex items-center gap-3 min-w-0 pr-4">
-                  <div className="p-2 rounded-xl bg-white/5 shrink-0">
+                  <div className="p-2 rounded-xl bg-white/5 shrink-0 border border-white/5">
                     {getCategoryIcon(item.category)}
                   </div>
                   <div className="min-w-0">
-                    <h4 className="text-xs sm:text-sm font-semibold text-white group-hover:text-blue-400 transition-colors truncate">
+                    <h4 className="text-xs sm:text-sm font-semibold text-white group-hover:text-white transition-colors truncate">
                       {item.title}
                     </h4>
                     {item.subtitle && (
@@ -175,10 +172,10 @@ export default function SearchModal({
                 </div>
 
                 <div className="shrink-0 flex items-center gap-2">
-                  <span className="text-[10px] font-medium px-2 py-0.5 rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/20">
+                  <span className="text-[10px] font-medium px-2 py-0.5 rounded-full bg-white/5 text-gray-300 border border-white/10">
                     {item.category}
                   </span>
-                  <ArrowRight className="w-3.5 h-3.5 text-gray-600 group-hover:text-blue-400 transition-colors" />
+                  <ArrowRight className="w-3.5 h-3.5 text-gray-500 group-hover:text-white transition-colors" />
                 </div>
               </Link>
             ))
@@ -186,7 +183,7 @@ export default function SearchModal({
         </div>
 
         {/* Footer info */}
-        <div className="px-6 py-3 border-t border-white/5 bg-[#0B0F17]/60 flex items-center justify-between text-[11px] text-gray-500">
+        <div className="px-6 py-3 border-t border-white/5 bg-[#0F1117] flex items-center justify-between text-[11px] text-gray-500">
           <span>Tip: Press ESC to close</span>
           <span>adebolaaderibigbe.com</span>
         </div>

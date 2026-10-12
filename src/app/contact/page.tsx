@@ -6,9 +6,6 @@ import {
   MapPin,
   ExternalLink,
   Download,
-  Users,
-  Award,
-  BookOpen,
 } from "lucide-react";
 import ContactForm from "@/components/contact/ContactForm";
 import { profileData } from "@/data/profile";
@@ -21,13 +18,13 @@ export const metadata: Metadata = {
 
 export default function ContactPage() {
   return (
-    <div className="py-12 sm:py-20">
+    <div className="py-12 sm:py-20 bg-[#0F1117]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
 
         {/* Header */}
         <div className="max-w-3xl space-y-4 pb-8 border-b border-white/[0.08]">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-blue-500/15 text-blue-400 border border-blue-500/20">
-            <Mail className="w-3.5 h-3.5" />
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-white/5 text-gray-300 border border-white/10">
+            <Mail className="w-3.5 h-3.5 text-gray-400" />
             <span>Official Inquiries</span>
           </div>
 
@@ -55,14 +52,14 @@ export default function ContactPage() {
           <div className="lg:col-span-5 space-y-6">
             
             {/* Primary Details Card */}
-            <div className="rounded-3xl bg-[#111827] border border-white/10 p-6 sm:p-8 space-y-6">
+            <div className="rounded-3xl bg-[#161822] border border-white/10 p-6 sm:p-8 space-y-6">
               <h3 className="text-base font-bold text-white pb-3 border-b border-white/5">
                 Official Department & Affiliation
               </h3>
 
               <div className="space-y-4 text-xs sm:text-sm">
                 <div className="flex items-start gap-3">
-                  <Building className="w-5 h-5 text-blue-400 shrink-0 mt-0.5" />
+                  <Building className="w-5 h-5 text-gray-400 shrink-0 mt-0.5" />
                   <div>
                     <span className="text-white font-semibold block">Department of Mass Communication</span>
                     <span className="text-gray-400">Faculty of Communication and Media Studies</span>
@@ -70,7 +67,7 @@ export default function ContactPage() {
                 </div>
 
                 <div className="flex items-start gap-3">
-                  <MapPin className="w-5 h-5 text-blue-400 shrink-0 mt-0.5" />
+                  <MapPin className="w-5 h-5 text-gray-400 shrink-0 mt-0.5" />
                   <div>
                     <span className="text-white font-semibold block">Federal University Oye-Ekiti (FUOYE)</span>
                     <span className="text-gray-400">Ekiti State, Nigeria</span>
@@ -78,7 +75,7 @@ export default function ContactPage() {
                 </div>
 
                 <div className="flex items-start gap-3">
-                  <Mail className="w-5 h-5 text-blue-400 shrink-0 mt-0.5" />
+                  <Mail className="w-5 h-5 text-gray-400 shrink-0 mt-0.5" />
                   <div>
                     <span className="text-white font-semibold block">Institutional Email</span>
                     <a
@@ -100,37 +97,37 @@ export default function ContactPage() {
                     href={profileData.socialLinks.googleScholar}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-3 rounded-xl bg-[#0B0F17] border border-white/10 hover:border-blue-500/40 text-xs text-white flex items-center justify-between transition-colors"
+                    className="p-3 rounded-xl bg-[#0F1117] border border-white/10 hover:border-white/20 text-xs text-white flex items-center justify-between transition-colors"
                   >
                     <span>Google Scholar Profile</span>
-                    <ExternalLink className="w-3.5 h-3.5 text-blue-400" />
+                    <ExternalLink className="w-3.5 h-3.5 text-gray-400" />
                   </a>
 
                   <a
                     href={profileData.socialLinks.linkedIn}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="p-3 rounded-xl bg-[#0B0F17] border border-white/10 hover:border-blue-500/40 text-xs text-white flex items-center justify-between transition-colors"
+                    className="p-3 rounded-xl bg-[#0F1117] border border-white/10 hover:border-white/20 text-xs text-white flex items-center justify-between transition-colors"
                   >
                     <span>LinkedIn Profile</span>
-                    <ExternalLink className="w-3.5 h-3.5 text-blue-400" />
+                    <ExternalLink className="w-3.5 h-3.5 text-gray-400" />
                   </a>
 
                   <a
                     href="/documents/Prof_Adebola_Aderibigbe_CV.pdf"
                     download
-                    className="p-3 rounded-xl bg-blue-600/10 border border-blue-500/30 hover:bg-blue-600/20 text-xs text-blue-400 flex items-center justify-between transition-colors font-medium"
+                    className="p-3 rounded-xl bg-white/5 border border-white/10 hover:bg-white/10 text-xs text-white flex items-center justify-between transition-colors font-medium"
                   >
                     <span>Download Complete CV (PDF)</span>
-                    <Download className="w-3.5 h-3.5" />
+                    <Download className="w-3.5 h-3.5 text-gray-400" />
                   </a>
                 </div>
               </div>
             </div>
 
             {/* Response Time Guidance */}
-            <div className="p-5 rounded-2xl bg-[#0E1524] border border-blue-500/20 text-xs text-gray-400 leading-relaxed space-y-1">
-              <span className="font-bold text-blue-400 block">Official Communication Policy:</span>
+            <div className="p-5 rounded-2xl bg-[#161822] border border-white/10 text-xs text-gray-400 leading-relaxed space-y-1">
+              <span className="font-bold text-gray-200 block">Official Communication Policy:</span>
               <p>
                 Inquiries for accreditation panel chairmanships and keynote lectures are typically reviewed and acknowledged within 48 to 72 business hours.
               </p>

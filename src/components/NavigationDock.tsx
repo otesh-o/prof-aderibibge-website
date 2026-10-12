@@ -55,7 +55,7 @@ export default function NavigationDock() {
           onClick={() => setMobileMenuOpen(false)}
         >
           <div
-            className="absolute bottom-24 left-4 right-4 bg-[#111827] border border-white/10 rounded-2xl p-4 shadow-2xl"
+            className="absolute bottom-24 left-4 right-4 bg-[#161822] border border-white/10 rounded-2xl p-4 shadow-2xl"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex items-center justify-between pb-3 mb-3 border-b border-white/10">

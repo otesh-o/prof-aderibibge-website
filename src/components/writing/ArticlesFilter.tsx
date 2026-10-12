@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { Search, ArrowRight, Clock, Calendar, Tag } from "lucide-react";
+import { Search, ArrowRight, Clock, Calendar } from "lucide-react";
 import { Article } from "@/data/writing";
 
 interface Props {
@@ -30,7 +30,7 @@ export default function ArticlesFilter({ articles }: Props) {
   return (
     <div className="space-y-10">
       {/* Search and Filters */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-4 rounded-2xl bg-[#111827] border border-white/10">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-4 rounded-2xl bg-[#161822] border border-white/10">
         <div className="flex flex-wrap items-center gap-1.5">
           {tags.map((tag) => (
             <button
@@ -54,23 +54,23 @@ export default function ArticlesFilter({ articles }: Props) {
             placeholder="Search articles & reflections..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full pl-9 pr-4 py-1.5 rounded-xl bg-[#0B0F17] border border-white/10 text-xs text-white placeholder-gray-500 focus:outline-none focus:border-blue-500 transition-colors"
+            className="w-full pl-9 pr-4 py-1.5 rounded-xl bg-[#0F1117] border border-white/10 text-xs text-white placeholder-gray-500 focus:outline-none focus:border-white/20 transition-colors"
           />
         </div>
       </div>
 
       {filteredArticles.length === 0 ? (
-        <div className="p-12 text-center rounded-3xl bg-[#111827] border border-white/10 text-sm text-gray-400">
+        <div className="p-12 text-center rounded-3xl bg-[#161822] border border-white/10 text-sm text-gray-400">
           No articles found matching your query.
         </div>
       ) : (
         <div className="space-y-10">
           {/* Featured Large Tile */}
           {featuredArticle && (
-            <div className="rounded-3xl bg-gradient-to-br from-[#1E293B]/80 via-[#111827] to-[#0B0F17] border border-blue-500/30 p-8 sm:p-12 hover:border-blue-400 transition-all group">
+            <div className="rounded-3xl bg-[#161822] border border-white/10 p-8 sm:p-12 hover:border-white/20 transition-all group">
               <div className="max-w-4xl space-y-4">
                 <div className="flex flex-wrap items-center gap-3">
-                  <span className="px-3 py-1 rounded-full text-xs font-bold bg-blue-500/20 text-blue-300 border border-blue-500/30">
+                  <span className="px-3 py-1 rounded-full text-xs font-bold bg-white/5 text-gray-300 border border-white/10">
                     Featured Analysis
                   </span>
                   <span className="text-xs text-gray-400 flex items-center gap-1">
@@ -83,17 +83,17 @@ export default function ArticlesFilter({ articles }: Props) {
                   </span>
                 </div>
 
-                <h2 className="text-2xl sm:text-4xl font-extrabold text-white group-hover:text-blue-400 transition-colors leading-tight">
+                <h2 className="text-2xl sm:text-4xl font-extrabold text-white group-hover:text-white transition-colors leading-tight">
                   <Link href={`/writing/${featuredArticle.slug}`}>
                     {featuredArticle.title}
                   </Link>
                 </h2>
 
-                <p className="text-base sm:text-lg text-blue-300/90 font-medium">
+                <p className="text-base sm:text-lg text-gray-300 font-medium">
                   {featuredArticle.subtitle}
                 </p>
 
-                <p className="text-sm sm:text-base text-gray-300 leading-relaxed pt-1">
+                <p className="text-sm sm:text-base text-gray-400 leading-relaxed pt-1">
                   {featuredArticle.excerpt}
                 </p>
 
@@ -116,23 +116,23 @@ export default function ArticlesFilter({ articles }: Props) {
               {regularArticles.map((art) => (
                 <div
                   key={art.slug}
-                  className="rounded-3xl bg-[#111827] border border-white/10 p-6 sm:p-8 flex flex-col justify-between hover:border-blue-500/40 transition-all group"
+                  className="rounded-3xl bg-[#161822] border border-white/10 p-6 sm:p-8 flex flex-col justify-between hover:border-white/20 transition-all group"
                 >
                   <div className="space-y-3">
                     <div className="flex items-center justify-between text-xs text-gray-400">
-                      <span className="font-semibold text-blue-400 bg-blue-500/10 px-2 py-0.5 rounded">
+                      <span className="font-semibold text-gray-300 bg-white/5 px-2 py-0.5 rounded border border-white/5">
                         {art.topic}
                       </span>
                       <span>{art.readTime}</span>
                     </div>
 
-                    <h3 className="text-lg font-bold text-white group-hover:text-blue-400 transition-colors leading-snug">
+                    <h3 className="text-lg font-bold text-white group-hover:text-white transition-colors leading-snug">
                       <Link href={`/writing/${art.slug}`}>
                         {art.title}
                       </Link>
                     </h3>
 
-                    <p className="text-xs text-gray-300/80 leading-relaxed line-clamp-3">
+                    <p className="text-xs text-gray-400 leading-relaxed line-clamp-3">
                       {art.excerpt}
                     </p>
                   </div>

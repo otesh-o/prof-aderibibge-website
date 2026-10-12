@@ -1,30 +1,27 @@
 import Link from "next/link";
-import { ArrowRight, ExternalLink, Mail, Award, BookOpen, GraduationCap, Users } from "lucide-react";
+import { ArrowRight, ExternalLink, GraduationCap, Users } from "lucide-react";
 import { profileData } from "@/data/profile";
 
 export default function HeroSection() {
   return (
-    <section className="relative overflow-hidden pt-8 pb-16 lg:py-20 border-b border-white/[0.06]">
-      {/* Subtle background glow */}
-      <div className="absolute top-1/4 left-1/4 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl pointer-events-none" />
-
+    <section className="relative overflow-hidden pt-8 pb-16 lg:py-20 border-b border-white/[0.06] bg-[#0F1117]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           
           {/* Left Column: Portrait Photography Showcase */}
           <div className="lg:col-span-5 flex justify-center">
-            <div className="relative w-full max-w-md aspect-[4/5] rounded-3xl overflow-hidden bg-gradient-to-b from-[#1E293B] via-[#111827] to-[#0B0F17] border border-white/10 shadow-2xl flex flex-col justify-end p-6 group">
-              {/* Abstract / High-end Academic Portrait Silhouette Placeholder until photoshoot */}
-              <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-8 bg-gradient-to-t from-[#0B0F17] via-transparent to-transparent">
-                <div className="w-32 h-32 rounded-full bg-blue-600/20 border-2 border-blue-500/30 flex items-center justify-center mb-6 shadow-inner text-blue-400">
-                  <GraduationCap className="w-16 h-16 stroke-1" />
+            <div className="relative w-full max-w-md aspect-[4/5] rounded-3xl overflow-hidden bg-[#161822] border border-white/10 shadow-2xl flex flex-col justify-end p-6 group">
+              {/* Neutral Academic Portrait Placeholder until photoshoot */}
+              <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-8 bg-gradient-to-t from-[#161822] via-transparent to-transparent">
+                <div className="w-28 h-28 rounded-full bg-white/5 border border-white/10 flex items-center justify-center mb-6 text-gray-400">
+                  <GraduationCap className="w-14 h-14 stroke-1" />
                 </div>
                 <div className="space-y-1">
-                  <span className="text-xs font-semibold tracking-wider uppercase text-blue-400">
+                  <span className="text-xs font-semibold tracking-wider uppercase text-gray-300">
                     Portrait Photoshoot
                   </span>
                   <p className="text-xs text-gray-400">
-                    High-resolution studio portrait will be displayed here
+                    Studio portrait will be updated here
                   </p>
                 </div>
               </div>
@@ -40,7 +37,7 @@ export default function HeroSection() {
                       {profileData.university}
                     </p>
                   </div>
-                  <span className="px-2.5 py-1 rounded-full text-[10px] font-semibold bg-blue-500/20 text-blue-400 border border-blue-500/30">
+                  <span className="px-2.5 py-1 rounded-full text-[10px] font-semibold bg-white/5 text-gray-300 border border-white/10">
                     PhD (2014)
                   </span>
                 </div>
@@ -51,8 +48,8 @@ export default function HeroSection() {
           {/* Right Column: Hero Information & Positioning */}
           <div className="lg:col-span-7 space-y-8">
             <div className="space-y-3">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-blue-500/10 text-blue-400 border border-blue-500/20">
-                <span className="w-2 h-2 rounded-full bg-blue-400" />
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-white/5 text-gray-300 border border-white/10">
+                <span className="w-2 h-2 rounded-full bg-blue-500" />
                 <span>{profileData.faculty}</span>
               </div>
 
@@ -60,7 +57,7 @@ export default function HeroSection() {
                 Prof. Adebola Adewunmi Aderibigbe
               </h1>
 
-              <p className="text-lg sm:text-xl font-medium text-blue-400">
+              <p className="text-lg sm:text-xl font-medium text-gray-300">
                 {profileData.specialisation}
               </p>
             </div>
@@ -95,14 +92,14 @@ export default function HeroSection() {
             <div className="flex flex-wrap items-center gap-4 pt-2">
               <Link
                 href="/about"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-blue-600 text-white font-medium text-sm hover:bg-blue-500 transition-colors shadow-lg shadow-blue-600/25"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-blue-600 text-white font-medium text-sm hover:bg-blue-500 transition-colors shadow-lg shadow-blue-600/20"
               >
                 <span>Read my story</span>
                 <ArrowRight className="w-4 h-4" />
               </Link>
               <Link
                 href="/contact?reason=speaking"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#111827] text-[#E5E7EB] font-medium text-sm border border-white/10 hover:border-blue-500/50 hover:text-white transition-colors"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#161822] text-[#E5E7EB] font-medium text-sm border border-white/10 hover:border-white/20 hover:text-white transition-colors"
               >
                 <span>Invite me to speak</span>
               </Link>
@@ -113,7 +110,7 @@ export default function HeroSection() {
                   href={profileData.socialLinks.googleScholar}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2.5 rounded-xl bg-[#111827] text-gray-400 hover:text-blue-400 border border-white/10 hover:border-blue-500/30 transition-colors"
+                  className="p-2.5 rounded-xl bg-[#161822] text-gray-400 hover:text-white border border-white/10 hover:border-white/20 transition-colors"
                   aria-label="Google Scholar"
                   title="Google Scholar Profile"
                 >
@@ -123,7 +120,7 @@ export default function HeroSection() {
                   href={profileData.socialLinks.linkedIn}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2.5 rounded-xl bg-[#111827] text-gray-400 hover:text-blue-400 border border-white/10 hover:border-blue-500/30 transition-colors"
+                  className="p-2.5 rounded-xl bg-[#161822] text-gray-400 hover:text-white border border-white/10 hover:border-white/20 transition-colors"
                   aria-label="LinkedIn"
                   title="LinkedIn Profile"
                 >

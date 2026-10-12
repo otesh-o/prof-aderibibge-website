@@ -9,7 +9,6 @@ import {
   Landmark,
   Download,
   ArrowRight,
-  ExternalLink,
 } from "lucide-react";
 import { credentialsCategories } from "@/data/credentials";
 
@@ -30,14 +29,14 @@ const iconMap = {
 
 export default function CredentialsPage() {
   return (
-    <div className="py-12 sm:py-20">
+    <div className="py-12 sm:py-20 bg-[#0F1117]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
 
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-8 border-b border-white/[0.08]">
           <div className="max-w-3xl space-y-4">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-blue-500/15 text-blue-400 border border-blue-500/20">
-              <Award className="w-3.5 h-3.5" />
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-white/5 text-gray-300 border border-white/10">
+              <Award className="w-3.5 h-3.5 text-gray-400" />
               <span>Official Record</span>
             </div>
 
@@ -71,15 +70,15 @@ export default function CredentialsPage() {
             return (
               <div
                 key={idx}
-                className="rounded-3xl bg-[#111827] border border-white/10 p-6 sm:p-8 flex flex-col justify-between hover:border-blue-500/40 transition-all group"
+                className="rounded-3xl bg-[#161822] border border-white/10 p-6 sm:p-8 flex flex-col justify-between hover:border-white/20 transition-all group"
               >
                 <div>
                   <div className="flex items-center gap-3 mb-6">
-                    <div className="p-3 rounded-2xl bg-blue-500/10 border border-blue-500/20 text-blue-400">
+                    <div className="p-3 rounded-2xl bg-white/5 border border-white/10 text-gray-300">
                       <Icon className="w-6 h-6" />
                     </div>
                     <div>
-                      <h2 className="text-lg font-bold text-white group-hover:text-blue-400 transition-colors">
+                      <h2 className="text-lg font-bold text-white group-hover:text-white transition-colors">
                         {cat.title}
                       </h2>
                       <p className="text-xs text-gray-400">
@@ -92,19 +91,19 @@ export default function CredentialsPage() {
                     {cat.items.map((item, itemIdx) => (
                       <div
                         key={itemIdx}
-                        className="p-4 rounded-2xl bg-[#0B0F17]/80 border border-white/5 space-y-1"
+                        className="p-4 rounded-2xl bg-[#0F1117] border border-white/5 space-y-1"
                       >
                         <div className="flex items-start justify-between gap-2">
                           <h3 className="text-sm font-semibold text-[#E5E7EB] leading-snug">
                             {item.primary}
                           </h3>
                           {item.meta && (
-                            <span className="shrink-0 text-[10px] font-bold px-2 py-0.5 rounded-full bg-blue-500/15 text-blue-400 border border-blue-500/20">
+                            <span className="shrink-0 text-[10px] font-bold px-2 py-0.5 rounded-full bg-white/5 text-gray-300 border border-white/10">
                               {item.meta}
                             </span>
                           )}
                         </div>
-                        <p className="text-xs text-blue-300/90 font-medium">
+                        <p className="text-xs text-gray-300 font-medium">
                           {item.secondary}
                         </p>
                         {item.description && (
@@ -120,7 +119,7 @@ export default function CredentialsPage() {
                 <div className="pt-6 mt-6 border-t border-white/5">
                   <span className="text-[11px] text-gray-400 flex items-center justify-between">
                     <span>Verified Academic Record</span>
-                    <span className="text-blue-400 font-semibold">{cat.items.length} items</span>
+                    <span className="text-gray-300 font-semibold">{cat.items.length} items</span>
                   </span>
                 </div>
               </div>
@@ -129,7 +128,7 @@ export default function CredentialsPage() {
         </div>
 
         {/* Bottom Banner */}
-        <div className="rounded-3xl bg-gradient-to-r from-[#111827] via-[#1E293B] to-[#111827] border border-white/10 p-8 sm:p-12 flex flex-col sm:flex-row items-center justify-between gap-6">
+        <div className="rounded-3xl bg-[#161822] border border-white/10 p-8 sm:p-12 flex flex-col sm:flex-row items-center justify-between gap-6">
           <div className="space-y-2 text-center sm:text-left">
             <h3 className="text-xl sm:text-2xl font-bold text-white">
               Request External Examination or Accreditation Service
@@ -140,7 +139,7 @@ export default function CredentialsPage() {
           </div>
           <Link
             href="/contact?reason=accreditation"
-            className="shrink-0 inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-blue-600 text-white font-medium text-xs hover:bg-blue-500 transition-colors shadow-lg shadow-blue-500/25"
+            className="shrink-0 inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-blue-600 text-white font-medium text-xs hover:bg-blue-500 transition-colors shadow-lg shadow-blue-500/20"
           >
             <span>Submit Institutional Request</span>
             <ArrowRight className="w-4 h-4" />

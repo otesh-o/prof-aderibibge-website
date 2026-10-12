@@ -11,13 +11,13 @@ export const metadata: Metadata = {
 
 export default function WritingPage() {
   return (
-    <div className="py-12 sm:py-20">
+    <div className="py-12 sm:py-20 bg-[#0F1117]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
 
         {/* Header */}
         <div className="max-w-3xl space-y-4 pb-8 border-b border-white/[0.08]">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-blue-500/15 text-blue-400 border border-blue-500/20">
-            <PenTool className="w-3.5 h-3.5" />
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-white/5 text-gray-300 border border-white/10">
+            <PenTool className="w-3.5 h-3.5 text-gray-400" />
             <span>Public Intellectual Discourse</span>
           </div>
 

@@ -2,15 +2,11 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import {
   Download,
-  Calendar,
   Building,
   GraduationCap,
   Award,
-  Compass,
   ArrowRight,
-  ExternalLink,
   Users,
-  CheckCircle,
   FileText,
 } from "lucide-react";
 import { profileData } from "@/data/profile";
@@ -24,12 +20,12 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <div className="py-12 sm:py-20">
+    <div className="py-12 sm:py-20 bg-[#0F1117]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-20 sm:space-y-28">
 
         {/* 1. Header & Executive Bio */}
         <div className="max-w-4xl space-y-6">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-blue-500/15 text-blue-400 border border-blue-500/20">
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-white/5 text-gray-300 border border-white/10">
             <span>Academic Biography</span>
           </div>
 
@@ -37,7 +33,7 @@ export default function AboutPage() {
             About Prof. Adebola Aderibigbe
           </h1>
 
-          <p className="text-xl sm:text-2xl text-blue-400 font-medium">
+          <p className="text-xl sm:text-2xl text-gray-300 font-medium">
             Scholar, Mentor, and Champion of Strategic & Development Communication
           </p>
 
@@ -92,9 +88,9 @@ export default function AboutPage() {
 
           {/* CV & Quick Fact Card */}
           <div className="lg:col-span-4 space-y-6">
-            <div className="rounded-3xl bg-[#111827] border border-white/10 p-6 sm:p-8 space-y-6">
+            <div className="rounded-3xl bg-[#161822] border border-white/10 p-6 sm:p-8 space-y-6">
               <div className="flex items-center gap-3">
-                <div className="p-2.5 rounded-xl bg-blue-500/10 border border-blue-500/20 text-blue-400">
+                <div className="p-2.5 rounded-xl bg-white/5 border border-white/10 text-gray-300">
                   <FileText className="w-5 h-5" />
                 </div>
                 <div>
@@ -123,25 +119,25 @@ export default function AboutPage() {
             </div>
 
             {/* Core Snapshot */}
-            <div className="rounded-3xl bg-[#111827] border border-white/10 p-6 space-y-4">
-              <h3 className="text-xs font-bold uppercase tracking-wider text-blue-400">
+            <div className="rounded-3xl bg-[#161822] border border-white/10 p-6 space-y-4">
+              <h3 className="text-xs font-bold uppercase tracking-wider text-gray-400">
                 Institutional Snapshot
               </h3>
               <ul className="space-y-3 text-xs text-gray-300">
                 <li className="flex items-start gap-2.5">
-                  <Building className="w-4 h-4 text-blue-400 shrink-0 mt-0.5" />
+                  <Building className="w-4 h-4 text-gray-400 shrink-0 mt-0.5" />
                   <span>Federal University Oye-Ekiti (FUOYE)</span>
                 </li>
                 <li className="flex items-start gap-2.5">
-                  <GraduationCap className="w-4 h-4 text-blue-400 shrink-0 mt-0.5" />
+                  <GraduationCap className="w-4 h-4 text-gray-400 shrink-0 mt-0.5" />
                   <span>PhD Babcock (2014) • MSc UNILAG (2011)</span>
                 </li>
                 <li className="flex items-start gap-2.5">
-                  <Award className="w-4 h-4 text-blue-400 shrink-0 mt-0.5" />
+                  <Award className="w-4 h-4 text-gray-400 shrink-0 mt-0.5" />
                   <span>Africa Leadership Award (2026)</span>
                 </li>
                 <li className="flex items-start gap-2.5">
-                  <Users className="w-4 h-4 text-blue-400 shrink-0 mt-0.5" />
+                  <Users className="w-4 h-4 text-gray-400 shrink-0 mt-0.5" />
                   <span>Director, Career Services Centre</span>
                 </li>
               </ul>
@@ -150,25 +146,25 @@ export default function AboutPage() {
         </div>
 
         {/* 3. The Core Manifesto: "Why I Stayed" */}
-        <div id="why-i-stayed" className="scroll-mt-24 rounded-3xl bg-[#0E1524] border border-blue-500/30 p-8 sm:p-12 space-y-8">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-blue-500/20">
+        <div id="why-i-stayed" className="scroll-mt-24 rounded-3xl bg-[#161822] border border-white/10 p-8 sm:p-12 space-y-8">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-6 border-b border-white/10">
             <div>
-              <span className="text-xs font-bold tracking-wider uppercase text-blue-400">
+              <span className="text-xs font-bold tracking-wider uppercase text-gray-400">
                 Personal Manifesto & Conviction
               </span>
               <h2 className="text-2xl sm:text-4xl font-extrabold text-white mt-1">
                 Why I Stayed: Building Nigeria’s Communicators from Within
               </h2>
             </div>
-            <span className="px-3 py-1 rounded-full text-xs font-medium bg-blue-500/20 text-blue-300 border border-blue-500/30 self-start sm:self-auto">
+            <span className="px-3 py-1 rounded-full text-xs font-medium bg-white/5 text-gray-300 border border-white/10 self-start sm:self-auto">
               Nigerian by Choice, Global by Impact
             </span>
           </div>
 
           <div className="space-y-6 text-gray-200 leading-relaxed text-base sm:text-lg">
             <div className="space-y-2">
-              <h3 className="text-lg font-bold text-blue-400">1. The Pull</h3>
-              <p>
+              <h3 className="text-lg font-bold text-white">1. The Pull</h3>
+              <p className="text-gray-300">
                 The contemporary wave of “japa” has touched every classroom, faculty lounge, and research cluster in Nigeria.
                 The prospects of foreign academic tenure, international research endowments, and predictable environments are real
                 and understandable. Many valued colleagues answered that call, and their contributions on the global stage remain commendable.
@@ -176,8 +172,8 @@ export default function AboutPage() {
             </div>
 
             <div className="space-y-2">
-              <h3 className="text-lg font-bold text-blue-400">2. The Conviction</h3>
-              <p>
+              <h3 className="text-lg font-bold text-white">2. The Conviction</h3>
+              <p className="text-gray-300">
                 Yet, for me, the conviction to stay was grounded in a simple truth: <strong>a nation cannot outsource the training of its communicators.</strong>{" "}
                 Communication is the lifeblood of national cohesion, democratic stability, and socio-economic development. If our most experienced
                 scholars vacate our universities, who guides the 200-level undergraduate learning broadcast ethics? Who mentors the PhD researcher
@@ -186,8 +182,8 @@ export default function AboutPage() {
             </div>
 
             <div className="space-y-2">
-              <h3 className="text-lg font-bold text-blue-400">3. What We Have Built Here</h3>
-              <p>
+              <h3 className="text-lg font-bold text-white">3. What We Have Built Here</h3>
+              <p className="text-gray-300">
                 By staying, we built institutional legacies that cannot be quantified solely by paper citations:
               </p>
               <ul className="list-disc list-inside space-y-2 pl-2 text-base text-gray-300">
@@ -199,8 +195,8 @@ export default function AboutPage() {
               </ul>
             </div>
 
-            <div className="space-y-2 pt-2 border-t border-blue-500/20">
-              <h3 className="text-lg font-bold text-blue-400">4. A Word to the Next Generation</h3>
+            <div className="space-y-2 pt-2 border-t border-white/10">
+              <h3 className="text-lg font-bold text-white">4. A Word to the Next Generation</h3>
               <p className="italic font-serif text-white text-lg sm:text-xl">
                 “Nigeria will not be built by spectators. It will be built by those who choose to plant their feet, roll up their sleeves,
                 and impart excellence right here. My life’s work is dedicated to proving that world-class communicators can be formed right here in Nigeria.”
@@ -216,7 +212,7 @@ export default function AboutPage() {
         <div className="space-y-8">
           <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-4">
             <div>
-              <span className="text-xs font-semibold tracking-wider uppercase text-blue-400">
+              <span className="text-xs font-semibold tracking-wider uppercase text-gray-400">
                 Chronology of Service
               </span>
               <h2 className="text-2xl sm:text-3xl font-extrabold text-[#E5E7EB] mt-1">
@@ -236,11 +232,11 @@ export default function AboutPage() {
             {careerTimeline.map((item, idx) => (
               <div key={idx} className="relative pl-6 sm:pl-8 group">
                 {/* Dot */}
-                <div className="absolute -left-[5px] top-1.5 w-2.5 h-2.5 rounded-full bg-blue-500 ring-4 ring-[#0B0F17] group-hover:scale-125 transition-transform" />
+                <div className="absolute -left-[5px] top-1.5 w-2.5 h-2.5 rounded-full bg-blue-500 ring-4 ring-[#0F1117] group-hover:scale-125 transition-transform" />
 
-                <div className="p-5 rounded-2xl bg-[#111827] border border-white/10 hover:border-blue-500/30 transition-all space-y-2">
+                <div className="p-5 rounded-2xl bg-[#161822] border border-white/10 hover:border-white/20 transition-all space-y-2">
                   <div className="flex flex-wrap items-center justify-between gap-2">
-                    <span className="text-xs font-bold text-blue-400">
+                    <span className="text-xs font-bold text-white">
                       {item.year}
                     </span>
                     <span className="text-[10px] font-semibold px-2 py-0.5 rounded-full bg-white/5 text-gray-300 border border-white/10">
@@ -251,7 +247,7 @@ export default function AboutPage() {
                   <h3 className="text-base font-bold text-white">
                     {item.role}
                   </h3>
-                  <p className="text-xs text-blue-300 font-medium">
+                  <p className="text-xs text-gray-300 font-medium">
                     {item.institution}
                   </p>
                   <p className="text-xs text-gray-400 leading-relaxed">
@@ -266,7 +262,7 @@ export default function AboutPage() {
         {/* 5. Photo Gallery Placeholders (Mixed-Size Grid) */}
         <div className="space-y-6">
           <div>
-            <span className="text-xs font-semibold tracking-wider uppercase text-blue-400">
+            <span className="text-xs font-semibold tracking-wider uppercase text-gray-400">
               Visual Archive
             </span>
             <h2 className="text-2xl sm:text-3xl font-extrabold text-[#E5E7EB] mt-1">
@@ -278,15 +274,15 @@ export default function AboutPage() {
           </div>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-            <div className="aspect-[4/3] rounded-2xl bg-gradient-to-tr from-[#1E293B] to-[#111827] border border-white/10 p-6 flex flex-col justify-end">
+            <div className="aspect-[4/3] rounded-2xl bg-[#161822] border border-white/10 p-6 flex flex-col justify-end">
               <span className="text-xs font-bold text-white">1st Africa Leadership Summit</span>
               <span className="text-[11px] text-gray-400">Accra, Ghana (October 2026)</span>
             </div>
-            <div className="aspect-[4/3] rounded-2xl bg-gradient-to-tr from-[#1E293B] to-[#111827] border border-white/10 p-6 flex flex-col justify-end">
+            <div className="aspect-[4/3] rounded-2xl bg-[#161822] border border-white/10 p-6 flex flex-col justify-end">
               <span className="text-xs font-bold text-white">EU-SDGN II Journalist Training</span>
               <span className="text-[11px] text-gray-400">Ado-Ekiti (April 2026)</span>
             </div>
-            <div className="aspect-[4/3] rounded-2xl bg-gradient-to-tr from-[#1E293B] to-[#111827] border border-white/10 p-6 flex flex-col justify-end">
+            <div className="aspect-[4/3] rounded-2xl bg-[#161822] border border-white/10 p-6 flex flex-col justify-end">
               <span className="text-xs font-bold text-white">NUC Accreditation Panel</span>
               <span className="text-[11px] text-gray-400">Chrisland University (November 2025)</span>
             </div>

@@ -2,14 +2,10 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import {
   BookOpen,
-  FileText,
   Download,
-  GraduationCap,
   Sparkles,
   ExternalLink,
   Users,
-  Compass,
-  ArrowRight,
 } from "lucide-react";
 import PublicationsList from "@/components/research/PublicationsList";
 import { thesisData, researchGrantsData, supervisionsData } from "@/data/research";
@@ -23,14 +19,14 @@ export const metadata: Metadata = {
 
 export default function ResearchPage() {
   return (
-    <div className="py-12 sm:py-20">
+    <div className="py-12 sm:py-20 bg-[#0F1117]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-20">
 
         {/* 1. Page Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-8 border-b border-white/[0.08]">
           <div className="max-w-3xl space-y-4">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-blue-500/15 text-blue-400 border border-blue-500/20">
-              <BookOpen className="w-3.5 h-3.5" />
+            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-white/5 text-gray-300 border border-white/10">
+              <BookOpen className="w-3.5 h-3.5 text-gray-400" />
               <span>Scholarship & Inquiry</span>
             </div>
 
@@ -49,7 +45,7 @@ export default function ResearchPage() {
               href={profileData.socialLinks.googleScholar}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#111827] border border-white/10 text-xs text-white hover:text-blue-400 hover:border-blue-500/40 transition-colors"
+              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#161822] border border-white/10 text-xs text-white hover:border-white/20 transition-colors"
             >
               <span>Google Scholar</span>
               <ExternalLink className="w-3.5 h-3.5" />
@@ -60,7 +56,7 @@ export default function ResearchPage() {
         {/* 2. Research Interests Bento Grid */}
         <div className="space-y-6">
           <div>
-            <span className="text-xs font-semibold tracking-wider uppercase text-blue-400">
+            <span className="text-xs font-semibold tracking-wider uppercase text-gray-400">
               Core Pillars
             </span>
             <h2 className="text-2xl sm:text-3xl font-extrabold text-white mt-1">
@@ -72,10 +68,10 @@ export default function ResearchPage() {
             {profileData.researchInterests.map((interest, idx) => (
               <div
                 key={idx}
-                className="rounded-3xl bg-[#111827] border border-white/10 p-6 sm:p-8 flex flex-col justify-between hover:border-blue-500/40 transition-all space-y-4"
+                className="rounded-3xl bg-[#161822] border border-white/10 p-6 sm:p-8 flex flex-col justify-between hover:border-white/20 transition-all space-y-4"
               >
                 <div>
-                  <span className="inline-block px-2.5 py-1 rounded-full text-[10px] font-semibold bg-blue-500/15 text-blue-400 border border-blue-500/20 mb-3">
+                  <span className="inline-block px-2.5 py-1 rounded-full text-[10px] font-semibold bg-white/5 text-gray-300 border border-white/10 mb-3">
                     {interest.tag}
                   </span>
                   <h3 className="text-lg font-bold text-white mb-2">
@@ -91,10 +87,10 @@ export default function ResearchPage() {
         </div>
 
         {/* 3. Doctoral Thesis Showcase */}
-        <div className="rounded-3xl bg-[#0E1524] border border-blue-500/30 p-8 sm:p-12 space-y-6">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-blue-500/20">
+        <div className="rounded-3xl bg-[#161822] border border-white/10 p-8 sm:p-12 space-y-6">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-white/10">
             <div>
-              <span className="text-xs font-bold uppercase tracking-wider text-blue-400">
+              <span className="text-xs font-bold uppercase tracking-wider text-gray-400">
                 Doctoral Dissertation • Babcock University ({thesisData.year})
               </span>
               <h2 className="text-xl sm:text-2xl font-bold text-white mt-1">
@@ -116,14 +112,14 @@ export default function ResearchPage() {
           </p>
 
           <div className="space-y-2 pt-2">
-            <h4 className="text-xs font-bold uppercase tracking-wider text-blue-400">
+            <h4 className="text-xs font-bold uppercase tracking-wider text-gray-400">
               Key Contributions & Policy Frameworks:
             </h4>
             <ul className="grid grid-cols-1 md:grid-cols-3 gap-3 pt-2">
               {thesisData.keyContributions.map((contrib, idx) => (
                 <li
                   key={idx}
-                  className="p-4 rounded-xl bg-[#0B0F17]/80 border border-white/5 text-xs text-gray-300 leading-relaxed"
+                  className="p-4 rounded-xl bg-[#0F1117] border border-white/5 text-xs text-gray-300 leading-relaxed"
                 >
                   {contrib}
                 </li>
@@ -135,7 +131,7 @@ export default function ResearchPage() {
         {/* 4. Publications List Section */}
         <div className="space-y-6">
           <div>
-            <span className="text-xs font-semibold tracking-wider uppercase text-blue-400">
+            <span className="text-xs font-semibold tracking-wider uppercase text-gray-400">
               Peer-Reviewed Works
             </span>
             <h2 className="text-2xl sm:text-3xl font-extrabold text-white mt-1">
@@ -153,9 +149,9 @@ export default function ResearchPage() {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           
           {/* Research Grants */}
-          <div className="rounded-3xl bg-[#111827] border border-white/10 p-6 sm:p-8 space-y-6">
+          <div className="rounded-3xl bg-[#161822] border border-white/10 p-6 sm:p-8 space-y-6">
             <div className="flex items-center gap-3">
-              <div className="p-2.5 rounded-xl bg-blue-500/10 border border-blue-500/20 text-blue-400">
+              <div className="p-2.5 rounded-xl bg-white/5 border border-white/10 text-gray-300">
                 <Sparkles className="w-5 h-5" />
               </div>
               <div>
@@ -166,9 +162,9 @@ export default function ResearchPage() {
 
             <div className="space-y-4">
               {researchGrantsData.map((grant, idx) => (
-                <div key={idx} className="p-4 rounded-2xl bg-[#0B0F17] border border-white/5 space-y-2">
+                <div key={idx} className="p-4 rounded-2xl bg-[#0F1117] border border-white/5 space-y-2">
                   <div className="flex items-center justify-between">
-                    <span className="text-xs font-bold text-blue-400">
+                    <span className="text-xs font-bold text-gray-200">
                       {grant.fundingBody}
                     </span>
                     <span className="text-[10px] px-2 py-0.5 rounded bg-white/5 text-gray-300 border border-white/10">
@@ -187,9 +183,9 @@ export default function ResearchPage() {
           </div>
 
           {/* Postgraduate Supervision */}
-          <div className="rounded-3xl bg-[#111827] border border-white/10 p-6 sm:p-8 space-y-6">
+          <div className="rounded-3xl bg-[#161822] border border-white/10 p-6 sm:p-8 space-y-6">
             <div className="flex items-center gap-3">
-              <div className="p-2.5 rounded-xl bg-blue-500/10 border border-blue-500/20 text-blue-400">
+              <div className="p-2.5 rounded-xl bg-white/5 border border-white/10 text-gray-300">
                 <Users className="w-5 h-5" />
               </div>
               <div>
@@ -200,12 +196,12 @@ export default function ResearchPage() {
 
             <div className="space-y-4">
               {supervisionsData.map((sup, idx) => (
-                <div key={idx} className="p-4 rounded-2xl bg-[#0B0F17] border border-white/5 space-y-1">
+                <div key={idx} className="p-4 rounded-2xl bg-[#0F1117] border border-white/5 space-y-1">
                   <div className="flex items-center justify-between">
-                    <span className="text-xs font-bold text-blue-400">
+                    <span className="text-xs font-bold text-gray-200">
                       {sup.level} Research
                     </span>
-                    <span className="text-[10px] px-2 py-0.5 rounded-full bg-blue-500/10 text-blue-300 border border-blue-500/20">
+                    <span className="text-[10px] px-2 py-0.5 rounded-full bg-white/5 text-gray-300 border border-white/10">
                       {sup.status}
                     </span>
                   </div>
