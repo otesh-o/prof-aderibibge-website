@@ -64,12 +64,12 @@ export default function CareerTimelineSection() {
                   <span>2026</span>
                   <span className="hidden sm:inline-block w-2 h-2 rounded-full bg-neutral-600 ring-4 ring-[#0D0E12] translate-x-[17px] z-10" />
                 </div>
-                <div className="w-12 h-12 shrink-0 rounded-lg bg-[#14161E] border border-[#20232E] flex items-center justify-center font-mono font-bold text-[11px] text-neutral-300 text-center p-1">
+                <div className="w-12 h-12 shrink-0 rounded-lg bg-sky-950/30 border border-sky-800/50 flex items-center justify-center font-mono font-bold text-[11px] text-sky-200 text-center p-1 shadow-sm">
                   IPC/EU
                 </div>
                 <div className="flex-1 space-y-1">
                   <p className="text-xs sm:text-sm text-neutral-300 leading-relaxed">
-                    Conferred the <strong className="text-white font-semibold">Africa Leadership Award</strong> by Global Skills Hub (UK) in Accra. Lead Consultant Facilitator for <strong className="text-white font-medium">EU-SDGN II</strong> & International Press Council electoral training.
+                    Conferred the <strong className="text-white font-semibold">Africa Leadership Award</strong> by Global Skills Hub (UK) in Accra. Lead Consultant Facilitator for <strong className="text-sky-300 font-medium">EU-SDGN II</strong> & International Press Council electoral training.
                   </p>
                   <div className="text-[11px] font-mono text-neutral-500">
                     Accra, Ghana · IPC / European Union
@@ -81,9 +81,9 @@ export default function CareerTimelineSection() {
               <div className="relative flex flex-col sm:flex-row gap-5 sm:gap-8 items-start">
                 <div className="sm:w-24 shrink-0 sm:text-right pt-1 font-mono text-xs text-neutral-400 flex items-center sm:justify-end gap-2">
                   <span>2025</span>
-                  <span className="hidden sm:inline-block w-2 h-2 rounded-full bg-neutral-600 ring-4 ring-[#0D0E12] translate-x-[17px] z-10" />
+                  <span className="hidden sm:inline-block w-2 h-2 rounded-full bg-emerald-500 ring-4 ring-[#0D0E12] translate-x-[17px] z-10" />
                 </div>
-                <div className="w-12 h-12 shrink-0 rounded-lg bg-[#14161E] border border-[#20232E] flex items-center justify-center font-mono font-bold text-[11px] text-neutral-300 text-center p-1">
+                <div className="w-12 h-12 shrink-0 rounded-lg bg-emerald-950/30 border border-emerald-800/50 flex items-center justify-center font-mono font-bold text-[11px] text-emerald-200 text-center p-1 shadow-sm">
                   NUC
                 </div>
                 <div className="flex-1 space-y-1">
@@ -100,9 +100,9 @@ export default function CareerTimelineSection() {
               <div className="relative flex flex-col sm:flex-row gap-5 sm:gap-8 items-start">
                 <div className="sm:w-24 shrink-0 sm:text-right pt-1 font-mono text-xs text-neutral-400 flex items-center sm:justify-end gap-2">
                   <span>2024</span>
-                  <span className="hidden sm:inline-block w-2 h-2 rounded-full bg-neutral-600 ring-4 ring-[#0D0E12] translate-x-[17px] z-10" />
+                  <span className="hidden sm:inline-block w-2 h-2 rounded-full bg-amber-500 ring-4 ring-[#0D0E12] translate-x-[17px] z-10" />
                 </div>
-                <div className="w-12 h-12 shrink-0 rounded-lg bg-[#14161E] border border-[#20232E] flex items-center justify-center font-mono font-bold text-[11px] text-neutral-300 text-center p-1">
+                <div className="w-12 h-12 shrink-0 rounded-lg bg-amber-950/30 border border-amber-800/50 flex items-center justify-center font-mono font-bold text-[11px] text-amber-200 text-center p-1 shadow-sm">
                   PRIZE
                 </div>
                 <div className="flex-1 space-y-1">
@@ -119,9 +119,9 @@ export default function CareerTimelineSection() {
               <div className="relative flex flex-col sm:flex-row gap-5 sm:gap-8 items-start">
                 <div className="sm:w-24 shrink-0 sm:text-right pt-1 font-mono text-xs text-neutral-400 flex items-center sm:justify-end gap-2">
                   <span>2020 – pres</span>
-                  <span className="hidden sm:inline-block w-2 h-2 rounded-full bg-neutral-600 ring-4 ring-[#0D0E12] translate-x-[17px] z-10" />
+                  <span className="hidden sm:inline-block w-2 h-2 rounded-full bg-indigo-500 ring-4 ring-[#0D0E12] translate-x-[17px] z-10" />
                 </div>
-                <div className="w-12 h-12 shrink-0 rounded-lg bg-[#14161E] border border-[#20232E] flex items-center justify-center font-mono font-bold text-[11px] text-neutral-300 text-center p-1">
+                <div className="w-12 h-12 shrink-0 rounded-lg bg-indigo-950/30 border border-indigo-800/50 flex items-center justify-center font-mono font-bold text-[11px] text-indigo-200 text-center p-1 shadow-sm">
                   FUOYE
                 </div>
                 <div className="flex-1 space-y-1">
@@ -140,7 +140,7 @@ export default function CareerTimelineSection() {
                   <span>2018</span>
                   <span className="hidden sm:inline-block w-2 h-2 rounded-full bg-neutral-600 ring-4 ring-[#0D0E12] translate-x-[17px] z-10" />
                 </div>
-                <div className="w-12 h-12 shrink-0 rounded-lg bg-[#14161E] border border-[#20232E] flex items-center justify-center font-mono font-bold text-[11px] text-neutral-300 text-center p-1">
+                <div className="w-12 h-12 shrink-0 rounded-lg bg-slate-900/60 border border-slate-700/60 flex items-center justify-center font-mono font-bold text-[11px] text-slate-200 text-center p-1 shadow-sm">
                   FISN
                 </div>
                 <div className="flex-1 space-y-1">
@@ -157,9 +157,9 @@ export default function CareerTimelineSection() {
               <div className="relative flex flex-col sm:flex-row gap-5 sm:gap-8 items-start">
                 <div className="sm:w-24 shrink-0 sm:text-right pt-1 font-mono text-xs text-neutral-400 flex items-center sm:justify-end gap-2">
                   <span>2011 – 2014</span>
-                  <span className="hidden sm:inline-block w-2 h-2 rounded-full bg-neutral-600 ring-4 ring-[#0D0E12] translate-x-[17px] z-10" />
+                  <span className="hidden sm:inline-block w-2 h-2 rounded-full bg-blue-500 ring-4 ring-[#0D0E12] translate-x-[17px] z-10" />
                 </div>
-                <div className="w-12 h-12 shrink-0 rounded-lg bg-[#14161E] border border-[#20232E] flex items-center justify-center font-mono font-bold text-[11px] text-neutral-300 text-center p-1">
+                <div className="w-12 h-12 shrink-0 rounded-lg bg-blue-950/30 border border-blue-800/50 flex items-center justify-center font-mono font-bold text-[11px] text-blue-200 text-center p-1 shadow-sm">
                   BU
                 </div>
                 <div className="flex-1 space-y-1">
@@ -176,9 +176,9 @@ export default function CareerTimelineSection() {
               <div className="relative flex flex-col sm:flex-row gap-5 sm:gap-8 items-start">
                 <div className="sm:w-24 shrink-0 sm:text-right pt-1 font-mono text-xs text-neutral-400 flex items-center sm:justify-end gap-2">
                   <span>2008 – 2011</span>
-                  <span className="hidden sm:inline-block w-2 h-2 rounded-full bg-neutral-600 ring-4 ring-[#0D0E12] translate-x-[17px] z-10" />
+                  <span className="hidden sm:inline-block w-2 h-2 rounded-full bg-red-500 ring-4 ring-[#0D0E12] translate-x-[17px] z-10" />
                 </div>
-                <div className="w-12 h-12 shrink-0 rounded-lg bg-[#14161E] border border-[#20232E] flex items-center justify-center font-mono font-bold text-[11px] text-neutral-300 text-center p-1">
+                <div className="w-12 h-12 shrink-0 rounded-lg bg-red-950/20 border border-red-800/40 flex items-center justify-center font-mono font-bold text-[11px] text-red-200 text-center p-1 shadow-sm">
                   UNILAG
                 </div>
                 <div className="flex-1 space-y-1">
@@ -195,9 +195,9 @@ export default function CareerTimelineSection() {
               <div className="relative flex flex-col sm:flex-row gap-5 sm:gap-8 items-start">
                 <div className="sm:w-24 shrink-0 sm:text-right pt-1 font-mono text-xs text-neutral-400 flex items-center sm:justify-end gap-2">
                   <span>2007</span>
-                  <span className="hidden sm:inline-block w-2 h-2 rounded-full bg-neutral-600 ring-4 ring-[#0D0E12] translate-x-[17px] z-10" />
+                  <span className="hidden sm:inline-block w-2 h-2 rounded-full bg-green-500 ring-4 ring-[#0D0E12] translate-x-[17px] z-10" />
                 </div>
-                <div className="w-12 h-12 shrink-0 rounded-lg bg-[#14161E] border border-[#20232E] flex items-center justify-center font-mono font-bold text-[11px] text-neutral-300 text-center p-1">
+                <div className="w-12 h-12 shrink-0 rounded-lg bg-green-950/30 border border-green-800/50 flex items-center justify-center font-mono font-bold text-[11px] text-green-200 text-center p-1 shadow-sm">
                   NYSC
                 </div>
                 <div className="flex-1 space-y-1">
@@ -214,9 +214,9 @@ export default function CareerTimelineSection() {
               <div className="relative flex flex-col sm:flex-row gap-5 sm:gap-8 items-start">
                 <div className="sm:w-24 shrink-0 sm:text-right pt-1 font-mono text-xs text-neutral-400 flex items-center sm:justify-end gap-2">
                   <span>2002 – 2006</span>
-                  <span className="hidden sm:inline-block w-2 h-2 rounded-full bg-neutral-600 ring-4 ring-[#0D0E12] translate-x-[17px] z-10" />
+                  <span className="hidden sm:inline-block w-2 h-2 rounded-full bg-blue-500 ring-4 ring-[#0D0E12] translate-x-[17px] z-10" />
                 </div>
-                <div className="w-12 h-12 shrink-0 rounded-lg bg-[#14161E] border border-[#20232E] flex items-center justify-center font-mono font-bold text-[11px] text-neutral-300 text-center p-1">
+                <div className="w-12 h-12 shrink-0 rounded-lg bg-blue-950/30 border border-blue-800/50 flex items-center justify-center font-mono font-bold text-[11px] text-blue-200 text-center p-1 shadow-sm">
                   BOWEN
                 </div>
                 <div className="flex-1 space-y-1">

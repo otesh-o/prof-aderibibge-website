@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight, ExternalLink, Download, BookOpen, Sparkles, FileText } from "lucide-react";
 import { publicationsData, thesisData } from "@/data/research";
 import { profileData } from "@/data/profile";
@@ -17,7 +18,7 @@ export default function FeaturedResearchSection() {
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-6 border-b border-[#20232E]">
           <div>
             <span className="text-xs font-mono text-neutral-400 uppercase tracking-widest block">
-              Scholarly Inquiries · Peer-Reviewed Publications · Theoretical Frameworks
+              Scholarly Inquiries · Peer-Reviewed Publications · Empirical Investigations
             </span>
             <h2 className="font-serif text-3xl sm:text-5xl text-white tracking-tight mt-1.5">
               Research & High-Impact Publications
@@ -49,32 +50,32 @@ export default function FeaturedResearchSection() {
         </div>
 
         {/* 1. Flagship Investigation Spotlight (2025 Study) */}
-        <div className="rounded-xl border border-[#20232E] bg-[#14161E] p-6 sm:p-10 relative">
+        <div className="rounded-xl border border-[#20232E] bg-[#14161E] p-6 sm:p-10 relative overflow-hidden">
           <div className="space-y-6">
             
             {/* Meta Row */}
             <div className="flex flex-wrap items-center justify-between gap-3 pb-4 border-b border-[#20232E]">
               <div className="flex flex-wrap items-center gap-2 text-xs font-mono">
                 <span className="px-2.5 py-1 rounded-md bg-[#1B1E29] border border-[#262A38] text-neutral-200 font-semibold">
-                  Flagship 2025 Investigation
+                  Flagship 2025 Study
                 </span>
                 <span className="text-neutral-500">·</span>
                 <span className="text-neutral-300 font-medium">Frontiers in Psychology</span>
                 <span className="text-neutral-500">·</span>
-                <span className="text-neutral-400">Peer-Reviewed Journal Article</span>
+                <span className="text-neutral-400">Published {flagshipPaper.year}</span>
               </div>
               <span className="font-mono text-xs text-neutral-400">
-                Published {flagshipPaper.year}
+                Peer-Reviewed Journal Article
               </span>
             </div>
 
             {/* Title & Authors */}
-            <div className="space-y-3">
-              <h3 className="font-serif text-2xl sm:text-3xl lg:text-4xl text-white font-normal leading-snug">
+            <div className="space-y-2.5">
+              <h3 className="font-serif text-2xl sm:text-3xl lg:text-4xl text-white font-normal leading-snug max-w-4xl">
                 {flagshipPaper.title}
               </h3>
               <p className="text-xs sm:text-sm font-mono text-neutral-400">
-                Principal Investigator: <span className="text-neutral-200">{flagshipPaper.authors}</span>
+                Principal Investigator: <span className="text-neutral-200 font-medium">{flagshipPaper.authors}</span>
               </p>
             </div>
 
@@ -84,7 +85,7 @@ export default function FeaturedResearchSection() {
                 {flagshipPaper.abstract}
               </p>
               <p className="text-xs sm:text-sm text-neutral-400 leading-relaxed">
-                This study articulates the first indigenized ethical framework for generative AI deployment in West African journalism, analyzing workflow disruptions, newsroom autonomy, algorithmic gatekeeping, and copyright governance across national dailies.
+                Articulating an indigenized ethical framework for generative AI deployment in West African journalism, analyzing workflow disruptions, newsroom autonomy, and algorithmic gatekeeping across national dailies.
               </p>
             </div>
 
@@ -92,13 +93,13 @@ export default function FeaturedResearchSection() {
             <div className="pt-4 border-t border-[#1D202B] flex flex-col sm:flex-row sm:items-center justify-between gap-4">
               <div className="flex flex-wrap gap-2 text-[11px] font-mono text-neutral-400">
                 <span className="rounded-md px-2.5 py-1 bg-[#0D0E12] border border-[#20232E]">
-                  Empirical Newsroom Audits
+                  Newsroom Field Audits
                 </span>
                 <span className="rounded-md px-2.5 py-1 bg-[#0D0E12] border border-[#20232E]">
                   Algorithmic Gatekeeping
                 </span>
                 <span className="rounded-md px-2.5 py-1 bg-[#0D0E12] border border-[#20232E]">
-                  Global South Media Ethics
+                  AI Media Ethics
                 </span>
               </div>
 
@@ -108,7 +109,7 @@ export default function FeaturedResearchSection() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-1.5 font-mono text-xs text-neutral-300 hover:text-white transition-colors"
               >
-                <span>Access Citation on Google Scholar</span>
+                <span>Google Scholar Citation</span>
                 <ExternalLink className="w-3.5 h-3.5 text-neutral-400" />
               </a>
             </div>
@@ -131,7 +132,7 @@ export default function FeaturedResearchSection() {
             {journalArticles.map((pub) => (
               <div
                 key={pub.id}
-                className="rounded-xl border border-[#20232E] bg-[#14161E] p-6 sm:p-7 flex flex-col justify-between space-y-4"
+                className="rounded-xl border border-[#20232E] bg-[#14161E] p-6 sm:p-7 flex flex-col justify-between space-y-4 hover:border-neutral-700 transition-colors"
               >
                 <div className="space-y-3">
                   <div className="flex items-center justify-between text-xs font-mono">

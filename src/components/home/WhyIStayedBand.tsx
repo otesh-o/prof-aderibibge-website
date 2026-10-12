@@ -1,11 +1,24 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight } from "lucide-react";
 import { profileData } from "@/data/profile";
 
 export default function WhyIStayedBand() {
   return (
-    <section className="py-20 sm:py-28 bg-[#111319] border-y border-[#20232E]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className="relative py-20 sm:py-28 bg-[#111319] border-y border-[#20232E] overflow-hidden">
+      {/* Subtle Atmospheric Studio Backdrop */}
+      <div className="absolute inset-0 pointer-events-none opacity-[0.08]">
+        <Image
+          src="/images/broadcast-media-studio.jpg"
+          alt="Nigerian Media Studio Backdrop"
+          fill
+          className="object-cover object-center filter grayscale"
+        />
+        <div className="absolute inset-0 bg-gradient-to-r from-[#111319] via-transparent to-[#111319]" />
+        <div className="absolute inset-0 bg-gradient-to-t from-[#111319] via-transparent to-[#111319]" />
+      </div>
+
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           
           {/* Main Manifesto Column */}

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { ArrowRight, Play, ExternalLink } from "lucide-react";
 import { profileData } from "@/data/profile";
 
@@ -94,13 +95,22 @@ export default function BentoGrid() {
                 </span>
               </div>
 
-              {/* Stark Media Container */}
-              <div className="relative aspect-video rounded-lg overflow-hidden bg-[#0A0C10] border border-[#20232E] flex items-center justify-center mb-4 group cursor-pointer">
-                <div className="w-11 h-11 rounded-full bg-neutral-900 border border-neutral-700 text-white flex items-center justify-center group-hover:bg-[#2563EB] group-hover:border-transparent transition-colors">
+              {/* Stark Media Container with Lecture Photo */}
+              <div className="relative aspect-video rounded-lg overflow-hidden bg-[#0A0C10] border border-[#20232E] flex items-center justify-center mb-4 group cursor-pointer shadow-lg">
+                <Image
+                  src="/images/lecture-series-auditorium.jpg"
+                  alt="Postgraduate Lecture Series Amphitheater"
+                  fill
+                  className="object-cover object-center transition-transform duration-700 group-hover:scale-105 opacity-70 group-hover:opacity-90"
+                  sizes="(max-width: 1024px) 100vw, 350px"
+                />
+                <div className="absolute inset-0 bg-black/40 group-hover:bg-black/25 transition-colors" />
+                
+                <div className="relative z-10 w-11 h-11 rounded-full bg-neutral-900/90 border border-neutral-600 text-white flex items-center justify-center group-hover:bg-white group-hover:text-neutral-900 group-hover:scale-110 transition-all shadow-xl">
                   <Play className="w-4 h-4 ml-0.5 fill-current" />
                 </div>
-                <span className="absolute bottom-2 right-2 px-1.5 py-0.5 rounded text-[10px] font-mono bg-black/80 text-neutral-300">
-                  28m
+                <span className="absolute bottom-2 right-2 px-1.5 py-0.5 rounded text-[10px] font-mono bg-black/85 text-neutral-300 backdrop-blur-sm border border-neutral-700/50">
+                  28m · FUOYE
                 </span>
               </div>
 
