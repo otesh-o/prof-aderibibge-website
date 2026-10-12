@@ -19,22 +19,21 @@ export const metadata: Metadata = {
 
 export default function ResearchPage() {
   return (
-    <div className="py-12 sm:py-20 bg-[#0F1117]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-20">
+    <div className="py-16 sm:py-24 bg-[#0D0E12]">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-20">
 
         {/* 1. Page Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-8 border-b border-white/[0.08]">
-          <div className="max-w-3xl space-y-4">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-white/5 text-gray-300 border border-white/10">
-              <BookOpen className="w-3.5 h-3.5 text-gray-400" />
-              <span>Scholarship & Inquiry</span>
-            </div>
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-8 border-b border-[#20232E]">
+          <div className="max-w-3xl space-y-3">
+            <span className="font-mono text-xs uppercase tracking-widest text-[#71788E] block">
+              Scholarship & Scientific Inquiries
+            </span>
 
-            <h1 className="text-3xl sm:text-5xl font-extrabold text-[#E5E7EB] tracking-tight">
+            <h1 className="font-serif text-3xl sm:text-5xl font-normal text-[#EDEFEF] tracking-tight">
               Research & Publications
             </h1>
 
-            <p className="text-base sm:text-lg text-[#9CA3AF] leading-relaxed">
+            <p className="text-sm sm:text-base text-[#9FA6B2] leading-relaxed max-w-2xl">
               Investigating the intersection of strategic communication, artificial intelligence in African media,
               development paradigms, and media and information literacy.
             </p>
@@ -45,22 +44,22 @@ export default function ResearchPage() {
               href={profileData.socialLinks.googleScholar}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-[#161822] border border-white/10 text-xs text-white hover:border-white/20 transition-colors"
+              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-sm bg-[#1A1D27] hover:bg-[#202432] text-[#EDEFEF] font-mono text-xs border border-[#262A38] transition-colors"
             >
-              <span>Google Scholar</span>
-              <ExternalLink className="w-3.5 h-3.5" />
+              <span>Google Scholar Profile</span>
+              <ExternalLink className="w-3.5 h-3.5 text-[#8A90A2]" />
             </a>
           </div>
         </div>
 
-        {/* 2. Research Interests Bento Grid */}
+        {/* 2. Research Pillars */}
         <div className="space-y-6">
-          <div>
-            <span className="text-xs font-semibold tracking-wider uppercase text-gray-400">
-              Core Pillars
+          <div className="border-b border-[#20232E] pb-3">
+            <span className="font-mono text-xs uppercase tracking-widest text-[#71788E] block">
+              Theoretical & Empirical Focus
             </span>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-white mt-1">
-              Active Research Interests
+            <h2 className="font-serif text-2xl sm:text-3xl font-normal text-[#EDEFEF] mt-1">
+              Active Research Pillars
             </h2>
           </div>
 
@@ -68,16 +67,16 @@ export default function ResearchPage() {
             {profileData.researchInterests.map((interest, idx) => (
               <div
                 key={idx}
-                className="rounded-3xl bg-[#161822] border border-white/10 p-6 sm:p-8 flex flex-col justify-between hover:border-white/20 transition-all space-y-4"
+                className="p-6 sm:p-7 border border-[#20232E] bg-[#14161E] flex flex-col justify-between space-y-4"
               >
                 <div>
-                  <span className="inline-block px-2.5 py-1 rounded-full text-[10px] font-semibold bg-white/5 text-gray-300 border border-white/10 mb-3">
+                  <span className="font-mono text-[10px] uppercase tracking-wider text-[#71788E] block mb-2">
                     {interest.tag}
                   </span>
-                  <h3 className="text-lg font-bold text-white mb-2">
+                  <h3 className="font-serif text-lg font-normal text-[#EDEFEF] mb-2 leading-snug">
                     {interest.title}
                   </h3>
-                  <p className="text-xs text-gray-400 leading-relaxed">
+                  <p className="text-xs text-[#8A92A6] leading-relaxed">
                     {interest.description}
                   </p>
                 </div>
@@ -86,95 +85,93 @@ export default function ResearchPage() {
           </div>
         </div>
 
-        {/* 3. Doctoral Thesis Showcase */}
-        <div className="rounded-3xl bg-[#161822] border border-white/10 p-8 sm:p-12 space-y-6">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 pb-4 border-b border-white/10">
+        {/* 3. Doctoral Dissertation Feature */}
+        <section className="border border-[#20232E] bg-[#14161E]">
+          <div className="p-6 sm:p-8 border-b border-[#20232E] flex flex-col sm:flex-row sm:items-baseline justify-between gap-4 bg-[#10121A]">
             <div>
-              <span className="text-xs font-bold uppercase tracking-wider text-gray-400">
+              <span className="font-mono text-[11px] uppercase tracking-widest text-[#71788E] block">
                 Doctoral Dissertation • Babcock University ({thesisData.year})
               </span>
-              <h2 className="text-xl sm:text-2xl font-bold text-white mt-1">
+              <h2 className="font-serif text-xl sm:text-2xl font-normal text-[#EDEFEF] mt-1">
                 {thesisData.title}
               </h2>
             </div>
             <a
               href="/documents/Prof_Adebola_Aderibigbe_PhD_Thesis_Summary.pdf"
               download
-              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-xl bg-blue-600 text-white font-medium text-xs hover:bg-blue-500 transition-colors shadow-lg shadow-blue-500/20 self-start sm:self-auto shrink-0"
+              className="shrink-0 inline-flex items-center gap-2 px-4 py-2 rounded-sm bg-[#1F2433] hover:bg-[#282F44] text-[#EDEFEF] font-mono text-xs border border-[#2F364C] transition-colors"
             >
-              <Download className="w-3.5 h-3.5" />
+              <Download className="w-3.5 h-3.5 text-[#8A90A2]" />
               <span>Download Thesis Summary</span>
             </a>
           </div>
 
-          <p className="text-sm sm:text-base text-gray-300 leading-relaxed">
-            {thesisData.summary}
-          </p>
+          <div className="p-6 sm:p-8 space-y-6">
+            <p className="text-sm text-[#9FA6B2] leading-relaxed">
+              {thesisData.summary}
+            </p>
 
-          <div className="space-y-2 pt-2">
-            <h4 className="text-xs font-bold uppercase tracking-wider text-gray-400">
-              Key Contributions & Policy Frameworks:
-            </h4>
-            <ul className="grid grid-cols-1 md:grid-cols-3 gap-3 pt-2">
-              {thesisData.keyContributions.map((contrib, idx) => (
-                <li
-                  key={idx}
-                  className="p-4 rounded-xl bg-[#0F1117] border border-white/5 text-xs text-gray-300 leading-relaxed"
-                >
-                  {contrib}
-                </li>
-              ))}
-            </ul>
+            <div className="space-y-3 pt-2">
+              <span className="font-mono text-xs uppercase tracking-wider text-[#71788E] block">
+                Key Contributions & Policy Frameworks:
+              </span>
+              <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                {thesisData.keyContributions.map((contrib, idx) => (
+                  <div
+                    key={idx}
+                    className="p-4 border border-[#20232E] bg-[#0D0E12] text-xs text-[#8A92A6] leading-relaxed"
+                  >
+                    {contrib}
+                  </div>
+                ))}
+              </div>
+            </div>
           </div>
-        </div>
+        </section>
 
-        {/* 4. Publications List Section */}
+        {/* 4. Peer-Reviewed Works */}
         <div className="space-y-6">
-          <div>
-            <span className="text-xs font-semibold tracking-wider uppercase text-gray-400">
+          <div className="border-b border-[#20232E] pb-3">
+            <span className="font-mono text-xs uppercase tracking-widest text-[#71788E] block">
               Peer-Reviewed Works
             </span>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-white mt-1">
+            <h2 className="font-serif text-2xl sm:text-3xl font-normal text-[#EDEFEF] mt-1">
               Publications & Monographs
             </h2>
-            <p className="text-xs text-gray-400 mt-1">
-              Filter by journal papers, conference proceedings, policy monographs, or book chapters.
-            </p>
           </div>
 
           <PublicationsList />
         </div>
 
-        {/* 5. Grants & Supervision */}
+        {/* 5. Grants & Supervision Ledgers */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           
           {/* Research Grants */}
-          <div className="rounded-3xl bg-[#161822] border border-white/10 p-6 sm:p-8 space-y-6">
-            <div className="flex items-center gap-3">
-              <div className="p-2.5 rounded-xl bg-white/5 border border-white/10 text-gray-300">
-                <Sparkles className="w-5 h-5" />
-              </div>
-              <div>
-                <h3 className="text-lg font-bold text-white">Grants & Funded Projects</h3>
-                <span className="text-xs text-gray-400">Executed Research Grants</span>
-              </div>
+          <div className="border border-[#20232E] bg-[#14161E]">
+            <div className="p-5 sm:p-6 border-b border-[#20232E] bg-[#10121A]">
+              <span className="font-mono text-[11px] uppercase tracking-widest text-[#71788E] block">
+                Funded Projects
+              </span>
+              <h3 className="font-serif text-lg font-normal text-[#EDEFEF] mt-0.5">
+                Executed Research Grants
+              </h3>
             </div>
 
-            <div className="space-y-4">
+            <div className="divide-y divide-[#1D202B]">
               {researchGrantsData.map((grant, idx) => (
-                <div key={idx} className="p-4 rounded-2xl bg-[#0F1117] border border-white/5 space-y-2">
+                <div key={idx} className="p-5 sm:p-6 space-y-2">
                   <div className="flex items-center justify-between">
-                    <span className="text-xs font-bold text-gray-200">
+                    <span className="font-mono text-xs text-[#8A92A6]">
                       {grant.fundingBody}
                     </span>
-                    <span className="text-[10px] px-2 py-0.5 rounded bg-white/5 text-gray-300 border border-white/10">
+                    <span className="font-mono text-[10px] px-2 py-0.5 bg-[#1E2230] text-[#9AA1B2] border border-[#2B3044]">
                       {grant.year}
                     </span>
                   </div>
-                  <h4 className="text-sm font-semibold text-white">
+                  <h4 className="text-sm font-semibold text-[#EDEFEF]">
                     {grant.title}
                   </h4>
-                  <p className="text-xs text-gray-400 leading-relaxed">
+                  <p className="text-xs text-[#6F778A] leading-relaxed">
                     {grant.description}
                   </p>
                 </div>
@@ -183,32 +180,31 @@ export default function ResearchPage() {
           </div>
 
           {/* Postgraduate Supervision */}
-          <div className="rounded-3xl bg-[#161822] border border-white/10 p-6 sm:p-8 space-y-6">
-            <div className="flex items-center gap-3">
-              <div className="p-2.5 rounded-xl bg-white/5 border border-white/10 text-gray-300">
-                <Users className="w-5 h-5" />
-              </div>
-              <div>
-                <h3 className="text-lg font-bold text-white">Postgraduate Supervision</h3>
-                <span className="text-xs text-gray-400">MSc & PhD Research Mentorship</span>
-              </div>
+          <div className="border border-[#20232E] bg-[#14161E]">
+            <div className="p-5 sm:p-6 border-b border-[#20232E] bg-[#10121A]">
+              <span className="font-mono text-[11px] uppercase tracking-widest text-[#71788E] block">
+                Research Mentorship
+              </span>
+              <h3 className="font-serif text-lg font-normal text-[#EDEFEF] mt-0.5">
+                Postgraduate Supervision
+              </h3>
             </div>
 
-            <div className="space-y-4">
+            <div className="divide-y divide-[#1D202B]">
               {supervisionsData.map((sup, idx) => (
-                <div key={idx} className="p-4 rounded-2xl bg-[#0F1117] border border-white/5 space-y-1">
+                <div key={idx} className="p-5 sm:p-6 space-y-1.5">
                   <div className="flex items-center justify-between">
-                    <span className="text-xs font-bold text-gray-200">
+                    <span className="font-mono text-xs text-[#EDEFEF]">
                       {sup.level} Research
                     </span>
-                    <span className="text-[10px] px-2 py-0.5 rounded-full bg-white/5 text-gray-300 border border-white/10">
+                    <span className="font-mono text-[10px] px-2 py-0.5 bg-[#1E2230] text-[#9AA1B2] border border-[#2B3044]">
                       {sup.status}
                     </span>
                   </div>
-                  <h4 className="text-sm font-medium text-white">
+                  <h4 className="text-xs sm:text-sm text-[#8A92A6]">
                     {sup.area}
                   </h4>
-                  <span className="text-[11px] text-gray-500 block">
+                  <span className="font-mono text-[11px] text-[#5A6072] block">
                     {sup.year}
                   </span>
                 </div>

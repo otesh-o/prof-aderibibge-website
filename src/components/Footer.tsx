@@ -1,76 +1,71 @@
 import Link from "next/link";
-import { ExternalLink, Mail, Award, BookOpen, GraduationCap } from "lucide-react";
+import { ExternalLink } from "lucide-react";
 
 export default function Footer() {
   const currentYear = 2026;
 
   return (
-    <footer className="relative bg-[#0B0D12] border-t border-white/[0.08] pt-16 pb-28 text-sm text-[#9CA3AF]">
+    <footer className="bg-[#090A0D] border-t border-[#1C1F28] pt-16 pb-28 text-xs text-neutral-400 font-sans">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-10 mb-12">
           {/* Identity & Department */}
-          <div className="md:col-span-2 space-y-4">
-            <h2 className="text-xl font-bold text-[#E5E7EB] tracking-tight">
+          <div className="md:col-span-2 space-y-3">
+            <h2 className="font-serif text-xl text-white tracking-tight">
               Prof. Adebola Adewunmi Aderibigbe
             </h2>
-            <p className="text-[#9CA3AF] leading-relaxed max-w-md">
-              Professor of Mass Communication, Faculty of Communication and Media Studies,
+            <p className="text-neutral-400 leading-relaxed max-w-md">
+              Department of Mass Communication, Faculty of Communication and Media Studies,
               Federal University Oye-Ekiti (FUOYE), Nigeria.
             </p>
-            <p className="text-xs text-gray-300 font-medium">
+            <p className="font-mono text-[11px] text-neutral-400">
               Specialisation: Strategic and Development Communication
             </p>
-            <div className="flex flex-wrap items-center gap-3 pt-2">
+            <div className="flex items-center gap-4 pt-2 font-mono text-[11px]">
               <a
                 href="https://scholar.google.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#161822] border border-white/10 text-xs text-[#E5E7EB] hover:text-white hover:border-white/20 transition-colors"
+                className="text-neutral-300 hover:text-white flex items-center gap-1 transition-colors"
               >
                 <span>Google Scholar</span>
                 <ExternalLink className="w-3 h-3" />
               </a>
+              <span>·</span>
               <a
                 href="https://www.linkedin.com"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-[#161822] border border-white/10 text-xs text-[#E5E7EB] hover:text-white hover:border-white/20 transition-colors"
+                className="text-neutral-300 hover:text-white flex items-center gap-1 transition-colors"
               >
                 <span>LinkedIn</span>
                 <ExternalLink className="w-3 h-3" />
               </a>
-              <Link
-                href="/contact"
-                className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white/5 border border-white/10 text-xs text-gray-300 hover:text-white hover:bg-white/10 transition-colors"
-              >
-                <Mail className="w-3 h-3" />
-                <span>Contact Office</span>
+              <span>·</span>
+              <Link href="/contact" className="text-neutral-300 hover:text-white transition-colors">
+                Contact Office
               </Link>
             </div>
           </div>
 
           {/* Quick Academic Navigation */}
           <div>
-            <h3 className="text-xs font-semibold uppercase tracking-wider text-[#E5E7EB] mb-4">
-              Academic & Teaching
+            <h3 className="font-mono text-[11px] uppercase tracking-wider text-neutral-300 mb-4">
+              Academic
             </h3>
-            <ul className="space-y-2.5 text-xs">
+            <ul className="space-y-2 text-xs">
               <li>
-                <Link href="/research" className="hover:text-white transition-colors flex items-center gap-2">
-                  <BookOpen className="w-3.5 h-3.5 text-gray-400" />
-                  <span>Research & Publications</span>
+                <Link href="/research" className="hover:text-white transition-colors">
+                  Research & Publications
                 </Link>
               </li>
               <li>
-                <Link href="/teaching" className="hover:text-white transition-colors flex items-center gap-2">
-                  <GraduationCap className="w-3.5 h-3.5 text-gray-400" />
-                  <span>Course Outlines & Lectures</span>
+                <Link href="/teaching" className="hover:text-white transition-colors">
+                  Course Outlines & Syllabi
                 </Link>
               </li>
               <li>
-                <Link href="/credentials" className="hover:text-white transition-colors flex items-center gap-2">
-                  <Award className="w-3.5 h-3.5 text-gray-400" />
-                  <span>Honours & Fellowships</span>
+                <Link href="/credentials" className="hover:text-white transition-colors">
+                  Honours & Accreditation
                 </Link>
               </li>
               <li>
@@ -83,10 +78,10 @@ export default function Footer() {
 
           {/* Engagements & Public Discourse */}
           <div>
-            <h3 className="text-xs font-semibold uppercase tracking-wider text-[#E5E7EB] mb-4">
-              Public & Professional
+            <h3 className="font-mono text-[11px] uppercase tracking-wider text-neutral-300 mb-4">
+              Public Discourse
             </h3>
-            <ul className="space-y-2.5 text-xs">
+            <ul className="space-y-2 text-xs">
               <li>
                 <Link href="/speaking" className="hover:text-white transition-colors">
                   Keynotes & Speaking
@@ -104,7 +99,7 @@ export default function Footer() {
               </li>
               <li>
                 <Link href="/contact" className="hover:text-white transition-colors">
-                  Media & Advisory Inquiries
+                  Advisory Inquiries
                 </Link>
               </li>
             </ul>
@@ -112,13 +107,9 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 border-t border-white/[0.06] flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-gray-500">
+        <div className="pt-8 border-t border-[#1C1F28] flex flex-col sm:flex-row items-center justify-between gap-4 font-mono text-[11px] text-neutral-500">
           <p>© {currentYear} Prof. Adebola Adewunmi Aderibigbe. All rights reserved.</p>
-          <p className="flex items-center gap-2">
-            <span>adebolaaderibigbe.com</span>
-            <span>•</span>
-            <span className="text-gray-400">Federal University Oye-Ekiti</span>
-          </p>
+          <p>adebolaaderibigbe.com · Federal University Oye-Ekiti</p>
         </div>
       </div>
     </footer>

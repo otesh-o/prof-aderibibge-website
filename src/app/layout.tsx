@@ -1,17 +1,18 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Newsreader, Plus_Jakarta_Sans } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import NavigationDock from "@/components/NavigationDock";
 import Footer from "@/components/Footer";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const newsreader = Newsreader({
+  variable: "--font-newsreader",
   subsets: ["latin"],
+  style: ["normal", "italic"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const plusJakartaSans = Plus_Jakarta_Sans({
+  variable: "--font-jakarta",
   subsets: ["latin"],
 });
 
@@ -53,24 +54,24 @@ export default function RootLayout({
     "worksFor": {
       "@type": "CollegeOrUniversity",
       "name": "Federal University Oye-Ekiti (FUOYE)",
-      "sameAs": "https://fuoye.edu.ng"
+      "sameAs": "https://fuoye.edu.ng",
     },
     "alumniOf": [
       { "@type": "CollegeOrUniversity", "name": "Babcock University" },
       { "@type": "CollegeOrUniversity", "name": "University of Lagos" },
-      { "@type": "CollegeOrUniversity", "name": "Bowen University" }
+      { "@type": "CollegeOrUniversity", "name": "Bowen University" },
     ],
     "url": "https://adebolaaderibigbe.com",
     "sameAs": [
       "https://scholar.google.com",
-      "https://www.linkedin.com"
-    ]
+      "https://www.linkedin.com",
+    ],
   };
 
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${newsreader.variable} ${plusJakartaSans.variable} h-full antialiased`}
     >
       <head>
         <script
@@ -78,9 +79,9 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="min-h-full flex flex-col bg-[#0B0F17] text-[#E5E7EB]">
+      <body className="min-h-full flex flex-col bg-[#0D0E12] text-[#E6E8EE] selection:bg-blue-600 selection:text-white">
         <Header />
-        <main className="flex-1 pb-20">{children}</main>
+        <main className="flex-1 pb-24">{children}</main>
         <NavigationDock />
         <Footer />
       </body>

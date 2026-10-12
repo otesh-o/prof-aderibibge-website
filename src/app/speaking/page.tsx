@@ -18,22 +18,21 @@ export const metadata: Metadata = {
 
 export default function SpeakingPage() {
   return (
-    <div className="py-12 sm:py-20 bg-[#0F1117]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-20">
+    <div className="py-16 sm:py-24 bg-[#0D0E12]">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-20">
 
         {/* 1. Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-8 border-b border-white/[0.08]">
-          <div className="max-w-3xl space-y-4">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-white/5 text-gray-300 border border-white/10">
-              <Mic className="w-3.5 h-3.5 text-gray-400" />
-              <span>Public Discourse & Keynotes</span>
-            </div>
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-8 border-b border-[#20232E]">
+          <div className="max-w-3xl space-y-3">
+            <span className="font-mono text-xs uppercase tracking-widest text-[#71788E] block">
+              Public Discourse & Keynotes
+            </span>
 
-            <h1 className="text-3xl sm:text-5xl font-extrabold text-[#E5E7EB] tracking-tight">
+            <h1 className="font-serif text-3xl sm:text-5xl font-normal text-[#EDEFEF] tracking-tight">
               Speaking Engagements
             </h1>
 
-            <p className="text-base sm:text-lg text-[#9CA3AF] leading-relaxed">
+            <p className="text-sm sm:text-base text-[#9FA6B2] leading-relaxed max-w-2xl">
               Invited keynotes, national electoral media workshops, and institutional addresses delivering
               authoritative insights on strategic communication, ethical AI, and national development.
             </p>
@@ -42,21 +41,21 @@ export default function SpeakingPage() {
           <div className="shrink-0">
             <Link
               href="/contact?reason=speaking"
-              className="inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-blue-600 text-white font-medium text-xs hover:bg-blue-500 transition-colors shadow-lg shadow-blue-500/20"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-sm bg-[#1F2433] hover:bg-[#282F44] text-[#EDEFEF] text-xs font-mono border border-[#2F364C] transition-colors"
             >
               <span>Invite Prof. Aderibigbe to Speak</span>
-              <ArrowRight className="w-4 h-4" />
+              <ArrowRight className="w-3.5 h-3.5 text-[#8A90A2]" />
             </Link>
           </div>
         </div>
 
-        {/* 2. Topics I Speak On */}
+        {/* 2. Topics I Speak On (Clean Ledger) */}
         <div className="space-y-6">
-          <div>
-            <span className="text-xs font-semibold tracking-wider uppercase text-gray-400">
+          <div className="border-b border-[#20232E] pb-3">
+            <span className="font-mono text-xs uppercase tracking-widest text-[#71788E] block">
               Keynote Focus Areas
             </span>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-white mt-1">
+            <h2 className="font-serif text-2xl sm:text-3xl font-normal text-[#EDEFEF] mt-1">
               Topics & Master Lecture Themes
             </h2>
           </div>
@@ -65,15 +64,15 @@ export default function SpeakingPage() {
             {speakingTopics.map((topic, idx) => (
               <div
                 key={idx}
-                className="p-6 rounded-2xl bg-[#161822] border border-white/10 space-y-2 hover:border-white/20 transition-colors"
+                className="p-6 border border-[#20232E] bg-[#14161E] space-y-2.5"
               >
-                <div className="w-8 h-8 rounded-lg bg-white/5 text-gray-300 flex items-center justify-center font-bold text-xs mb-3 border border-white/10">
-                  0{idx + 1}
-                </div>
-                <h3 className="text-base font-bold text-white">
+                <span className="font-mono text-[10px] uppercase tracking-wider text-[#71788E] block">
+                  Focus Area
+                </span>
+                <h3 className="font-serif text-lg font-normal text-[#EDEFEF] leading-snug">
                   {topic.title}
                 </h3>
-                <p className="text-xs text-gray-400 leading-relaxed">
+                <p className="text-xs text-[#8A92A6] leading-relaxed">
                   {topic.description}
                 </p>
               </div>
@@ -81,80 +80,73 @@ export default function SpeakingPage() {
           </div>
         </div>
 
-        {/* 3. Engagements Bento & Tiles (Newest First) */}
+        {/* 3. Engagements Ledger (Chronological) */}
         <div className="space-y-6">
-          <div>
-            <span className="text-xs font-semibold tracking-wider uppercase text-gray-400">
+          <div className="border-b border-[#20232E] pb-3">
+            <span className="font-mono text-xs uppercase tracking-widest text-[#71788E] block">
               Record of Engagements
             </span>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-white mt-1">
+            <h2 className="font-serif text-2xl sm:text-3xl font-normal text-[#EDEFEF] mt-1">
               Featured & Recent Engagements
             </h2>
-            <p className="text-xs text-gray-400 mt-1">
-              Chronological log of international summits, federal training workshops, and university guest lectures.
-            </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="border border-[#20232E] bg-[#14161E] divide-y divide-[#1D202B]">
             {allSpeakingEvents.map((event) => (
               <div
                 key={event.id}
-                className={`rounded-3xl p-6 sm:p-8 flex flex-col justify-between transition-all group bg-[#161822] border border-white/10 hover:border-white/20 ${
-                  event.isFeatured ? "md:col-span-2 lg:col-span-2 border-white/15" : ""
-                }`}
+                className="p-6 sm:p-7 flex flex-col md:flex-row md:items-baseline justify-between gap-6 hover:bg-[#181B24] transition-colors"
               >
-                <div className="space-y-4">
-                  <div className="flex flex-wrap items-center justify-between gap-2">
-                    <span className="text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-white/5 text-gray-300 border border-white/10">
+                <div className="space-y-2 max-w-2xl">
+                  <div className="flex flex-wrap items-baseline gap-3">
+                    <span className="font-mono text-[11px] uppercase tracking-wider px-2 py-0.5 bg-[#1E2230] text-[#9AA1B2] border border-[#2B3044]">
                       {event.role}
                     </span>
-                    <span className="text-xs font-medium text-gray-400 flex items-center gap-1.5">
-                      <Calendar className="w-3.5 h-3.5 text-gray-500" />
-                      <span>{event.date}</span>
+                    <span className="font-mono text-xs text-[#71788E]">
+                      {event.date}
                     </span>
                   </div>
 
-                  <h3
-                    className={`font-bold text-white group-hover:text-white transition-colors leading-snug ${
-                      event.isFeatured ? "text-xl sm:text-2xl" : "text-base sm:text-lg"
-                    }`}
-                  >
+                  <h3 className="font-serif text-xl sm:text-2xl font-normal text-[#EDEFEF] leading-snug">
                     {event.event}
                   </h3>
 
-                  <div className="p-4 rounded-2xl bg-[#0F1117] border border-white/5 space-y-1">
-                    <span className="text-[10px] uppercase font-semibold text-gray-400 block">
-                      Topic / Focus:
+                  <div className="p-3 bg-[#0D0E12] border border-[#20232E]">
+                    <span className="font-mono text-[10px] uppercase text-[#71788E] block mb-1">
+                      Theme / Address:
                     </span>
-                    <p className="text-xs sm:text-sm font-medium text-gray-200">
+                    <p className="font-serif text-sm text-[#D8DCE6] italic">
                       “{event.topic}”
                     </p>
                   </div>
 
-                  <div className="flex flex-wrap items-center gap-4 text-xs text-gray-400 pt-1">
+                  <div className="flex flex-wrap items-center gap-4 text-xs font-mono text-[#8A92A6] pt-1">
                     <span className="flex items-center gap-1.5">
-                      <Building className="w-3.5 h-3.5 text-gray-400" />
+                      <Building className="w-3.5 h-3.5 text-[#6E7588]" />
                       <span>{event.host}</span>
                     </span>
                     <span className="flex items-center gap-1.5">
-                      <MapPin className="w-3.5 h-3.5 text-gray-400" />
+                      <MapPin className="w-3.5 h-3.5 text-[#6E7588]" />
                       <span>{event.location}</span>
                     </span>
                   </div>
                 </div>
 
-                <div className="pt-6 mt-6 border-t border-white/5 flex items-center justify-between text-xs">
-                  <span className="text-gray-500">Documented Academic Event</span>
-                  {event.recordingUrl && (
+                <div className="shrink-0 self-start md:self-baseline">
+                  {event.recordingUrl ? (
                     <a
                       href={event.recordingUrl}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-blue-400 hover:underline flex items-center gap-1 font-medium"
+                      className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-sm bg-[#1A1D27] hover:bg-[#202432] text-[#EDEFEF] font-mono text-xs border border-[#262A38] transition-colors"
                     >
-                      <Video className="w-3.5 h-3.5" />
-                      <span>Watch Session</span>
+                      <Video className="w-3.5 h-3.5 text-[#8A90A2]" />
+                      <span>Session Video</span>
                     </a>
+                  ) : (
+                    <span className="font-mono text-[11px] text-[#5A6072]">
+                      Documented Event
+                    </span>
                   )}
                 </div>
               </div>
@@ -162,28 +154,28 @@ export default function SpeakingPage() {
           </div>
         </div>
 
-        {/* 4. Speaking Invitation Card */}
-        <div className="rounded-3xl bg-[#161822] border border-white/10 p-8 sm:p-12 text-center max-w-3xl mx-auto space-y-6">
-          <div className="w-12 h-12 rounded-2xl bg-white/5 border border-white/10 text-gray-300 flex items-center justify-center mx-auto">
-            <Mic className="w-6 h-6" />
-          </div>
+        {/* 4. Speaking Invitation Consultation Box */}
+        <div className="border border-[#20232E] bg-[#14161E] p-8 sm:p-12 text-center max-w-3xl mx-auto space-y-4">
+          <span className="font-mono text-xs uppercase tracking-widest text-[#71788E] block">
+            Institutional Keynote Inquiries
+          </span>
 
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-white">
-            Invite Prof. Aderibigbe for Your Next Conference or Summit
+          <h2 className="font-serif text-2xl sm:text-3xl font-normal text-[#EDEFEF]">
+            Invite Prof. Aderibigbe for Your Conference or Summit
           </h2>
 
-          <p className="text-sm text-gray-300 leading-relaxed">
-            Please include proposed dates, event location, audience composition, and the theme when submitting your inquiry.
+          <p className="text-xs sm:text-sm text-[#8A92A6] leading-relaxed max-w-xl mx-auto">
+            Please include proposed dates, host organisation, audience composition, and the core theme when submitting your inquiry.
             The office will respond promptly with availability and speaker materials.
           </p>
 
-          <div>
+          <div className="pt-2">
             <Link
               href="/contact?reason=speaking"
-              className="inline-flex items-center gap-2 px-8 py-3.5 rounded-xl bg-blue-600 text-white font-medium text-sm hover:bg-blue-500 transition-colors shadow-lg shadow-blue-500/20"
+              className="inline-flex items-center gap-2 px-6 py-2.5 rounded-sm bg-[#1F2433] hover:bg-[#282F44] text-[#EDEFEF] font-mono text-xs border border-[#2F364C] transition-colors"
             >
               <span>Submit Speaking Invitation</span>
-              <ArrowRight className="w-4 h-4" />
+              <ArrowRight className="w-3.5 h-3.5 text-[#8A90A2]" />
             </Link>
           </div>
         </div>

@@ -1,385 +1,253 @@
 import Link from "next/link";
-import {
-  Mic,
-  Video,
-  Award,
-  BookOpen,
-  GraduationCap,
-  Users,
-  PenTool,
-  ArrowRight,
-  Sparkles,
-  Play,
-} from "lucide-react";
+import { ArrowRight, Play, ExternalLink } from "lucide-react";
 import { profileData } from "@/data/profile";
 
 export default function BentoGrid() {
   return (
-    <section className="py-16 sm:py-24 bg-[#0F1117]">
+    <section className="py-20 bg-[#0D0E12]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="flex flex-col sm:flex-row sm:items-end justify-between mb-12 gap-4">
+        <div className="flex flex-col sm:flex-row sm:items-baseline justify-between mb-12 pb-6 border-b border-[#20232E] gap-4">
           <div>
-            <span className="text-xs font-semibold tracking-wider uppercase text-gray-400">
-              Overview & Contributions
-            </span>
-            <h2 className="text-2xl sm:text-4xl font-extrabold text-[#E5E7EB] mt-1">
+            <h2 className="font-serif text-3xl sm:text-4xl text-white tracking-tight">
               Academic & Professional Highlights
             </h2>
+            <p className="text-xs font-mono text-neutral-400 uppercase tracking-widest mt-1">
+              Keynotes · Curriculum · Research Agendas · Public Discourse
+            </p>
           </div>
-          <p className="text-sm text-[#9CA3AF] max-w-md">
-            Direct access to keynote records, curriculum innovations, research agendas, and public mentorship classes.
-          </p>
+          <Link
+            href="/about"
+            className="text-xs font-mono text-neutral-400 hover:text-white flex items-center gap-1 transition-colors"
+          >
+            <span>Full Profile</span>
+            <ArrowRight className="w-3.5 h-3.5" />
+          </Link>
         </div>
 
-        {/* Bento Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {/* Asymmetrical Architectural Bento Grid */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
 
-          {/* TILE 1: Large Featured "Speaker at" (Spans 2 columns on lg) */}
-          <div className="lg:col-span-2 rounded-3xl bg-[#161822] border border-white/10 p-6 sm:p-8 flex flex-col justify-between hover:border-white/20 transition-all group">
+          {/* CELL 1: Speaker at — Editorial Ledger Table (Spans 8 columns on lg) */}
+          <div className="lg:col-span-8 bg-[#14161E] border border-[#20232E] rounded-xl p-6 sm:p-8 flex flex-col justify-between">
             <div>
-              <div className="flex items-center justify-between mb-6">
-                <div className="flex items-center gap-2.5 text-gray-300">
-                  <div className="p-2 rounded-xl bg-white/5 border border-white/10 text-gray-300">
-                    <Mic className="w-5 h-5" />
-                  </div>
-                  <span className="text-xs font-bold uppercase tracking-wider text-gray-400">
-                    Keynote & Speaking Engagements
-                  </span>
-                </div>
+              <div className="flex items-baseline justify-between pb-4 mb-4 border-b border-[#20232E]">
+                <h3 className="font-serif text-xl sm:text-2xl text-white">
+                  Speaker at
+                </h3>
                 <Link
                   href="/speaking"
-                  className="text-xs font-medium text-gray-400 group-hover:text-white flex items-center gap-1 transition-colors"
+                  className="text-xs font-mono text-neutral-400 hover:text-white flex items-center gap-1"
                 >
-                  <span>All Events</span>
+                  <span>View All Speaking Engagements</span>
                   <ArrowRight className="w-3.5 h-3.5" />
                 </Link>
               </div>
 
-              <h3 className="text-xl sm:text-2xl font-bold text-white mb-6">
-                Featured Keynotes & National Facilitations
-              </h3>
-
-              <div className="space-y-4">
+              {/* Clean Editorial Ledger Rows (No nested cards) */}
+              <div className="divide-y divide-[#20232E]">
                 {profileData.speakingHighlights.slice(0, 3).map((item, idx) => (
-                  <div
-                    key={idx}
-                    className="p-4 rounded-2xl bg-[#0F1117] border border-white/5 hover:border-white/10 transition-colors flex flex-col sm:flex-row sm:items-center justify-between gap-2"
-                  >
-                    <div>
-                      <div className="flex items-center gap-2 mb-1">
-                        <span className="text-xs font-semibold px-2 py-0.5 rounded-full bg-white/5 text-gray-300 border border-white/10">
-                          {item.year}
-                        </span>
-                        <span className="text-xs text-gray-400 font-medium">
-                          {item.role}
-                        </span>
-                      </div>
+                  <div key={idx} className="py-4 flex flex-col sm:flex-row sm:items-baseline justify-between gap-2">
+                    <div className="space-y-1">
                       <h4 className="text-sm font-semibold text-white">
                         {item.event}
                       </h4>
-                      <p className="text-xs text-gray-400 mt-0.5">
-                        {item.host} • {item.location}
+                      <p className="text-xs text-neutral-400">
+                        {item.host} · {item.location}
                       </p>
+                    </div>
+                    <div className="sm:text-right shrink-0">
+                      <span className="text-xs font-mono text-neutral-300 block">
+                        {item.role}
+                      </span>
+                      <span className="text-[11px] font-mono text-neutral-500">
+                        {item.year}
+                      </span>
                     </div>
                   </div>
                 ))}
               </div>
             </div>
 
-            <div className="pt-6 mt-6 border-t border-white/5 flex items-center justify-between text-xs text-gray-400">
-              <span>Have an upcoming summit or academic panel?</span>
+            <div className="pt-4 mt-4 border-t border-[#20232E] flex items-center justify-between text-xs text-neutral-400">
+              <span className="font-mono text-[11px]">Keynote, chair and facilitation invitations</span>
               <Link
-                href="/speaking"
-                className="text-blue-400 font-medium hover:underline flex items-center gap-1"
+                href="/contact?reason=speaking"
+                className="text-neutral-200 hover:text-white font-medium flex items-center gap-1"
               >
-                <span>Request Speaker Pack</span>
-                <ArrowRight className="w-3.5 h-3.5" />
+                <span>Invite to Speak</span>
+                <ArrowRight className="w-3 h-3" />
               </Link>
             </div>
           </div>
 
-          {/* TILE 2: Wide Video Feature / Lecture Preview */}
-          <div className="rounded-3xl bg-[#161822] border border-white/10 p-6 sm:p-8 flex flex-col justify-between hover:border-white/20 transition-all group">
+          {/* CELL 2: Featured Lecture Video (Spans 4 columns on lg) */}
+          <div className="lg:col-span-4 bg-[#14161E] border border-[#20232E] rounded-xl p-6 sm:p-8 flex flex-col justify-between">
             <div>
-              <div className="flex items-center gap-2 text-gray-300 mb-6">
-                <div className="p-2 rounded-xl bg-white/5 border border-white/10 text-gray-300">
-                  <Video className="w-5 h-5" />
-                </div>
-                <span className="text-xs font-bold uppercase tracking-wider text-gray-400">
+              <div className="pb-4 mb-4 border-b border-[#20232E]">
+                <h3 className="font-serif text-xl text-white">
                   Featured Lecture
+                </h3>
+                <span className="text-[11px] font-mono text-neutral-400">
+                  MAC 805 · Postgraduate Seminar
                 </span>
               </div>
 
-              {/* Video Thumbnail Embed Container */}
-              <div className="relative aspect-video rounded-2xl overflow-hidden bg-[#0F1117] border border-white/10 flex items-center justify-center mb-5 group/video cursor-pointer">
-                <div className="w-12 h-12 rounded-full bg-white/10 text-white flex items-center justify-center border border-white/15 group-hover/video:bg-blue-600 group-hover/video:border-transparent transition-all">
-                  <Play className="w-5 h-5 ml-0.5 fill-current" />
+              {/* Stark Media Container */}
+              <div className="relative aspect-video rounded-lg overflow-hidden bg-[#0A0C10] border border-[#20232E] flex items-center justify-center mb-4 group cursor-pointer">
+                <div className="w-11 h-11 rounded-full bg-neutral-900 border border-neutral-700 text-white flex items-center justify-center group-hover:bg-[#2563EB] group-hover:border-transparent transition-colors">
+                  <Play className="w-4 h-4 ml-0.5 fill-current" />
                 </div>
-                <div className="absolute bottom-3 left-3 right-3 text-left">
-                  <span className="px-2 py-0.5 rounded text-[10px] font-semibold bg-black/80 text-gray-300 backdrop-blur-md">
-                    28 mins • YouTube Embed
-                  </span>
-                </div>
+                <span className="absolute bottom-2 right-2 px-1.5 py-0.5 rounded text-[10px] font-mono bg-black/80 text-neutral-300">
+                  28m
+                </span>
               </div>
 
-              <h4 className="text-base font-bold text-white mb-2 leading-snug">
+              <h4 className="text-sm font-semibold text-white leading-snug">
                 Strategic Communication in African Governance
               </h4>
-              <p className="text-xs text-gray-400 leading-relaxed">
-                Lecture series excerpt exploring communication paradigms for public trust and institutional transparency.
+              <p className="text-xs text-neutral-400 mt-1 leading-relaxed">
+                Frameworks for public trust, voice, and administrative accountability across Sub-Saharan institutions.
               </p>
             </div>
 
-            <div className="pt-4 border-t border-white/5 mt-4">
+            <div className="pt-4 mt-4 border-t border-[#20232E]">
               <Link
                 href="/teaching"
-                className="text-xs font-medium text-blue-400 hover:underline flex items-center gap-1"
+                className="text-xs font-mono text-neutral-400 hover:text-white flex items-center gap-1"
               >
-                <span>Browse course lecture vault</span>
-                <ArrowRight className="w-3.5 h-3.5" />
+                <span>Open Lecture Vault</span>
+                <ArrowRight className="w-3 h-3" />
               </Link>
             </div>
           </div>
 
-          {/* TILE 3: Research Pillars & Agendas */}
-          <div className="rounded-3xl bg-[#161822] border border-white/10 p-6 sm:p-8 flex flex-col justify-between hover:border-white/20 transition-all">
+          {/* CELL 3: Research Agenda (Spans 4 columns on lg) */}
+          <div className="lg:col-span-4 bg-[#14161E] border border-[#20232E] rounded-xl p-6 sm:p-8 flex flex-col justify-between">
             <div>
-              <div className="flex items-center gap-2 text-gray-300 mb-6">
-                <div className="p-2 rounded-xl bg-white/5 border border-white/10 text-gray-300">
-                  <BookOpen className="w-5 h-5" />
-                </div>
-                <span className="text-xs font-bold uppercase tracking-wider text-gray-400">
+              <div className="pb-4 mb-4 border-b border-[#20232E]">
+                <h3 className="font-serif text-xl text-white">
                   Research Pillars
+                </h3>
+                <span className="text-[11px] font-mono text-neutral-400">
+                  Primary Scholarly Inquiries
                 </span>
               </div>
 
-              <h3 className="text-lg font-bold text-white mb-4">
-                Investigating Media, AI & Society
-              </h3>
-
-              <div className="space-y-3">
+              <ul className="divide-y divide-[#20232E]">
                 {profileData.researchInterests.map((interest, idx) => (
-                  <div key={idx} className="p-3.5 rounded-xl bg-[#0F1117] border border-white/5">
-                    <div className="flex items-center justify-between mb-1">
-                      <span className="text-xs font-bold text-[#E5E7EB]">
-                        {interest.title}
-                      </span>
-                      <span className="text-[10px] font-medium text-gray-300 bg-white/5 px-2 py-0.5 rounded border border-white/5">
-                        {interest.tag}
-                      </span>
-                    </div>
-                    <p className="text-[11px] text-gray-400 line-clamp-2">
+                  <li key={idx} className="py-3 space-y-1">
+                    <span className="text-xs font-semibold text-neutral-200 block">
+                      {interest.title}
+                    </span>
+                    <p className="text-[11px] text-neutral-400 leading-relaxed line-clamp-2">
                       {interest.description}
                     </p>
-                  </div>
+                  </li>
                 ))}
-              </div>
+              </ul>
             </div>
 
-            <div className="pt-4 border-t border-white/5 mt-4">
+            <div className="pt-4 mt-4 border-t border-[#20232E]">
               <Link
                 href="/research"
-                className="text-xs font-medium text-blue-400 hover:underline flex items-center gap-1"
+                className="text-xs font-mono text-neutral-400 hover:text-white flex items-center gap-1"
               >
-                <span>View publications & thesis</span>
-                <ArrowRight className="w-3.5 h-3.5" />
+                <span>Publications & PhD Thesis</span>
+                <ArrowRight className="w-3 h-3" />
               </Link>
             </div>
           </div>
 
-          {/* TILE 4: Teaching & Module Innovations */}
-          <div className="rounded-3xl bg-[#161822] border border-white/10 p-6 sm:p-8 flex flex-col justify-between hover:border-white/20 transition-all">
+          {/* CELL 4: Signature Modules Created (Spans 4 columns on lg) */}
+          <div className="lg:col-span-4 bg-[#14161E] border border-[#20232E] rounded-xl p-6 sm:p-8 flex flex-col justify-between">
             <div>
-              <div className="flex items-center gap-2 text-gray-300 mb-6">
-                <div className="p-2 rounded-xl bg-white/5 border border-white/10 text-gray-300">
-                  <GraduationCap className="w-5 h-5" />
-                </div>
-                <span className="text-xs font-bold uppercase tracking-wider text-gray-400">
-                  Teaching & Curriculum
+              <div className="pb-4 mb-4 border-b border-[#20232E]">
+                <h3 className="font-serif text-xl text-white">
+                  Curriculum Innovations
+                </h3>
+                <span className="text-[11px] font-mono text-neutral-400">
+                  Signature Modules
                 </span>
               </div>
 
-              <h3 className="text-lg font-bold text-white mb-4">
-                Modules Built for Impact
-              </h3>
-
-              <div className="space-y-3">
-                {profileData.courses.map((course, idx) => (
-                  <div key={idx} className="p-3.5 rounded-xl bg-[#0F1117] border border-white/5 flex items-center justify-between">
-                    <div>
-                      <span className="text-xs font-bold text-gray-200">
-                        {course.code}
-                      </span>
-                      <p className="text-xs font-medium text-gray-300">
-                        {course.title}
-                      </p>
-                    </div>
-                    {course.isCustomModule && (
-                      <span className="text-[10px] px-2 py-0.5 rounded bg-white/5 text-gray-300 border border-white/10">
-                        Custom
-                      </span>
-                    )}
+              <div className="space-y-4">
+                <div className="space-y-1">
+                  <div className="flex items-baseline justify-between">
+                    <span className="text-xs font-semibold text-white">
+                      Public Speaking Essentials
+                    </span>
+                    <span className="text-[10px] font-mono text-neutral-400">PSE 101</span>
                   </div>
-                ))}
+                  <p className="text-[11px] text-neutral-400 leading-relaxed">
+                    Rhetorical structure, vocal stamina, and executive delivery for rising scholars and professionals.
+                  </p>
+                </div>
+
+                <div className="space-y-1 pt-3 border-t border-[#20232E]">
+                  <div className="flex items-baseline justify-between">
+                    <span className="text-xs font-semibold text-white">
+                      Principles of Excellent Living
+                    </span>
+                    <span className="text-[10px] font-mono text-neutral-400">PEL 201</span>
+                  </div>
+                  <p className="text-[11px] text-neutral-400 leading-relaxed">
+                    Character architecture, ethical decision-making, and life mastery in higher education.
+                  </p>
+                </div>
               </div>
             </div>
 
-            <div className="pt-4 border-t border-white/5 mt-4">
+            <div className="pt-4 mt-4 border-t border-[#20232E]">
               <Link
                 href="/teaching"
-                className="text-xs font-medium text-blue-400 hover:underline flex items-center gap-1"
+                className="text-xs font-mono text-neutral-400 hover:text-white flex items-center gap-1"
               >
-                <span>Download course outlines</span>
-                <ArrowRight className="w-3.5 h-3.5" />
+                <span>Course Syllabi & Outlines</span>
+                <ArrowRight className="w-3 h-3" />
               </Link>
             </div>
           </div>
 
-          {/* TILE 5: Credentials & Honours */}
-          <div className="rounded-3xl bg-[#161822] border border-white/10 p-6 sm:p-8 flex flex-col justify-between hover:border-white/20 transition-all">
+          {/* CELL 5: Honours & Distinctions (Spans 4 columns on lg) */}
+          <div className="lg:col-span-4 bg-[#14161E] border border-[#20232E] rounded-xl p-6 sm:p-8 flex flex-col justify-between">
             <div>
-              <div className="flex items-center gap-2 text-gray-300 mb-6">
-                <div className="p-2 rounded-xl bg-white/5 border border-white/10 text-gray-300">
-                  <Award className="w-5 h-5" />
-                </div>
-                <span className="text-xs font-bold uppercase tracking-wider text-gray-400">
+              <div className="pb-4 mb-4 border-b border-[#20232E]">
+                <h3 className="font-serif text-xl text-white">
                   Honours & Leadership
+                </h3>
+                <span className="text-[11px] font-mono text-neutral-400">
+                  Recognitions
                 </span>
               </div>
 
-              <h3 className="text-lg font-bold text-white mb-4">
-                National & International Recognition
-              </h3>
-
-              <div className="space-y-3">
+              <ul className="divide-y divide-[#20232E]">
                 {profileData.awards.slice(0, 3).map((award, idx) => (
-                  <div key={idx} className="p-3 rounded-xl bg-[#0F1117] border border-white/5">
-                    <div className="flex items-center justify-between">
-                      <span className="text-xs font-bold text-white">
+                  <li key={idx} className="py-2.5 flex items-baseline justify-between gap-2">
+                    <div>
+                      <span className="text-xs font-semibold text-white block">
                         {award.title}
                       </span>
-                      <span className="text-[10px] text-gray-400 font-semibold">
-                        {award.year}
+                      <span className="text-[11px] text-neutral-400">
+                        {award.organization}
                       </span>
                     </div>
-                    <p className="text-[11px] text-gray-400">
-                      {award.organization}
-                    </p>
-                  </div>
+                    <span className="text-xs font-mono text-neutral-500 shrink-0">
+                      {award.year}
+                    </span>
+                  </li>
                 ))}
-              </div>
+              </ul>
             </div>
 
-            <div className="pt-4 border-t border-white/5 mt-4">
+            <div className="pt-4 mt-4 border-t border-[#20232E]">
               <Link
                 href="/credentials"
-                className="text-xs font-medium text-blue-400 hover:underline flex items-center gap-1"
+                className="text-xs font-mono text-neutral-400 hover:text-white flex items-center gap-1"
               >
-                <span>Full credentials & fellowships</span>
-                <ArrowRight className="w-3.5 h-3.5" />
-              </Link>
-            </div>
-          </div>
-
-          {/* TILE 6: Mentorship Master Classes */}
-          <div className="rounded-3xl bg-[#161822] border border-white/10 p-6 sm:p-8 flex flex-col justify-between hover:border-white/20 transition-all">
-            <div>
-              <div className="flex items-center gap-2 text-gray-300 mb-6">
-                <div className="p-2 rounded-xl bg-white/5 border border-white/10 text-gray-300">
-                  <Users className="w-5 h-5" />
-                </div>
-                <span className="text-xs font-bold uppercase tracking-wider text-gray-400">
-                  Mentorship Hub
-                </span>
-              </div>
-
-              <span className="inline-block px-2 py-0.5 rounded-full text-[10px] font-semibold bg-white/5 text-gray-300 border border-white/10 mb-2">
-                Master Class Series
-              </span>
-              <h3 className="text-lg font-bold text-white mb-2">
-                Public Speaking Essentials
-              </h3>
-              <p className="text-xs text-gray-400 leading-relaxed mb-4">
-                Structured mentorship masterclasses empowering undergraduate scholars and rising communication professionals with rhetoric, poise, and ethical media presence.
-              </p>
-            </div>
-
-            <div>
-              <Link
-                href="/mentorship"
-                className="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-blue-600 text-white text-xs font-medium hover:bg-blue-500 transition-colors"
-              >
-                <span>Register Interest</span>
-                <ArrowRight className="w-3.5 h-3.5" />
-              </Link>
-            </div>
-          </div>
-
-          {/* TILE 7: Latest Writing & Thought Leadership */}
-          <div className="rounded-3xl bg-[#161822] border border-white/10 p-6 sm:p-8 flex flex-col justify-between hover:border-white/20 transition-all">
-            <div>
-              <div className="flex items-center gap-2 text-gray-300 mb-6">
-                <div className="p-2 rounded-xl bg-white/5 border border-white/10 text-gray-300">
-                  <PenTool className="w-5 h-5" />
-                </div>
-                <span className="text-xs font-bold uppercase tracking-wider text-gray-400">
-                  Latest Commentary
-                </span>
-              </div>
-
-              <div className="space-y-2">
-                <span className="text-[10px] font-semibold text-gray-300 bg-white/5 px-2 py-0.5 rounded border border-white/5">
-                  {profileData.latestWriting[0].topic} • {profileData.latestWriting[0].readTime}
-                </span>
-                <h4 className="text-base font-bold text-white leading-snug">
-                  {profileData.latestWriting[0].title}
-                </h4>
-                <p className="text-xs text-gray-400">
-                  Published {profileData.latestWriting[0].date}
-                </p>
-              </div>
-            </div>
-
-            <div className="pt-4 border-t border-white/5 mt-4">
-              <Link
-                href="/writing"
-                className="text-xs font-medium text-blue-400 hover:underline flex items-center gap-1"
-              >
-                <span>Read all essays & thoughts</span>
-                <ArrowRight className="w-3.5 h-3.5" />
-              </Link>
-            </div>
-          </div>
-
-          {/* TILE 8: Direct Contact & Advisory */}
-          <div className="rounded-3xl bg-[#161822] border border-white/10 p-6 sm:p-8 flex flex-col justify-between hover:border-white/20 transition-all">
-            <div>
-              <div className="flex items-center gap-2 text-gray-300 mb-6">
-                <div className="p-2 rounded-xl bg-white/5 border border-white/10 text-gray-300">
-                  <Sparkles className="w-5 h-5" />
-                </div>
-                <span className="text-xs font-bold uppercase tracking-wider text-gray-400">
-                  Academic Consultations
-                </span>
-              </div>
-
-              <h3 className="text-lg font-bold text-white mb-2">
-                Collaborate & Invite
-              </h3>
-              <p className="text-xs text-gray-400 leading-relaxed mb-4">
-                Available for external examination, keynote addresses, accreditation panels, and media development advisory.
-              </p>
-            </div>
-
-            <div>
-              <Link
-                href="/contact"
-                className="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl border border-white/15 text-white text-xs font-medium hover:bg-white/5 transition-colors"
-              >
-                <span>Initiate Contact</span>
-                <ArrowRight className="w-3.5 h-3.5" />
+                <span>Fellowships & Accreditation</span>
+                <ArrowRight className="w-3 h-3" />
               </Link>
             </div>
           </div>

@@ -2,29 +2,17 @@ import { profileData } from "@/data/profile";
 
 export default function QuoteSection() {
   return (
-    <section className="relative py-20 sm:py-28 overflow-hidden bg-[#0F1117]">
-      {/* Thin Blue Accent Divider Line Above Quote */}
-      <div className="max-w-2xl mx-auto px-4 mb-16">
-        <div className="h-[2px] w-full bg-gradient-to-r from-transparent via-blue-500 to-transparent" />
-      </div>
-
+    <section className="py-24 sm:py-32 bg-[#0D0E12] border-t border-[#1E212B]">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center space-y-8">
-        {/* Subtle Decorative Quotation Mark */}
-        <span className="text-6xl sm:text-7xl font-serif text-white/10 select-none block leading-none">
-          “
-        </span>
-
-        {/* The Quote */}
-        <blockquote className="-mt-8 text-xl sm:text-3xl lg:text-4xl font-serif italic text-white/95 leading-relaxed tracking-wide">
-          {profileData.quote.text}
+        <blockquote className="font-serif italic text-2xl sm:text-4xl lg:text-5xl text-neutral-100 leading-snug tracking-tight">
+          “{profileData.quote.text}”
         </blockquote>
 
-        {/* Attribution */}
-        <div className="pt-4 space-y-1">
-          <cite className="not-italic text-base sm:text-lg font-bold text-white block tracking-tight">
+        <div className="pt-2 space-y-1">
+          <cite className="not-italic text-xs font-mono uppercase tracking-widest text-neutral-300 block">
             {profileData.quote.author}
           </cite>
-          <span className="text-xs sm:text-sm text-gray-400 block font-normal">
+          <span className="text-xs font-mono text-neutral-500 block">
             {profileData.quote.subtext}
           </span>
         </div>

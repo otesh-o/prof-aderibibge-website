@@ -39,43 +39,38 @@ export default async function ArticleDetailPage({ params }: Props) {
   }
 
   return (
-    <article className="py-12 sm:py-20 bg-[#0F1117]">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+    <article className="py-16 sm:py-24 bg-[#0D0E12]">
+      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
 
         {/* Back Link */}
         <Link
           href="/writing"
-          className="inline-flex items-center gap-2 text-xs font-semibold text-gray-400 hover:text-white transition-colors"
+          className="inline-flex items-center gap-2 font-mono text-xs text-[#71788E] hover:text-[#EDEFEF] transition-colors"
         >
-          <ArrowLeft className="w-4 h-4" />
-          <span>Back to All Writing</span>
+          <ArrowLeft className="w-3.5 h-3.5" />
+          <span>Back to Essays & Reflections</span>
         </Link>
 
         {/* Header */}
-        <div className="space-y-4 pb-8 border-b border-white/[0.08]">
-          <div className="flex flex-wrap items-center gap-3">
-            <span className="px-3 py-1 rounded-full text-xs font-semibold bg-white/5 text-gray-300 border border-white/10">
+        <div className="space-y-4 pb-8 border-b border-[#20232E]">
+          <div className="flex flex-wrap items-baseline gap-3 text-xs font-mono text-[#71788E]">
+            <span className="px-2 py-0.5 bg-[#1E2230] text-[#9AA1B2] border border-[#2B3044] uppercase tracking-wider text-[10px]">
               {article.topic}
             </span>
-            <span className="text-xs text-gray-400 flex items-center gap-1.5">
-              <Calendar className="w-3.5 h-3.5" />
-              <span>{article.date}</span>
-            </span>
-            <span className="text-xs text-gray-400 flex items-center gap-1.5">
-              <Clock className="w-3.5 h-3.5" />
-              <span>{article.readTime}</span>
-            </span>
+            <span>{article.date}</span>
+            <span>•</span>
+            <span>{article.readTime}</span>
           </div>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold text-[#E5E7EB] tracking-tight leading-tight">
+          <h1 className="font-serif text-3xl sm:text-5xl font-normal text-[#EDEFEF] tracking-tight leading-tight">
             {article.title}
           </h1>
 
-          <p className="text-lg sm:text-xl text-gray-300 font-medium leading-relaxed">
+          <p className="font-serif text-lg sm:text-xl text-[#9FA6B2] italic leading-relaxed">
             {article.subtitle}
           </p>
 
-          <div className="pt-2 flex items-center gap-3 text-xs text-gray-400">
+          <div className="pt-2 flex items-center gap-3 font-mono text-xs text-[#71788E]">
             <span>By Prof. Adebola Adewunmi Aderibigbe</span>
             <span>•</span>
             <span>Federal University Oye-Ekiti</span>
@@ -83,21 +78,21 @@ export default async function ArticleDetailPage({ params }: Props) {
         </div>
 
         {/* Article Body */}
-        <div className="space-y-6 text-gray-300 text-base sm:text-lg leading-relaxed font-normal">
+        <div className="space-y-6 text-[#C8CCD6] font-serif text-base sm:text-lg leading-relaxed">
           {article.content.map((paragraph, idx) => (
-            <p key={idx}>{paragraph}</p>
+            <p key={idx} className="leading-relaxed">{paragraph}</p>
           ))}
         </div>
 
-        {/* Author Bio Footer in Article */}
-        <div className="p-8 rounded-3xl bg-[#161822] border border-white/10 space-y-4 mt-16">
-          <span className="text-xs font-bold uppercase tracking-wider text-gray-400">
+        {/* Author Bio Ledger in Article */}
+        <div className="p-6 sm:p-8 border border-[#20232E] bg-[#14161E] space-y-3 mt-16">
+          <span className="font-mono text-[10px] uppercase tracking-widest text-[#71788E] block">
             About the Author
           </span>
-          <h3 className="text-lg font-bold text-white">
+          <h3 className="font-serif text-lg font-normal text-[#EDEFEF]">
             Prof. Adebola Adewunmi Aderibigbe
           </h3>
-          <p className="text-xs sm:text-sm text-gray-400 leading-relaxed">
+          <p className="text-xs sm:text-sm text-[#8A92A6] leading-relaxed">
             Professor of Mass Communication, Faculty of Communication and Media Studies,
             Federal University Oye-Ekiti (FUOYE). Specialises in Strategic and Development Communication,
             emerging tech ethics, and curriculum development.
@@ -105,9 +100,10 @@ export default async function ArticleDetailPage({ params }: Props) {
           <div className="pt-2">
             <Link
               href="/about"
-              className="text-xs font-semibold text-blue-400 hover:underline"
+              className="font-mono text-xs text-[#EDEFEF] hover:underline inline-flex items-center gap-1.5"
             >
-              Read full biography & why he chose to build in Nigeria →
+              <span>Read Full Biography & Academic Manifesto</span>
+              <ArrowLeft className="w-3 h-3 rotate-180 text-[#8A90A2]" />
             </Link>
           </div>
         </div>

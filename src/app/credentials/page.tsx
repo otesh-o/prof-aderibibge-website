@@ -29,24 +29,23 @@ const iconMap = {
 
 export default function CredentialsPage() {
   return (
-    <div className="py-12 sm:py-20 bg-[#0F1117]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
+    <div className="py-16 sm:py-24 bg-[#0D0E12]">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-16">
 
         {/* Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-8 border-b border-white/[0.08]">
-          <div className="max-w-3xl space-y-4">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-white/5 text-gray-300 border border-white/10">
-              <Award className="w-3.5 h-3.5 text-gray-400" />
-              <span>Official Record</span>
-            </div>
+        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-8 border-b border-[#20232E]">
+          <div className="max-w-3xl space-y-3">
+            <span className="font-mono text-xs uppercase tracking-widest text-[#71788E] block">
+              Official Academic Dossier
+            </span>
 
-            <h1 className="text-3xl sm:text-5xl font-extrabold text-[#E5E7EB] tracking-tight">
-              Academic Credentials & Honours
+            <h1 className="font-serif text-3xl sm:text-5xl font-normal text-[#EDEFEF] tracking-tight">
+              Credentials & Honours
             </h1>
 
-            <p className="text-base sm:text-lg text-[#9CA3AF] leading-relaxed">
+            <p className="text-sm sm:text-base text-[#9FA6B2] leading-relaxed max-w-2xl">
               Eighteen years of statutory academic appointments, doctoral qualification, fellowships of chartered institutes,
-              and national accreditation leadership across Nigerian universities.
+              and national accreditation panel appointments across Nigerian universities.
             </p>
           </div>
 
@@ -54,95 +53,84 @@ export default function CredentialsPage() {
             <a
               href="/documents/Prof_Adebola_Aderibigbe_CV.pdf"
               download
-              className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-blue-600 text-white font-medium text-xs hover:bg-blue-500 transition-colors shadow-lg shadow-blue-500/20"
+              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-sm bg-[#1A1D27] hover:bg-[#202432] text-[#EDEFEF] font-mono text-xs border border-[#262A38] transition-colors"
             >
-              <Download className="w-4 h-4" />
-              <span>Download Verified CV</span>
+              <Download className="w-3.5 h-3.5 text-[#8A90A2]" />
+              <span>Download Verified CV (PDF)</span>
             </a>
           </div>
         </div>
 
-        {/* Bento Grid of Credential Categories */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {credentialsCategories.map((cat, idx) => {
-            const Icon = iconMap[cat.iconName as keyof typeof iconMap] || Award;
-
-            return (
-              <div
-                key={idx}
-                className="rounded-3xl bg-[#161822] border border-white/10 p-6 sm:p-8 flex flex-col justify-between hover:border-white/20 transition-all group"
-              >
+        {/* Academic Dossier Ledger */}
+        <div className="space-y-12">
+          {credentialsCategories.map((cat, idx) => (
+            <section key={idx} className="border border-[#20232E] bg-[#14161E]">
+              <div className="p-5 sm:p-6 border-b border-[#20232E] flex flex-col sm:flex-row sm:items-baseline justify-between gap-2 bg-[#10121A]">
                 <div>
-                  <div className="flex items-center gap-3 mb-6">
-                    <div className="p-3 rounded-2xl bg-white/5 border border-white/10 text-gray-300">
-                      <Icon className="w-6 h-6" />
-                    </div>
-                    <div>
-                      <h2 className="text-lg font-bold text-white group-hover:text-white transition-colors">
-                        {cat.title}
-                      </h2>
-                      <p className="text-xs text-gray-400">
-                        {cat.subtitle}
-                      </p>
-                    </div>
-                  </div>
+                  <h2 className="font-serif text-xl sm:text-2xl font-normal text-[#EDEFEF]">
+                    {cat.title}
+                  </h2>
+                  <p className="text-xs text-[#71788E] mt-0.5 font-mono">
+                    {cat.subtitle}
+                  </p>
+                </div>
+                <span className="text-[11px] font-mono text-[#5B6275]">
+                  {cat.items.length} records verified
+                </span>
+              </div>
 
-                  <div className="space-y-4">
-                    {cat.items.map((item, itemIdx) => (
-                      <div
-                        key={itemIdx}
-                        className="p-4 rounded-2xl bg-[#0F1117] border border-white/5 space-y-1"
-                      >
-                        <div className="flex items-start justify-between gap-2">
-                          <h3 className="text-sm font-semibold text-[#E5E7EB] leading-snug">
-                            {item.primary}
-                          </h3>
-                          {item.meta && (
-                            <span className="shrink-0 text-[10px] font-bold px-2 py-0.5 rounded-full bg-white/5 text-gray-300 border border-white/10">
-                              {item.meta}
-                            </span>
-                          )}
-                        </div>
-                        <p className="text-xs text-gray-300 font-medium">
-                          {item.secondary}
-                        </p>
-                        {item.description && (
-                          <p className="text-[11px] text-gray-400 leading-relaxed pt-1">
-                            {item.description}
-                          </p>
+              <div className="divide-y divide-[#1D202B]">
+                {cat.items.map((item, itemIdx) => (
+                  <div
+                    key={itemIdx}
+                    className="p-5 sm:p-6 flex flex-col md:flex-row md:items-baseline justify-between gap-4 hover:bg-[#181B24] transition-colors"
+                  >
+                    <div className="space-y-1.5 max-w-2xl">
+                      <div className="flex flex-wrap items-center gap-2.5">
+                        <h3 className="text-sm sm:text-base font-semibold text-[#EDEFEF] leading-snug">
+                          {item.primary}
+                        </h3>
+                        {item.meta && (
+                          <span className="shrink-0 font-mono text-[10px] uppercase tracking-wider px-2 py-0.5 rounded-sm bg-[#1E2230] text-[#9AA1B2] border border-[#2B3044]">
+                            {item.meta}
+                          </span>
                         )}
                       </div>
-                    ))}
+                      <p className="text-xs sm:text-sm text-[#8A92A6]">
+                        {item.secondary}
+                      </p>
+                      {item.description && (
+                        <p className="text-xs text-[#6F778A] leading-relaxed pt-1">
+                          {item.description}
+                        </p>
+                      )}
+                    </div>
                   </div>
-                </div>
-
-                <div className="pt-6 mt-6 border-t border-white/5">
-                  <span className="text-[11px] text-gray-400 flex items-center justify-between">
-                    <span>Verified Academic Record</span>
-                    <span className="text-gray-300 font-semibold">{cat.items.length} items</span>
-                  </span>
-                </div>
+                ))}
               </div>
-            );
-          })}
+            </section>
+          ))}
         </div>
 
-        {/* Bottom Banner */}
-        <div className="rounded-3xl bg-[#161822] border border-white/10 p-8 sm:p-12 flex flex-col sm:flex-row items-center justify-between gap-6">
-          <div className="space-y-2 text-center sm:text-left">
-            <h3 className="text-xl sm:text-2xl font-bold text-white">
-              Request External Examination or Accreditation Service
+        {/* Bottom Statutory Consultation Callout */}
+        <div className="border border-[#20232E] bg-[#14161E] p-8 sm:p-10 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-6">
+          <div className="space-y-2 max-w-xl">
+            <span className="font-mono text-[11px] uppercase tracking-widest text-[#71788E] block">
+              Institutional Service
+            </span>
+            <h3 className="font-serif text-xl sm:text-2xl font-normal text-[#EDEFEF]">
+              External Examination & NUC Accreditation
             </h3>
-            <p className="text-sm text-gray-300 max-w-xl">
-              Available to chair or participate in institutional accreditation exercises, external examination boards, and academic advisory panels.
+            <p className="text-xs sm:text-sm text-[#8A92A6] leading-relaxed">
+              Available to chair or participate in institutional accreditation exercises, doctoral external examination boards, and academic advisory councils.
             </p>
           </div>
           <Link
             href="/contact?reason=accreditation"
-            className="shrink-0 inline-flex items-center gap-2 px-6 py-3.5 rounded-xl bg-blue-600 text-white font-medium text-xs hover:bg-blue-500 transition-colors shadow-lg shadow-blue-500/20"
+            className="shrink-0 inline-flex items-center gap-2 px-5 py-2.5 rounded-sm bg-[#1F2433] hover:bg-[#282F44] text-[#EDEFEF] text-xs font-mono border border-[#2F364C] transition-colors"
           >
             <span>Submit Institutional Request</span>
-            <ArrowRight className="w-4 h-4" />
+            <ArrowRight className="w-3.5 h-3.5 text-[#8A92A6]" />
           </Link>
         </div>
 

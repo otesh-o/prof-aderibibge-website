@@ -43,28 +43,27 @@ export default function NavigationDock() {
 
   const mobilePrimaryItems = navItems.filter((item) => item.primaryOnMobile);
   const mobileSecondaryItems = navItems.filter((item) => !item.primaryOnMobile);
-
   const isMoreActive = mobileSecondaryItems.some((item) => pathname === item.href);
 
   return (
     <>
-      {/* Mobile "More" Drawer Backdrop & Popover */}
+      {/* Mobile Drawer */}
       {mobileMenuOpen && (
         <div
-          className="fixed inset-0 z-45 bg-black/60 backdrop-blur-sm md:hidden animate-fade-in"
+          className="fixed inset-0 z-45 bg-black/75 md:hidden"
           onClick={() => setMobileMenuOpen(false)}
         >
           <div
-            className="absolute bottom-24 left-4 right-4 bg-[#161822] border border-white/10 rounded-2xl p-4 shadow-2xl"
+            className="absolute bottom-20 left-4 right-4 bg-[#14161E] border border-[#232733] rounded-xl p-4 shadow-2xl"
             onClick={(e) => e.stopPropagation()}
           >
-            <div className="flex items-center justify-between pb-3 mb-3 border-b border-white/10">
-              <span className="text-xs font-semibold tracking-wider uppercase text-[#9CA3AF]">
-                Additional Sections
+            <div className="flex items-center justify-between pb-3 mb-3 border-b border-[#20232E]">
+              <span className="text-[11px] font-mono tracking-wider uppercase text-neutral-400">
+                Navigation
               </span>
               <button
                 onClick={() => setMobileMenuOpen(false)}
-                className="p-1 rounded-lg text-gray-400 hover:text-white"
+                className="p-1 rounded text-neutral-400 hover:text-white"
                 aria-label="Close menu"
               >
                 <X className="w-4 h-4" />
@@ -79,10 +78,10 @@ export default function NavigationDock() {
                     key={item.href}
                     href={item.href}
                     onClick={() => setMobileMenuOpen(false)}
-                    className={`flex items-center gap-3 p-2.5 rounded-xl text-sm font-medium transition-all ${
+                    className={`flex items-center gap-2.5 p-2 rounded-lg text-xs font-medium transition-all ${
                       isActive
-                        ? "bg-blue-600/20 text-blue-400 border border-blue-500/30"
-                        : "text-gray-300 hover:bg-white/5 hover:text-white"
+                        ? "bg-[#2563EB] text-white"
+                        : "text-neutral-300 hover:bg-[#1C1F2B] hover:text-white"
                     }`}
                   >
                     <Icon className="w-4 h-4 shrink-0" />
@@ -95,13 +94,13 @@ export default function NavigationDock() {
         </div>
       )}
 
-      {/* Floating Bottom Center Dock */}
+      {/* Floating Bottom Center Solid Graphite Dock */}
       <nav
-        aria-label="Floating navigation dock"
-        className="fixed bottom-5 left-1/2 -translate-x-1/2 z-50 transition-all duration-300"
+        aria-label="Bottom navigation dock"
+        className="fixed bottom-5 left-1/2 -translate-x-1/2 z-50 transition-all duration-200"
       >
-        <div className="glass-dock px-3 py-2 rounded-full shadow-2xl flex items-center gap-1 sm:gap-1.5 border border-white/10 ring-1 ring-black/40">
-          {/* Desktop Full Navigation View */}
+        <div className="bg-[#14161E] border border-[#232733] px-2 py-1.5 rounded-xl shadow-2xl flex items-center gap-1">
+          {/* Desktop View */}
           <div className="hidden md:flex items-center gap-1">
             {navItems.map((item) => {
               const Icon = item.icon;
@@ -115,31 +114,30 @@ export default function NavigationDock() {
                   onMouseEnter={() => setHoveredItem(item.name)}
                   onMouseLeave={() => setHoveredItem(null)}
                 >
-                  {/* Floating tooltip */}
+                  {/* Tooltip */}
                   {isHovered && (
-                    <div className="absolute -top-10 px-2.5 py-1 bg-[#111827] text-xs font-medium text-white rounded-md shadow-lg border border-white/10 whitespace-nowrap pointer-events-none animate-in fade-in zoom-in-95 duration-150">
+                    <div className="absolute -top-9 px-2 py-1 bg-[#1A1D27] text-[11px] font-mono text-neutral-200 rounded border border-[#2D3242] whitespace-nowrap pointer-events-none shadow-lg">
                       {item.name}
-                      <div className="absolute left-1/2 -translate-x-1/2 -bottom-1 w-2 h-2 bg-[#111827] rotate-45 border-r border-b border-white/10" />
                     </div>
                   )}
 
                   <Link
                     href={item.href}
-                    className={`relative p-2.5 rounded-full transition-all duration-200 flex items-center justify-center group ${
+                    className={`p-2 rounded-lg transition-colors flex items-center justify-center ${
                       isActive
-                        ? "bg-blue-600 text-white shadow-lg shadow-blue-500/30 scale-105"
-                        : "text-[#9CA3AF] hover:text-[#E5E7EB] hover:bg-white/10"
+                        ? "bg-[#2563EB] text-white"
+                        : "text-neutral-400 hover:text-white hover:bg-[#1E212D]"
                     }`}
                     aria-label={item.name}
                   >
-                    <Icon className="w-4 h-4 transition-transform group-hover:scale-110" />
+                    <Icon className="w-4 h-4" />
                   </Link>
                 </div>
               );
             })}
           </div>
 
-          {/* Mobile Trimmed Dock (Top 5 + More button) */}
+          {/* Mobile Trimmed Dock */}
           <div className="flex md:hidden items-center gap-1">
             {mobilePrimaryItems.map((item) => {
               const Icon = item.icon;
@@ -149,10 +147,10 @@ export default function NavigationDock() {
                 <Link
                   key={item.href}
                   href={item.href}
-                  className={`p-2.5 rounded-full transition-all duration-200 flex items-center justify-center ${
+                  className={`p-2 rounded-lg transition-colors flex items-center justify-center ${
                     isActive
-                      ? "bg-blue-600 text-white shadow-lg shadow-blue-500/30"
-                      : "text-[#9CA3AF] hover:text-[#E5E7EB] hover:bg-white/10"
+                      ? "bg-[#2563EB] text-white"
+                      : "text-neutral-400 hover:text-white hover:bg-[#1E212D]"
                   }`}
                   aria-label={item.name}
                 >
@@ -161,13 +159,12 @@ export default function NavigationDock() {
               );
             })}
 
-            {/* "More" Trigger on Mobile */}
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className={`p-2.5 rounded-full transition-all duration-200 flex items-center justify-center ${
+              className={`p-2 rounded-lg transition-colors flex items-center justify-center ${
                 mobileMenuOpen || isMoreActive
-                  ? "bg-blue-500/20 text-blue-400 border border-blue-500/30"
-                  : "text-[#9CA3AF] hover:text-[#E5E7EB] hover:bg-white/10"
+                  ? "bg-[#2563EB]/20 text-blue-400"
+                  : "text-neutral-400 hover:text-white hover:bg-[#1E212D]"
               }`}
               aria-label="More navigation items"
             >

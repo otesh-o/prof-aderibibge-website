@@ -29,17 +29,17 @@ export default function ArticlesFilter({ articles }: Props) {
 
   return (
     <div className="space-y-10">
-      {/* Search and Filters */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-4 rounded-2xl bg-[#161822] border border-white/10">
-        <div className="flex flex-wrap items-center gap-1.5">
+      {/* Search and Category Filters */}
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-4 border border-[#20232E] bg-[#14161E]">
+        <div className="flex flex-wrap items-center gap-1">
           {tags.map((tag) => (
             <button
               key={tag}
               onClick={() => setSelectedTag(tag)}
-              className={`px-3 py-1.5 rounded-xl text-xs font-medium transition-all ${
+              className={`px-3 py-1.5 text-xs font-mono transition-colors ${
                 selectedTag === tag
-                  ? "bg-blue-600 text-white shadow-md shadow-blue-500/20"
-                  : "text-gray-400 hover:text-white hover:bg-white/5"
+                  ? "bg-[#1E2230] text-[#EDEFEF] border border-[#2F364C]"
+                  : "text-[#7B8296] hover:text-[#EDEFEF] hover:bg-[#181B24]"
               }`}
             >
               {tag}
@@ -48,103 +48,97 @@ export default function ArticlesFilter({ articles }: Props) {
         </div>
 
         <div className="relative min-w-[240px]">
-          <Search className="w-4 h-4 text-gray-400 absolute left-3 top-1/2 -translate-y-1/2" />
+          <Search className="w-3.5 h-3.5 text-[#6E7588] absolute left-3 top-1/2 -translate-y-1/2" />
           <input
             type="text"
-            placeholder="Search articles & reflections..."
+            placeholder="Search essays & reflections..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full pl-9 pr-4 py-1.5 rounded-xl bg-[#0F1117] border border-white/10 text-xs text-white placeholder-gray-500 focus:outline-none focus:border-white/20 transition-colors"
+            className="w-full pl-9 pr-3 py-1.5 rounded-sm bg-[#0D0E12] border border-[#20232E] text-xs text-[#EDEFEF] placeholder-[#5A6072] font-mono focus:outline-none focus:border-[#383E54] transition-colors"
           />
         </div>
       </div>
 
       {filteredArticles.length === 0 ? (
-        <div className="p-12 text-center rounded-3xl bg-[#161822] border border-white/10 text-sm text-gray-400">
-          No articles found matching your query.
+        <div className="p-8 text-center border border-[#20232E] bg-[#14161E] text-xs font-mono text-[#7B8296]">
+          No essays found matching your query.
         </div>
       ) : (
         <div className="space-y-10">
-          {/* Featured Large Tile */}
+          {/* Featured Essay Banner */}
           {featuredArticle && (
-            <div className="rounded-3xl bg-[#161822] border border-white/10 p-8 sm:p-12 hover:border-white/20 transition-all group">
-              <div className="max-w-4xl space-y-4">
-                <div className="flex flex-wrap items-center gap-3">
-                  <span className="px-3 py-1 rounded-full text-xs font-bold bg-white/5 text-gray-300 border border-white/10">
-                    Featured Analysis
-                  </span>
-                  <span className="text-xs text-gray-400 flex items-center gap-1">
-                    <Calendar className="w-3.5 h-3.5" />
-                    <span>{featuredArticle.date}</span>
-                  </span>
-                  <span className="text-xs text-gray-400 flex items-center gap-1">
-                    <Clock className="w-3.5 h-3.5" />
-                    <span>{featuredArticle.readTime}</span>
-                  </span>
-                </div>
+            <div className="border border-[#20232E] bg-[#14161E] p-8 sm:p-10 space-y-4">
+              <div className="flex flex-wrap items-center gap-3 text-xs font-mono text-[#71788E]">
+                <span className="px-2 py-0.5 bg-[#1E2230] text-[#9AA1B2] border border-[#2B3044] uppercase tracking-wider text-[10px]">
+                  Featured Essay
+                </span>
+                <span>{featuredArticle.date}</span>
+                <span>•</span>
+                <span>{featuredArticle.readTime}</span>
+              </div>
 
-                <h2 className="text-2xl sm:text-4xl font-extrabold text-white group-hover:text-white transition-colors leading-tight">
-                  <Link href={`/writing/${featuredArticle.slug}`}>
-                    {featuredArticle.title}
-                  </Link>
-                </h2>
+              <h2 className="font-serif text-2xl sm:text-3xl font-normal text-[#EDEFEF] hover:text-white transition-colors leading-tight">
+                <Link href={`/writing/${featuredArticle.slug}`}>
+                  {featuredArticle.title}
+                </Link>
+              </h2>
 
-                <p className="text-base sm:text-lg text-gray-300 font-medium">
-                  {featuredArticle.subtitle}
-                </p>
+              <p className="font-serif text-base text-[#C5CAD6] italic">
+                {featuredArticle.subtitle}
+              </p>
 
-                <p className="text-sm sm:text-base text-gray-400 leading-relaxed pt-1">
-                  {featuredArticle.excerpt}
-                </p>
+              <p className="text-xs sm:text-sm text-[#8A92A6] leading-relaxed max-w-3xl">
+                {featuredArticle.excerpt}
+              </p>
 
-                <div className="pt-4">
-                  <Link
-                    href={`/writing/${featuredArticle.slug}`}
-                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-blue-600 text-white text-xs font-semibold hover:bg-blue-500 transition-colors shadow-lg shadow-blue-500/20"
-                  >
-                    <span>Read Full Essay</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
-                  </Link>
-                </div>
+              <div className="pt-2">
+                <Link
+                  href={`/writing/${featuredArticle.slug}`}
+                  className="inline-flex items-center gap-2 px-4 py-2 rounded-sm bg-[#1F2433] hover:bg-[#282F44] text-[#EDEFEF] text-xs font-mono border border-[#2F364C] transition-colors"
+                >
+                  <span>Read Full Essay</span>
+                  <ArrowRight className="w-3.5 h-3.5 text-[#8A90A2]" />
+                </Link>
               </div>
             </div>
           )}
 
-          {/* Grid of Other Articles */}
+          {/* Ledger of Other Articles */}
           {regularArticles.length > 0 && (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="border border-[#20232E] bg-[#14161E] divide-y divide-[#1D202B]">
               {regularArticles.map((art) => (
                 <div
                   key={art.slug}
-                  className="rounded-3xl bg-[#161822] border border-white/10 p-6 sm:p-8 flex flex-col justify-between hover:border-white/20 transition-all group"
+                  className="p-6 sm:p-7 flex flex-col md:flex-row md:items-baseline justify-between gap-6 hover:bg-[#181B24] transition-colors"
                 >
-                  <div className="space-y-3">
-                    <div className="flex items-center justify-between text-xs text-gray-400">
-                      <span className="font-semibold text-gray-300 bg-white/5 px-2 py-0.5 rounded border border-white/5">
+                  <div className="space-y-2 max-w-2xl">
+                    <div className="flex flex-wrap items-baseline gap-3 text-[11px] font-mono text-[#71788E]">
+                      <span className="px-2 py-0.5 bg-[#0D0E12] border border-[#20232E] text-[#9AA1B2]">
                         {art.topic}
                       </span>
                       <span>{art.readTime}</span>
+                      <span>•</span>
+                      <span>{art.date}</span>
                     </div>
 
-                    <h3 className="text-lg font-bold text-white group-hover:text-white transition-colors leading-snug">
-                      <Link href={`/writing/${art.slug}`}>
+                    <h3 className="font-serif text-xl sm:text-2xl font-normal text-[#EDEFEF] leading-snug">
+                      <Link href={`/writing/${art.slug}`} className="hover:underline">
                         {art.title}
                       </Link>
                     </h3>
 
-                    <p className="text-xs text-gray-400 leading-relaxed line-clamp-3">
+                    <p className="text-xs sm:text-sm text-[#8A92A6] leading-relaxed">
                       {art.excerpt}
                     </p>
                   </div>
 
-                  <div className="pt-6 mt-6 border-t border-white/5 flex items-center justify-between text-xs">
-                    <span className="text-gray-500">{art.date}</span>
+                  <div className="shrink-0 self-start md:self-baseline">
                     <Link
                       href={`/writing/${art.slug}`}
-                      className="text-blue-400 font-medium hover:underline flex items-center gap-1"
+                      className="font-mono text-xs text-[#EDEFEF] hover:underline flex items-center gap-1.5"
                     >
-                      <span>Read</span>
-                      <ArrowRight className="w-3.5 h-3.5" />
+                      <span>Read Essay</span>
+                      <ArrowRight className="w-3.5 h-3.5 text-[#8A90A2]" />
                     </Link>
                   </div>
                 </div>

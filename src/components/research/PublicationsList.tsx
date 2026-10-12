@@ -29,17 +29,17 @@ export default function PublicationsList() {
   return (
     <div className="space-y-6">
       {/* Filters and Search Bar */}
-      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 p-4 rounded-2xl bg-[#161822] border border-white/10">
-        {/* Category Pills */}
-        <div className="flex flex-wrap items-center gap-1.5">
+      <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 p-4 border border-[#20232E] bg-[#14161E]">
+        {/* Category Tabs */}
+        <div className="flex flex-wrap items-center gap-1">
           {categories.map((cat) => (
             <button
               key={cat}
               onClick={() => setSelectedCategory(cat)}
-              className={`px-3 py-1.5 rounded-xl text-xs font-medium transition-all ${
+              className={`px-3 py-1.5 text-xs font-mono transition-colors ${
                 selectedCategory === cat
-                  ? "bg-blue-600 text-white shadow-md shadow-blue-500/20"
-                  : "text-gray-400 hover:text-white hover:bg-white/5"
+                  ? "bg-[#1E2230] text-[#EDEFEF] border border-[#2F364C]"
+                  : "text-[#7B8296] hover:text-[#EDEFEF] hover:bg-[#181B24]"
               }`}
             >
               {cat}
@@ -49,60 +49,60 @@ export default function PublicationsList() {
 
         {/* Search input */}
         <div className="relative min-w-[240px]">
-          <Search className="w-4 h-4 text-gray-400 absolute left-3 top-1/2 -translate-y-1/2" />
+          <Search className="w-3.5 h-3.5 text-[#6E7588] absolute left-3 top-1/2 -translate-y-1/2" />
           <input
             type="text"
             placeholder="Search publications..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full pl-9 pr-4 py-1.5 rounded-xl bg-[#0F1117] border border-white/10 text-xs text-white placeholder-gray-500 focus:outline-none focus:border-white/20 transition-colors"
+            className="w-full pl-9 pr-3 py-1.5 rounded-sm bg-[#0D0E12] border border-[#20232E] text-xs text-[#EDEFEF] placeholder-[#5A6072] font-mono focus:outline-none focus:border-[#383E54] transition-colors"
           />
         </div>
       </div>
 
       {/* Publications List */}
-      <div className="space-y-4">
+      <div className="space-y-3">
         {filteredPublications.length === 0 ? (
-          <div className="p-8 text-center rounded-2xl bg-[#161822] border border-white/10 text-sm text-gray-400">
+          <div className="p-8 text-center border border-[#20232E] bg-[#14161E] text-xs font-mono text-[#7B8296]">
             No publications found matching your search criteria.
           </div>
         ) : (
           filteredPublications.map((pub) => (
             <div
               key={pub.id}
-              className="p-6 rounded-2xl bg-[#161822] border border-white/10 hover:border-white/20 transition-all space-y-3 group"
+              className="p-6 border border-[#20232E] bg-[#14161E] hover:border-[#2C3142] transition-colors space-y-3"
             >
-              <div className="flex flex-wrap items-center justify-between gap-2">
-                <span className="text-[10px] font-semibold px-2.5 py-0.5 rounded-full bg-white/5 text-gray-300 border border-white/10">
+              <div className="flex flex-wrap items-baseline justify-between gap-2">
+                <span className="font-mono text-[11px] text-[#71788E] uppercase tracking-wider">
                   {pub.type} • {pub.year}
                 </span>
-                <span className="text-xs font-semibold text-gray-400">
+                <span className="font-mono text-xs text-[#8A92A6]">
                   {pub.journal}
                 </span>
               </div>
 
-              <h3 className="text-base sm:text-lg font-bold text-white group-hover:text-white transition-colors leading-snug">
+              <h3 className="font-serif text-lg sm:text-xl font-normal text-[#EDEFEF] leading-snug">
                 {pub.title}
               </h3>
 
-              <p className="text-xs text-gray-400 font-medium">
+              <p className="font-mono text-xs text-[#6F778A]">
                 {pub.authors}
               </p>
 
               {pub.abstract && (
-                <p className="text-xs text-gray-300/80 leading-relaxed pt-1">
+                <p className="text-xs sm:text-sm text-[#9FA6B2] leading-relaxed pt-1">
                   {pub.abstract}
                 </p>
               )}
 
-              <div className="flex items-center gap-3 pt-3 border-t border-white/5">
+              <div className="flex items-center gap-4 pt-3 border-t border-[#1D202B]">
                 <a
                   href={pub.scholarUrl || "https://scholar.google.com"}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center gap-1.5 text-xs text-blue-400 hover:underline font-medium transition-colors"
+                  className="font-mono text-[11px] text-[#EDEFEF] hover:text-white flex items-center gap-1.5 hover:underline"
                 >
-                  <ExternalLink className="w-3.5 h-3.5" />
+                  <ExternalLink className="w-3.5 h-3.5 text-[#6E7588]" />
                   <span>View on Google Scholar</span>
                 </a>
               </div>

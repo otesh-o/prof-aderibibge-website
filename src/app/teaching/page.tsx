@@ -21,77 +21,71 @@ export const metadata: Metadata = {
 
 export default function TeachingPage() {
   return (
-    <div className="py-12 sm:py-20 bg-[#0F1117]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-20">
+    <div className="py-16 sm:py-24 bg-[#0D0E12]">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-20">
 
         {/* Header */}
-        <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-8 border-b border-white/[0.08]">
-          <div className="max-w-3xl space-y-4">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-white/5 text-gray-300 border border-white/10">
-              <GraduationCap className="w-3.5 h-3.5 text-gray-400" />
-              <span>Pedagogy & Curriculum</span>
-            </div>
+        <div className="max-w-3xl space-y-3 pb-8 border-b border-[#20232E]">
+          <span className="font-mono text-xs uppercase tracking-widest text-[#71788E] block">
+            Pedagogy & Curriculum
+          </span>
 
-            <h1 className="text-3xl sm:text-5xl font-extrabold text-[#E5E7EB] tracking-tight">
-              Teaching & Lecture Vault
-            </h1>
+          <h1 className="font-serif text-3xl sm:text-5xl font-normal text-[#EDEFEF] tracking-tight">
+            Teaching & Lecture Vault
+          </h1>
 
-            <p className="text-base sm:text-lg text-[#9CA3AF] leading-relaxed">
-              Eighteen years of university instruction spanning over thirty undergraduate and postgraduate courses,
-              featuring two flagship character and rhetoric modules created for African higher education.
-            </p>
-          </div>
+          <p className="text-sm sm:text-base text-[#9FA6B2] leading-relaxed max-w-2xl">
+            Eighteen years of university instruction across undergraduate and postgraduate tiers,
+            featuring two flagship character and rhetoric modules developed for African higher education.
+          </p>
         </div>
 
-        {/* 1. Flagship Modules (Large Tiles) */}
+        {/* 1. Flagship Modules */}
         <div className="space-y-6">
-          <div>
-            <span className="text-xs font-semibold tracking-wider uppercase text-gray-400">
+          <div className="border-b border-[#20232E] pb-3">
+            <span className="font-mono text-xs uppercase tracking-widest text-[#71788E] block">
               Signature Curriculum
             </span>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-white mt-1">
-              Featured Modules Created by Prof. Aderibigbe
+            <h2 className="font-serif text-2xl sm:text-3xl font-normal text-[#EDEFEF] mt-1">
+              Modules Created by Prof. Aderibigbe
             </h2>
-            <p className="text-xs text-gray-400 mt-1">
-              Custom modules developed to bridge academic theory with practical leadership and oratory poise.
-            </p>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
             {featuredModulesData.map((module, idx) => (
               <div
                 key={idx}
-                className="rounded-3xl bg-[#161822] border border-white/10 p-8 flex flex-col justify-between hover:border-white/20 transition-all space-y-6"
+                className="border border-[#20232E] bg-[#14161E] p-8 flex flex-col justify-between space-y-6"
               >
                 <div className="space-y-4">
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs font-bold px-3 py-1 rounded-full bg-white/5 text-gray-200 border border-white/10">
+                  <div className="flex items-baseline justify-between border-b border-[#20232E] pb-3">
+                    <span className="font-mono text-xs font-semibold text-[#EDEFEF]">
                       {module.code}
                     </span>
-                    <span className="text-xs text-gray-400">
+                    <span className="font-mono text-xs text-[#71788E]">
                       {module.duration}
                     </span>
                   </div>
 
-                  <h3 className="text-2xl font-bold text-white">
+                  <h3 className="font-serif text-2xl font-normal text-[#EDEFEF]">
                     {module.title}
                   </h3>
-                  <p className="text-xs text-gray-300 font-medium">
+                  <p className="font-mono text-xs text-[#8A92A6]">
                     {module.subtitle}
                   </p>
 
-                  <p className="text-xs sm:text-sm text-gray-300 leading-relaxed">
+                  <p className="text-xs sm:text-sm text-[#9FA6B2] leading-relaxed">
                     {module.description}
                   </p>
 
-                  <div className="space-y-2 pt-2 border-t border-white/10">
-                    <span className="text-[11px] font-bold uppercase tracking-wider text-gray-400">
+                  <div className="space-y-2 pt-2 border-t border-[#1D202B]">
+                    <span className="font-mono text-[11px] uppercase tracking-wider text-[#71788E] block">
                       Core Syllabus Pillars:
                     </span>
-                    <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-gray-300">
+                    <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs text-[#8A92A6]">
                       {module.corePillars.map((pillar, pIdx) => (
                         <li key={pIdx} className="flex items-start gap-2">
-                          <span className="text-gray-400 font-bold">•</span>
+                          <span className="text-[#5A6072] font-mono">—</span>
                           <span>{pillar}</span>
                         </li>
                       ))}
@@ -99,14 +93,14 @@ export default function TeachingPage() {
                   </div>
                 </div>
 
-                <div className="pt-4 border-t border-white/10 flex items-center justify-between text-xs text-gray-400">
-                  <span>Audience: {module.targetAudience}</span>
+                <div className="pt-4 border-t border-[#1D202B] flex items-center justify-between text-xs">
+                  <span className="font-mono text-[#71788E]">Audience: {module.targetAudience}</span>
                   <Link
                     href="/mentorship"
-                    className="text-blue-400 font-medium hover:underline flex items-center gap-1"
+                    className="font-mono text-[#EDEFEF] hover:underline flex items-center gap-1.5"
                   >
-                    <span>Register interest</span>
-                    <ArrowRight className="w-3.5 h-3.5" />
+                    <span>Register Interest</span>
+                    <ArrowRight className="w-3.5 h-3.5 text-[#8A90A2]" />
                   </Link>
                 </div>
               </div>
@@ -114,69 +108,58 @@ export default function TeachingPage() {
           </div>
         </div>
 
-        {/* 2. University Course Outlines & Syllabi */}
+        {/* 2. University Course Outlines Ledger */}
         <div className="space-y-6">
-          <div>
-            <span className="text-xs font-semibold tracking-wider uppercase text-gray-400">
+          <div className="border-b border-[#20232E] pb-3">
+            <span className="font-mono text-xs uppercase tracking-widest text-[#71788E] block">
               Departmental Courses
             </span>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-white mt-1">
+            <h2 className="font-serif text-2xl sm:text-3xl font-normal text-[#EDEFEF] mt-1">
               Active University Syllabi
             </h2>
-            <p className="text-xs text-gray-400 mt-1">
-              Outlines and reading lists for undergraduate and postgraduate courses at FUOYE.
-            </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          <div className="border border-[#20232E] bg-[#14161E] divide-y divide-[#1D202B]">
             {universityCoursesData.map((course, idx) => (
               <div
                 key={idx}
-                className="rounded-3xl bg-[#161822] border border-white/10 p-6 sm:p-8 flex flex-col justify-between hover:border-white/20 transition-all space-y-6"
+                className="p-6 flex flex-col md:flex-row md:items-baseline justify-between gap-6 hover:bg-[#181B24] transition-colors"
               >
-                <div className="space-y-3">
-                  <div className="flex items-center justify-between">
-                    <span className="text-xs font-bold text-gray-200">
+                <div className="space-y-2 max-w-2xl">
+                  <div className="flex flex-wrap items-baseline gap-3">
+                    <span className="font-mono text-xs font-semibold text-[#EDEFEF]">
                       {course.code}
                     </span>
-                    <span className="text-[10px] px-2 py-0.5 rounded bg-white/5 text-gray-400 border border-white/10">
-                      {course.credits} Credits
+                    <span className="font-mono text-[11px] text-[#71788E]">
+                      {course.credits} Credits • {course.level} • {course.semester}
                     </span>
                   </div>
 
-                  <h3 className="text-lg font-bold text-white">
+                  <h3 className="font-serif text-lg sm:text-xl font-normal text-[#EDEFEF]">
                     {course.title}
                   </h3>
-                  <p className="text-xs text-gray-400">
-                    {course.level} • {course.semester}
-                  </p>
 
-                  <p className="text-xs text-gray-300 leading-relaxed pt-1">
+                  <p className="text-xs sm:text-sm text-[#8A92A6] leading-relaxed">
                     {course.description}
                   </p>
 
-                  <div className="space-y-1.5 pt-3 border-t border-white/5">
-                    <span className="text-[10px] font-semibold uppercase text-gray-400">
-                      Selected Topics:
-                    </span>
-                    <ul className="space-y-1 text-xs text-gray-400">
-                      {course.topics.slice(0, 3).map((topic, tIdx) => (
-                        <li key={tIdx} className="truncate">
-                          - {topic}
-                        </li>
-                      ))}
-                    </ul>
+                  <div className="pt-1 flex flex-wrap gap-2 text-[11px] font-mono text-[#6F778A]">
+                    {course.topics.slice(0, 3).map((topic, tIdx) => (
+                      <span key={tIdx} className="px-2 py-0.5 bg-[#0D0E12] border border-[#20232E]">
+                        {topic}
+                      </span>
+                    ))}
                   </div>
                 </div>
 
-                <div className="pt-4 border-t border-white/5">
+                <div className="shrink-0 self-start md:self-baseline">
                   <a
                     href={course.outlineDownloadUrl || "/documents/Prof_Adebola_Aderibigbe_CV.pdf"}
                     download
-                    className="w-full inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-white/5 text-white text-xs font-medium hover:bg-white/10 transition-colors"
+                    className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-sm bg-[#1A1D27] hover:bg-[#202432] text-[#EDEFEF] font-mono text-xs border border-[#262A38] transition-colors"
                   >
-                    <Download className="w-3.5 h-3.5" />
-                    <span>Download Course Outline (PDF)</span>
+                    <Download className="w-3.5 h-3.5 text-[#8A90A2]" />
+                    <span>Download Outline (PDF)</span>
                   </a>
                 </div>
               </div>
@@ -184,65 +167,57 @@ export default function TeachingPage() {
           </div>
         </div>
 
-        {/* 3. Lecture Video Vault (YouTube Embeds) */}
+        {/* 3. Recorded Lectures */}
         <div className="space-y-6">
-          <div>
-            <span className="text-xs font-semibold tracking-wider uppercase text-gray-400">
-              Multimedia Vault
+          <div className="border-b border-[#20232E] pb-3">
+            <span className="font-mono text-xs uppercase tracking-widest text-[#71788E] block">
+              Recorded Lectures
             </span>
-            <h2 className="text-2xl sm:text-3xl font-extrabold text-white mt-1">
-              Recorded Lectures & Video Presentations
+            <h2 className="font-serif text-2xl sm:text-3xl font-normal text-[#EDEFEF] mt-1">
+              Lecture Presentations & Seminars
             </h2>
-            <p className="text-xs text-gray-400 mt-1">
-              Streaming-optimized for fast playback on mobile networks.
-            </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {lectureVideosData.map((video) => (
               <div
                 key={video.id}
-                className="rounded-3xl bg-[#161822] border border-white/10 p-6 flex flex-col justify-between hover:border-white/20 transition-all space-y-4 group"
+                className="border border-[#20232E] bg-[#14161E] p-5 flex flex-col justify-between space-y-4"
               >
                 <div>
-                  {/* Video Thumbnail Box */}
-                  <div className="relative aspect-video rounded-2xl overflow-hidden bg-[#0F1117] border border-white/10 flex items-center justify-center mb-4 group/play cursor-pointer">
-                    <div className="w-12 h-12 rounded-full bg-white/10 text-white flex items-center justify-center border border-white/15 group-hover/play:bg-blue-600 group-hover/play:border-transparent transition-all">
-                      <Play className="w-5 h-5 ml-0.5 fill-current" />
+                  <div className="relative aspect-video bg-[#0D0E12] border border-[#20232E] flex items-center justify-center mb-3">
+                    <div className="w-10 h-10 rounded-full bg-[#1F2433] text-[#EDEFEF] flex items-center justify-center border border-[#2F364C]">
+                      <Play className="w-4 h-4 ml-0.5 fill-current" />
                     </div>
-                    <span className="absolute bottom-2.5 right-2.5 px-2 py-0.5 rounded text-[10px] font-semibold bg-black/80 text-gray-200 backdrop-blur-md">
+                    <span className="absolute bottom-2 right-2 px-1.5 py-0.5 font-mono text-[10px] bg-black text-[#EDEFEF]">
                       {video.duration}
                     </span>
                   </div>
 
-                  <div className="flex items-center gap-2 mb-1.5">
-                    <span className="text-[10px] font-bold text-gray-300">
-                      {video.courseCode}
-                    </span>
-                    <span className="text-[10px] text-gray-500">•</span>
-                    <span className="text-[10px] text-gray-400">
-                      {video.date}
-                    </span>
+                  <div className="flex items-center gap-2 mb-1 text-[11px] font-mono text-[#71788E]">
+                    <span>{video.courseCode}</span>
+                    <span>•</span>
+                    <span>{video.date}</span>
                   </div>
 
-                  <h3 className="text-sm font-bold text-white group-hover:text-white transition-colors leading-snug">
+                  <h3 className="font-serif text-base font-normal text-[#EDEFEF] leading-snug">
                     {video.title}
                   </h3>
 
-                  <p className="text-xs text-gray-400 leading-relaxed pt-1 line-clamp-3">
+                  <p className="text-xs text-[#8A92A6] leading-relaxed pt-1 line-clamp-3">
                     {video.description}
                   </p>
                 </div>
 
-                <div className="pt-3 border-t border-white/5">
+                <div className="pt-3 border-t border-[#1D202B]">
                   <a
                     href={`https://youtube.com/watch?v=${video.youtubeId}`}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-1.5 text-xs text-blue-400 hover:underline font-medium"
+                    className="font-mono text-xs text-[#EDEFEF] hover:underline inline-flex items-center gap-1.5"
                   >
-                    <Video className="w-3.5 h-3.5" />
-                    <span>Watch Full Lecture on YouTube</span>
+                    <Video className="w-3.5 h-3.5 text-[#8A90A2]" />
+                    <span>Watch Lecture on YouTube</span>
                   </a>
                 </div>
               </div>

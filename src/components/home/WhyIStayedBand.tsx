@@ -1,70 +1,73 @@
 import Link from "next/link";
-import { ArrowRight, Compass, ShieldCheck, Users, Landmark } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { profileData } from "@/data/profile";
 
 export default function WhyIStayedBand() {
   return (
-    <section className="relative overflow-hidden py-16 sm:py-24 bg-[#13151D] border-y border-white/[0.08]">
+    <section className="py-20 sm:py-28 bg-[#111319] border-y border-[#20232E]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
           
-          {/* Main Statement & Narrative Excerpt */}
+          {/* Main Manifesto Column */}
           <div className="lg:col-span-7 space-y-6">
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-white/5 text-gray-300 border border-white/10">
-              <Compass className="w-3.5 h-3.5 text-gray-400" />
-              <span>Positioning & National Conviction</span>
-            </div>
+            <p className="text-xs font-mono uppercase tracking-widest text-neutral-400">
+              Personal Conviction · Position Paper
+            </p>
 
-            <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight leading-tight">
-              Why I Stayed: A Commitment to Building from Nigeria
+            <h2 className="font-serif text-3xl sm:text-5xl text-white tracking-tight leading-tight">
+              Why I Stayed in Nigeria
             </h2>
 
-            <p className="text-base sm:text-lg text-gray-300 leading-relaxed font-normal">
+            <blockquote className="font-serif italic text-xl sm:text-2xl text-neutral-200 leading-relaxed">
+              “The pull to leave touches every university department. But building this country requires communicators trained right here, with global excellence and local commitment.”
+            </blockquote>
+
+            <p className="text-sm sm:text-base text-neutral-400 leading-relaxed font-sans">
               {profileData.whyIStayedExcerpt}
             </p>
 
             <div className="pt-2">
               <Link
                 href="/about#why-i-stayed"
-                className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-blue-600 text-white font-medium text-sm hover:bg-blue-500 transition-colors shadow-lg shadow-blue-500/20"
+                className="inline-flex items-center gap-2 px-5 py-3 rounded-lg bg-neutral-100 text-neutral-900 font-medium text-xs hover:bg-white transition-colors"
               >
-                <span>Read the full "Why I Stayed" piece</span>
-                <ArrowRight className="w-4 h-4" />
+                <span>Read the Complete Statement</span>
+                <ArrowRight className="w-3.5 h-3.5" />
               </Link>
             </div>
           </div>
 
-          {/* Proof Points & Institutional Legacy Grid */}
-          <div className="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 gap-4">
-            <div className="p-5 rounded-2xl bg-[#161822] border border-white/10 space-y-2">
-              <Users className="w-6 h-6 text-gray-300" />
-              <h3 className="text-sm font-bold text-white">Generations Mentored</h3>
-              <p className="text-xs text-gray-400 leading-relaxed">
-                Supervising MSc and PhD scholars who now lead communication departments and newsrooms across West Africa.
+          {/* Proof of Institutional Impact (No decorative icon boxes) */}
+          <div className="lg:col-span-5 grid grid-cols-1 sm:grid-cols-2 gap-px bg-[#20232E] border border-[#20232E] rounded-xl overflow-hidden">
+            <div className="p-6 bg-[#14161E] space-y-1">
+              <span className="text-xs font-mono text-neutral-400 block">Postgraduate Scholars</span>
+              <h3 className="text-sm font-semibold text-white">MSc & PhD Supervision</h3>
+              <p className="text-xs text-neutral-400 leading-relaxed pt-1">
+                Mentoring graduates who now lead communication departments and editorial desks across West Africa.
               </p>
             </div>
 
-            <div className="p-5 rounded-2xl bg-[#161822] border border-white/10 space-y-2">
-              <Landmark className="w-6 h-6 text-gray-300" />
-              <h3 className="text-sm font-bold text-white">National Standards</h3>
-              <p className="text-xs text-gray-400 leading-relaxed">
-                Chairing National Universities Commission (NUC) accreditation panels to set mass communication benchmarks.
+            <div className="p-6 bg-[#14161E] space-y-1">
+              <span className="text-xs font-mono text-neutral-400 block">Quality Assurance</span>
+              <h3 className="text-sm font-semibold text-white">National Standards</h3>
+              <p className="text-xs text-neutral-400 leading-relaxed pt-1">
+                Chairing National Universities Commission (NUC) accreditation panels to benchmark communication pedagogy.
               </p>
             </div>
 
-            <div className="p-5 rounded-2xl bg-[#161822] border border-white/10 space-y-2">
-              <ShieldCheck className="w-6 h-6 text-gray-300" />
-              <h3 className="text-sm font-bold text-white">Institutional Service</h3>
-              <p className="text-xs text-gray-400 leading-relaxed">
-                Director of the Career Services Centre at FUOYE, preparing thousands of graduates for the global workforce.
+            <div className="p-6 bg-[#14161E] space-y-1">
+              <span className="text-xs font-mono text-neutral-400 block">Institutional Office</span>
+              <h3 className="text-sm font-semibold text-white">Career Services Director</h3>
+              <p className="text-xs text-neutral-400 leading-relaxed pt-1">
+                Directing professional skills transition and university partnerships at Federal University Oye-Ekiti.
               </p>
             </div>
 
-            <div className="p-5 rounded-2xl bg-[#161822] border border-white/10 space-y-2">
-              <Compass className="w-6 h-6 text-gray-300" />
-              <h3 className="text-sm font-bold text-white">Global Impact</h3>
-              <p className="text-xs text-gray-400 leading-relaxed">
-                International research grants executed and the Africa Leadership Award (2026) won while based on home soil.
+            <div className="p-6 bg-[#14161E] space-y-1">
+              <span className="text-xs font-mono text-neutral-400 block">International Standing</span>
+              <h3 className="text-sm font-semibold text-white">Global Recognition</h3>
+              <p className="text-xs text-neutral-400 leading-relaxed pt-1">
+                Africa Leadership Award (Accra, 2026) and Ford Foundation research grants executed while anchored in Nigeria.
               </p>
             </div>
           </div>

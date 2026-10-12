@@ -1,130 +1,136 @@
 import Link from "next/link";
-import { ArrowRight, ExternalLink, GraduationCap, Users } from "lucide-react";
+import { ArrowRight, ExternalLink } from "lucide-react";
 import { profileData } from "@/data/profile";
 
 export default function HeroSection() {
   return (
-    <section className="relative overflow-hidden pt-8 pb-16 lg:py-20 border-b border-white/[0.06] bg-[#0F1117]">
+    <section className="relative pt-12 pb-16 lg:py-24 border-b border-[#1E212B] bg-[#0D0E12]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
           
-          {/* Left Column: Portrait Photography Showcase */}
+          {/* Left Column: Portrait Photography Container */}
           <div className="lg:col-span-5 flex justify-center">
-            <div className="relative w-full max-w-md aspect-[4/5] rounded-3xl overflow-hidden bg-[#161822] border border-white/10 shadow-2xl flex flex-col justify-end p-6 group">
-              {/* Neutral Academic Portrait Placeholder until photoshoot */}
-              <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-8 bg-gradient-to-t from-[#161822] via-transparent to-transparent">
-                <div className="w-28 h-28 rounded-full bg-white/5 border border-white/10 flex items-center justify-center mb-6 text-gray-400">
-                  <GraduationCap className="w-14 h-14 stroke-1" />
+            <div className="relative w-full max-w-md aspect-[4/5] rounded-xl overflow-hidden bg-[#14161E] border border-[#20232E] shadow-xl flex flex-col justify-end p-6">
+              {/* Clean Academic Portrait Canvas Placeholder */}
+              <div className="absolute inset-0 flex flex-col items-center justify-center p-8 text-center bg-[#111319]">
+                <div className="w-24 h-24 rounded-full border border-[#2B303E] bg-[#171A23] flex items-center justify-center mb-4">
+                  <span className="font-serif italic text-2xl text-neutral-400">AA</span>
                 </div>
                 <div className="space-y-1">
-                  <span className="text-xs font-semibold tracking-wider uppercase text-gray-300">
+                  <p className="text-xs font-mono uppercase tracking-widest text-neutral-400">
                     Portrait Photoshoot
-                  </span>
-                  <p className="text-xs text-gray-400">
-                    Studio portrait will be updated here
+                  </p>
+                  <p className="text-[11px] text-neutral-500">
+                    Studio photography in progress
                   </p>
                 </div>
               </div>
 
-              {/* Bottom Card Overlay on Portrait */}
-              <div className="relative z-10 glass-panel p-4 rounded-2xl border border-white/10 backdrop-blur-xl">
+              {/* Bottom Slate Overlay */}
+              <div className="relative z-10 bg-[#14161E] border border-[#232733] p-4 rounded-lg">
                 <div className="flex items-center justify-between">
                   <div>
-                    <h3 className="text-sm font-bold text-white">
+                    <h3 className="text-sm font-semibold text-white">
                       {profileData.shortName}
                     </h3>
-                    <p className="text-[11px] text-gray-400">
-                      {profileData.university}
+                    <p className="text-xs text-neutral-400 font-mono">
+                      FUOYE · Babcock PhD (2014)
                     </p>
                   </div>
-                  <span className="px-2.5 py-1 rounded-full text-[10px] font-semibold bg-white/5 text-gray-300 border border-white/10">
-                    PhD (2014)
+                  <span className="text-[11px] text-neutral-400 font-mono">
+                    Director, CSC
                   </span>
                 </div>
               </div>
             </div>
           </div>
 
-          {/* Right Column: Hero Information & Positioning */}
+          {/* Right Column: Editorial Hero & Academic Identity */}
           <div className="lg:col-span-7 space-y-8">
             <div className="space-y-3">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-white/5 text-gray-300 border border-white/10">
-                <span className="w-2 h-2 rounded-full bg-blue-500" />
-                <span>{profileData.faculty}</span>
-              </div>
+              <p className="text-xs font-mono tracking-widest uppercase text-neutral-400">
+                Department of Mass Communication · FUOYE
+              </p>
 
-              <h1 className="text-3xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-[#E5E7EB] leading-[1.1]">
-                Prof. Adebola Adewunmi Aderibigbe
+              <h1 className="font-serif text-4xl sm:text-6xl lg:text-7xl font-normal tracking-tight text-white leading-[1.05]">
+                Adebola Adewunmi Aderibigbe
               </h1>
 
-              <p className="text-lg sm:text-xl font-medium text-gray-300">
-                {profileData.specialisation}
+              <p className="text-lg sm:text-xl text-neutral-300 font-sans">
+                Professor of Strategic and Development Communication
               </p>
             </div>
 
-            {/* Positioning Statement Callout */}
-            <div className="border-l-2 border-blue-500 pl-4 py-1">
-              <p className="text-xl sm:text-2xl font-serif italic text-white/95 tracking-wide">
-                “{profileData.positioningLine}”
+            {/* Positioning Statement */}
+            <div className="py-2">
+              <p className="font-serif italic text-2xl sm:text-3xl text-neutral-100 leading-snug">
+                “Building Nigeria's communicators, from Nigeria.”
               </p>
             </div>
 
-            {/* Introduction paragraph */}
-            <p className="text-base sm:text-lg text-[#9CA3AF] leading-relaxed">
-              {profileData.shortBio}
+            {/* Bio paragraph */}
+            <p className="text-sm sm:text-base text-neutral-400 leading-relaxed max-w-2xl">
+              Over eighteen years of academic leadership across mass communication, strategic policy, media literacy,
+              and artificial intelligence ethics. Director of the Career Services Centre at Federal University Oye-Ekiti,
+              mentoring postgraduate scholars and chairing national accreditation panels.
             </p>
 
-            {/* Headline Stat Counters */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 py-2 border-y border-white/[0.08]">
-              {profileData.heroStats.map((stat, idx) => (
-                <div key={idx} className="space-y-1">
-                  <div className="text-2xl sm:text-3xl font-extrabold text-[#E5E7EB] tracking-tight">
-                    {stat.value}
-                  </div>
-                  <div className="text-xs font-medium text-gray-400 leading-snug">
-                    {stat.label}
-                  </div>
-                </div>
-              ))}
+            {/* Credential Strip (Replaces giant numbers) */}
+            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 py-4 border-y border-[#20232E] text-xs font-mono">
+              <div>
+                <span className="text-neutral-200 font-semibold block">18+ Years</span>
+                <span className="text-neutral-500">Higher Education</span>
+              </div>
+              <div>
+                <span className="text-neutral-200 font-semibold block">30+ Courses</span>
+                <span className="text-neutral-500">Taught & Created</span>
+              </div>
+              <div>
+                <span className="text-neutral-200 font-semibold block">10+ Universities</span>
+                <span className="text-neutral-500">External Examiner</span>
+              </div>
+              <div>
+                <span className="text-neutral-200 font-semibold block">NUC Chair</span>
+                <span className="text-neutral-500">Accreditation Panels</span>
+              </div>
             </div>
 
-            {/* Action Buttons & Outbound links */}
+            {/* Action Buttons */}
             <div className="flex flex-wrap items-center gap-4 pt-2">
               <Link
                 href="/about"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-blue-600 text-white font-medium text-sm hover:bg-blue-500 transition-colors shadow-lg shadow-blue-600/20"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-neutral-100 text-neutral-900 font-medium text-xs hover:bg-white transition-colors"
               >
-                <span>Read my story</span>
-                <ArrowRight className="w-4 h-4" />
+                <span>Read Biography</span>
+                <ArrowRight className="w-3.5 h-3.5" />
               </Link>
               <Link
                 href="/contact?reason=speaking"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[#161822] text-[#E5E7EB] font-medium text-sm border border-white/10 hover:border-white/20 hover:text-white transition-colors"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-[#14161E] text-neutral-200 font-medium text-xs border border-[#232733] hover:border-neutral-500 hover:text-white transition-colors"
               >
-                <span>Invite me to speak</span>
+                <span>Speaking Inquiries</span>
               </Link>
 
-              {/* Scholar and LinkedIn Outbound Links */}
-              <div className="flex items-center gap-2 sm:ml-auto">
+              {/* Scholar and LinkedIn */}
+              <div className="flex items-center gap-3 sm:ml-auto text-xs font-mono text-neutral-400">
                 <a
                   href={profileData.socialLinks.googleScholar}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2.5 rounded-xl bg-[#161822] text-gray-400 hover:text-white border border-white/10 hover:border-white/20 transition-colors"
-                  aria-label="Google Scholar"
-                  title="Google Scholar Profile"
+                  className="hover:text-white transition-colors flex items-center gap-1"
                 >
-                  <ExternalLink className="w-4 h-4" />
+                  <span>Google Scholar</span>
+                  <ExternalLink className="w-3 h-3" />
                 </a>
+                <span>·</span>
                 <a
                   href={profileData.socialLinks.linkedIn}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="p-2.5 rounded-xl bg-[#161822] text-gray-400 hover:text-white border border-white/10 hover:border-white/20 transition-colors"
-                  aria-label="LinkedIn"
-                  title="LinkedIn Profile"
+                  className="hover:text-white transition-colors flex items-center gap-1"
                 >
-                  <Users className="w-4 h-4" />
+                  <span>LinkedIn</span>
+                  <ExternalLink className="w-3 h-3" />
                 </a>
               </div>
             </div>

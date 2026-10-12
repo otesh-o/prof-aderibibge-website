@@ -1,27 +1,18 @@
 @import "tailwindcss";
 
 :root {
-  --background: #0F1117;
-  --foreground: #E5E7EB;
-  --card: #161822;
-  --card-hover: #1C1F2B;
-  --accent: #3B82F6;
-  --accent-hover: #2563EB;
-  --muted: #9CA3AF;
-  --border: rgba(255, 255, 255, 0.08);
+  --background: #0D0E12;
+  --foreground: #E6E8EE;
+  --panel: #14161E;
+  --panel-border: #20232E;
+  --accent-blue: #2563EB;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --color-card: var(--card);
-  --color-card-hover: var(--card-hover);
-  --color-accent: var(--accent);
-  --color-accent-hover: var(--accent-hover);
-  --color-muted: var(--muted);
-  --color-border: var(--border);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-serif: var(--font-newsreader), Georgia, serif;
+  --font-sans: var(--font-jakarta), -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 }
 
 html {
@@ -30,42 +21,33 @@ html {
 }
 
 body {
-  background-color: #0F1117;
-  color: #E5E7EB;
-  font-family: var(--font-geist-sans), -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background-color: #0D0E12;
+  color: #E6E8EE;
+  font-family: var(--font-jakarta), -apple-system, BlinkMacSystemFont, sans-serif;
   overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* Custom scrollbar for charcoal dark theme */
+/* Crisp dark scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
-  height: 8px;
+  width: 6px;
+  height: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #0F1117;
+  background: #0D0E12;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #252836;
-  border-radius: 9999px;
+  background: #232733;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #363A4D;
+  background: #343949;
 }
 
-/* Glassmorphic utility with neutral charcoal */
-.glass-panel {
-  background: rgba(22, 24, 34, 0.85);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.glass-dock {
-  background: rgba(18, 20, 28, 0.92);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(255, 255, 255, 0.10);
+/* Sharp architectural border utility */
+.panel-border {
+  border: 1px solid #20232E;
 }

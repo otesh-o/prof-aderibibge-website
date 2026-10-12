@@ -11,23 +11,22 @@ export const metadata: Metadata = {
 
 export default function WritingPage() {
   return (
-    <div className="py-12 sm:py-20 bg-[#0F1117]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+    <div className="py-16 sm:py-24 bg-[#0D0E12]">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
 
         {/* Header */}
-        <div className="max-w-3xl space-y-4 pb-8 border-b border-white/[0.08]">
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold bg-white/5 text-gray-300 border border-white/10">
-            <PenTool className="w-3.5 h-3.5 text-gray-400" />
-            <span>Public Intellectual Discourse</span>
-          </div>
+        <div className="max-w-3xl space-y-3 pb-8 border-b border-[#20232E]">
+          <span className="font-mono text-xs uppercase tracking-widest text-[#71788E] block">
+            Public Intellectual Commentary
+          </span>
 
-          <h1 className="text-3xl sm:text-5xl font-extrabold text-[#E5E7EB] tracking-tight">
+          <h1 className="font-serif text-3xl sm:text-5xl font-normal text-[#EDEFEF] tracking-tight">
             Writing & Commentary
           </h1>
 
-          <p className="text-base sm:text-lg text-[#9CA3AF] leading-relaxed">
+          <p className="text-sm sm:text-base text-[#9FA6B2] leading-relaxed max-w-2xl">
             Analytical essays, academic commentary, and personal reflections on media ethics,
-            the impact of artificial intelligence in Africa, and the purpose of higher education.
+            the trajectory of artificial intelligence in Africa, and the purpose of higher education.
           </p>
         </div>
 
