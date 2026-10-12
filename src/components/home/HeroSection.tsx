@@ -53,7 +53,10 @@ export default function HeroSection() {
               </p>
 
               <h1 className="font-serif text-4xl sm:text-6xl lg:text-7xl font-normal tracking-tight text-white leading-[1.05]">
-                Adebola Adewunmi Aderibigbe
+                Adebola Adewunmi Aderibigbe{" "}
+                <span className="text-sm sm:text-lg lg:text-xl font-mono text-neutral-400 font-normal align-middle ml-2">
+                  BSc, MSc, PhD
+                </span>
               </h1>
 
               <p className="text-lg sm:text-xl text-neutral-300 font-sans">
