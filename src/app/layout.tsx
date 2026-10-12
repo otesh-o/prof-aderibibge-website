@@ -44,11 +44,40 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Prof. Adebola Adewunmi Aderibigbe",
+    "alternateName": "Adebola Aderibigbe",
+    "jobTitle": "Professor of Mass Communication",
+    "worksFor": {
+      "@type": "CollegeOrUniversity",
+      "name": "Federal University Oye-Ekiti (FUOYE)",
+      "sameAs": "https://fuoye.edu.ng"
+    },
+    "alumniOf": [
+      { "@type": "CollegeOrUniversity", "name": "Babcock University" },
+      { "@type": "CollegeOrUniversity", "name": "University of Lagos" },
+      { "@type": "CollegeOrUniversity", "name": "Bowen University" }
+    ],
+    "url": "https://adebolaaderibigbe.com",
+    "sameAs": [
+      "https://scholar.google.com",
+      "https://www.linkedin.com"
+    ]
+  };
+
   return (
     <html
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
+      <head>
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+      </head>
       <body className="min-h-full flex flex-col bg-[#0B0F17] text-[#E5E7EB]">
         <Header />
         <main className="flex-1 pb-20">{children}</main>
