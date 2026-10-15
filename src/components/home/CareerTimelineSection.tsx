@@ -39,7 +39,7 @@ export default function CareerTimelineSection() {
           {/* LEFT: Karpathy-Style Chronological Experience (7 cols) */}
           <div className="lg:col-span-7 space-y-8">
             {/* Timeline Spine */}
-            <div className="relative pl-0 sm:pl-2 space-y-8 before:hidden sm:before:block before:absolute before:left-[110px] before:top-3 before:bottom-3 before:w-px before:bg-line">
+            <div className="relative pl-0 sm:pl-2 space-y-8 before:hidden sm:before:block before:absolute before:left-[117px] before:top-3 before:bottom-3 before:w-px before:bg-mute/40">
 
               {/* Item 1: 2026 */}
               <div className="relative flex flex-col sm:flex-row gap-5 sm:gap-8 items-start">

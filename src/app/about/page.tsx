@@ -217,7 +217,7 @@ export default function AboutPage() {
                 </Link>
               </div>
 
-              <ol className="relative mt-4 before:absolute before:bottom-8 before:top-8 before:left-[9.25rem] before:hidden before:w-px before:bg-line sm:before:block">
+              <ol className="relative mt-4 before:absolute before:bottom-8 before:top-8 before:left-[9.25rem] before:hidden before:w-px before:bg-mute/40 sm:before:block">
                 {timeline.map((m) => (
                   <li
                     key={m.title}

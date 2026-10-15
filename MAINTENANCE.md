@@ -1,118 +1,152 @@
-# Prof. Adebola Aderibigbe Personal Website — Maintenance & Content Guide
+# Maintenance guide (for the developer)
 
-This guide explains how Prof. Adebola Aderibigbe or the site administrator can update and maintain the website at `adebolaaderibigbe.com` without needing a developer for day-to-day changes.
+How to update `adebolaaderibigbe.com`. All content lives in `src/data/`, separate from layout code.
+Updates are made by the developer under the maintenance agreement: the professor sends material, you add it here.
 
-All content is cleanly separated from code inside the `src/data/` directory.
-
----
-
-## 1. Updating the Quote & Positioning Statement
-- **File**: `src/data/profile.ts`
-- **To update the Quote**: Locate `quote` at the bottom of `profile.ts`:
-  ```typescript
-  quote: {
-    text: "Your approved quote goes here...",
-    author: "Prof. Adebola Adewunmi Aderibigbe",
-    subtext: "Professor of Mass Communication, Federal University Oye-Ekiti",
-  }
-  ```
-- **To update the Positioning Line**: Update `positioningLine` in `src/data/profile.ts`.
+Every change is: edit a data file or drop a file into `public/`, then push to `main`.
+Vercel redeploys automatically. Run `npm run dev` first if you want to check it.
 
 ---
 
-## 2. Adding a New Speaking Engagement
-- **File**: `src/data/speaking.ts`
-- **Instructions**: Add a new entry to the `allSpeakingEvents` array at the top:
-  ```typescript
-  {
-    id: "spk-new",
-    event: "Event Name",
-    host: "Organising Body",
-    location: "City, Country",
-    date: "Date String",
-    year: 2026,
-    role: "Keynote Speaker", // or "Lead Consultant Facilitator", "Panellist", "Guest Lecturer"
-    topic: "Speech Title or Theme",
-    isFeatured: true, // true to display as large featured tile
-  }
-  ```
+## Where things live
+
+| What | File |
+|---|---|
+| Quote, bio line, fellowships, hero numbers, social links, email | `src/data/profile.ts` |
+| Publications, thesis, grants, supervision | `src/data/research.ts` |
+| Lecture videos, course outlines, modules | `src/data/teaching.ts` |
+| Master classes | `src/data/mentorship.ts` |
+| Featured engagements, speaking topics | `src/data/speaking.ts` |
+| Articles | `src/data/writing.ts` |
+| Downloadable PDFs | `public/documents/` |
+| Institution logos | `public/logos/` |
+| Images and portrait | `public/images/` |
 
 ---
 
-## 3. Adding a New Lecture Video
-- **File**: `src/data/teaching.ts`
-- **Instructions**:
-  1. Upload the video to Prof. Aderibigbe's YouTube channel.
-  2. Copy the YouTube Video ID (e.g. from `https://www.youtube.com/watch?v=VIDEO_ID`).
-  3. Add an entry to `lectureVideosData`:
-  ```typescript
-  {
-    id: "lec-new",
-    title: "Lecture Title",
-    courseCode: "MAC 309",
-    courseTitle: "Broadcast Management & Programming",
-    duration: "35 mins",
-    youtubeId: "VIDEO_ID",
-    description: "Brief overview of what this lecture covers.",
-    date: "October 2026",
-  }
-  ```
+## Content that still needs his confirmation
+
+These were drafted, not supplied by him. Do not publish them as fact until he approves.
+
+- The quote and the "Why I stayed" wording (`profile.ts`, `app/about/page.tsx`).
+- The publication titles, journals and abstracts in `research.ts`. Only Frontiers in Psychology,
+  Communication and the Public, and the Journal of African Union Studies are named in his brief.
+- Lecture titles, durations and course codes in `teaching.ts`. All three videos use a placeholder
+  YouTube id (`dQw4w9WgXcQ`); the site refuses to play or link it and shows "Recording to be added".
+- Course outline details (credits, descriptions, topics). Only MAC 309 is named in his brief.
+- His MSc and BSc subject ("Mass Communication") on the About page.
+- The portrait is a 400px placeholder. Replace after the photoshoot.
+
+Entries marked `confirmed: false` are hidden everywhere (featured engagements, master classes).
+Delete the flag, or set it to `true`, once he confirms an entry.
 
 ---
 
-## 4. Adding a New Publication
-- **File**: `src/data/research.ts`
-- **Instructions**: Add a new object to `publicationsData`:
-  ```typescript
-  {
-    id: "pub-new",
-    title: "Paper Title",
-    authors: "Aderibigbe, A. A., & Collaborator",
-    journal: "Journal Name",
-    year: 2026,
-    type: "Journal Article", // or "Conference Proceeding", "Book Chapter", "Policy Report"
-    scholarUrl: "https://scholar.google.com/...",
-    abstract: "Short abstract of the paper...",
-  }
-  ```
+## 1. Quote and positioning
+
+`src/data/profile.ts`: edit `quote.text` and `positioningLine`.
+
+## 2. A featured engagement
+
+`src/data/speaking.ts`, add to `allSpeakingEvents`:
+
+```ts
+{
+  id: "spk-new",
+  event: "Event name",
+  host: "Organising body",
+  location: "City, Country",
+  date: "8 - 10 October 2026",
+  year: 2026,
+  role: "Keynote Speaker", // "Lead Consultant Facilitator" | "Panel Chairman" | "Panellist" | "Guest Lecturer" | "Award Recipient"
+  topic: "Talk title or theme",
+  isFeatured: true, // the featured one shows in the strip on the home page
+  recordingUrl: "https://youtube.com/watch?v=...", // optional
+}
+```
+
+The Featured page (`/featured`) and the home strip update by themselves.
+
+## 3. A lecture video
+
+Upload to his YouTube channel, copy the id from `watch?v=ID`, then add to `lectureVideosData`
+in `src/data/teaching.ts`:
+
+```ts
+{ id: "lec-new", title: "...", courseCode: "MAC 309", courseTitle: "...", duration: "35 mins",
+  youtubeId: "ID", description: "...", date: "October 2026" }
+```
+
+The video loads only when a visitor presses play.
+
+## 4. A publication
+
+`src/data/research.ts`, add to `publicationsData`:
+
+```ts
+{ id: "pub-new", title: "...", authors: "Aderibigbe, A. A.", journal: "...", year: 2026,
+  type: "Journal Article", // "Conference Proceeding" | "Book Chapter" | "Policy Report"
+  scholarUrl: "https://scholar.google.com/...", abstract: "..." }
+```
+
+The newest journal article becomes the featured paper on the home page automatically.
+
+## 5. An article
+
+`src/data/writing.ts`, add to `articlesData` (`isFeatured: true` leads the home section).
+Each article gets a page at `/writing/<slug>` and appears in the sitemap and search.
+
+## 6. A course outline PDF
+
+1. Put the PDF in `public/documents/`.
+2. Set `outlineDownloadUrl: "/documents/<file>.pdf"` on the course in `universityCoursesData`.
+
+The download button appears only when that file really exists; otherwise the page says
+"Outline to be added".
+
+## 7. The thesis summary
+
+Save the PDF as `public/documents/Prof_Adebola_Aderibigbe_PhD_Thesis_Summary.pdf`.
+The download buttons on the home page and `/research` switch on by themselves.
+
+## 8. The CV
+
+Replace `public/documents/Prof_Adebola_Aderibigbe_CV.pdf`, keeping the filename.
+
+## 9. The portrait
+
+Put the file in `public/images/`, then change the `src` in `src/components/home/HeroSection.tsx`.
+Recommended: about 1200 x 1500 px. The crop is `object-[50%_20%]`; adjust if the face sits low.
+
+## 10. An institution logo
+
+Add a PNG or WebP to `public/logos/`, then add the entry to the timeline in
+`src/components/home/CareerTimelineSection.tsx` (home) and `src/app/about/page.tsx` (`timeline`).
+Entries without a logo show a short text mark.
 
 ---
 
-## 5. Adding a New Essay or Reflection
-- **File**: `src/data/writing.ts`
-- **Instructions**: Add a new entry to `articlesData`:
-  ```typescript
-  {
-    slug: "my-article-slug",
-    title: "Article Title",
-    subtitle: "One sentence summary",
-    topic: "AI & Media",
-    date: "November 2026",
-    readTime: "5 min read",
-    isFeatured: false,
-    excerpt: "Short summary shown on cards...",
-    content: [
-      "First paragraph of the essay...",
-      "Second paragraph...",
-    ],
-  }
-  ```
-The new article will immediately get its own dedicated page at `/writing/my-article-slug`.
+## Contact form
 
----
+`/contact` posts to `/api/contact`. Set `CONTACT_FORWARD_URL` in the Vercel project settings to an
+endpoint that emails him (a Formspree or Basin form URL works). Until it is set the form falls back
+to opening the visitor's own email app, so messages are never lost silently, but nothing is delivered
+by the site itself.
 
-## 6. Updating the Portrait Photo (After the Photoshoot)
-1. Export the chosen portrait in high resolution (recommended: 1200 x 1500px, WebP or JPEG).
-2. Save it into the `public/images/` folder as `portrait.jpg`.
-3. In `src/components/home/HeroSection.tsx`, update the image container to render `<Image src="/images/portrait.jpg" alt="Prof. Adebola Aderibigbe" fill priority className="object-cover" />`.
+## Pages and redirects
 
----
+- `/featured` is the old speaking page. `/speaking` redirects to it.
+- `/credentials` redirects to the About timeline. `/mentorship` redirects to the master classes
+  section of `/teaching`.
+- The floating dock follows the home page sections: `experience`, `research`, `lectures`,
+  `articles`, `featured`. Keep those `id`s if you move sections around.
 
-## 7. Uploading Documents (CV, Thesis, Course Outlines)
-- All downloadable PDFs are stored in `public/documents/`.
-- To update the CV, replace `public/documents/Prof_Adebola_Aderibigbe_CV.pdf` with the new file using the same filename.
+## Theme
 
----
+The site is fixed on the light paper theme with dark bands (`data-theme="light"` in
+`src/app/layout.tsx`). The dark palette is still defined in `src/app/globals.css`.
 
-## 8. Publishing Changes
-Any commit pushed to the `main` branch of `https://github.com/otesh-o/prof-aderibibge-website.git` automatically triggers a zero-downtime deployment on Vercel to `adebolaaderibigbe.com`.
+## Publishing
+
+Pushing to `main` on `https://github.com/otesh-o/prof-aderibibge-website.git` triggers a Vercel
+deployment to `adebolaaderibigbe.com`. Run `npx tsc --noEmit` and `npm run build` before pushing.
