@@ -1,151 +1,102 @@
 "use client";
 
-import { useState } from "react";
+import { useMemo, useState } from "react";
 import Link from "next/link";
-import { Search, ArrowRight, Clock, Calendar } from "lucide-react";
-import { Article } from "@/data/writing";
+import { ArrowRight, Search } from "lucide-react";
+import SpotlightCard from "@/components/SpotlightCard";
+import type { Article } from "@/data/writing";
 
-interface Props {
-  articles: Article[];
-}
+const card =
+  "group flex flex-col rounded-xl bg-tile p-5 ring-1 ring-inset ring-line transition-[box-shadow,transform] duration-300 hover:-translate-y-0.5 hover:ring-accent/50";
 
-export default function ArticlesFilter({ articles }: Props) {
-  const [selectedTag, setSelectedTag] = useState("All");
-  const [searchQuery, setSearchQuery] = useState("");
+/** Articles as cards with topic filters and search. The featured one spans two columns. */
+export default function ArticlesFilter({ articles }: { articles: Article[] }) {
+  const [topic, setTopic] = useState("All");
+  const [query, setQuery] = useState("");
 
-  const tags = ["All", ...Array.from(new Set(articles.map((a) => a.topic)))];
+  const topics = useMemo(() => ["All", ...new Set(articles.map((a) => a.topic))], [articles]);
+  const count = (t: string) => (t === "All" ? articles.length : articles.filter((a) => a.topic === t).length);
 
-  const filteredArticles = articles.filter((art) => {
-    const matchesTag = selectedTag === "All" || art.topic === selectedTag;
-    const matchesSearch =
-      art.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      art.subtitle.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      art.excerpt.toLowerCase().includes(searchQuery.toLowerCase());
-    return matchesTag && matchesSearch;
-  });
-
-  const featuredArticle = filteredArticles.find((a) => a.isFeatured) || filteredArticles[0];
-  const regularArticles = filteredArticles.filter((a) => a.slug !== featuredArticle?.slug);
+  const q = query.trim().toLowerCase();
+  const shown = articles.filter(
+    (a) =>
+      (topic === "All" || a.topic === topic) &&
+      (!q || a.title.toLowerCase().includes(q) || a.excerpt.toLowerCase().includes(q) || a.subtitle.toLowerCase().includes(q)),
+  );
 
   return (
-    <div className="space-y-10">
-      {/* Search and Category Filters */}
-      <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 p-4 border border-[#20232E] bg-[#14161E]">
-        <div className="flex flex-wrap items-center gap-1">
-          {tags.map((tag) => (
-            <button
-              key={tag}
-              onClick={() => setSelectedTag(tag)}
-              className={`px-3 py-1.5 text-xs font-mono transition-colors ${
-                selectedTag === tag
-                  ? "bg-[#1E2230] text-[#EDEFEF] border border-[#2F364C]"
-                  : "text-[#7B8296] hover:text-[#EDEFEF] hover:bg-[#181B24]"
-              }`}
-            >
-              {tag}
-            </button>
-          ))}
-        </div>
+    <div>
+      <div className="sticky top-16 z-30 -mx-5 border-b border-line bg-bg/90 px-5 py-2.5 backdrop-blur-md sm:-mx-8 sm:px-8">
+        <div className="flex flex-col gap-3 lg:flex-row lg:items-center lg:justify-between">
+          <ul className="-mx-5 flex gap-2 overflow-x-auto px-5 sm:-mx-8 sm:px-8 lg:mx-0 lg:flex-wrap lg:overflow-visible lg:px-0">
+            {topics.map((t) => {
+              const active = topic === t;
+              return (
+                <li key={t} className="shrink-0">
+                  <button
+                    onClick={() => setTopic(t)}
+                    aria-pressed={active}
+                    className={`inline-flex h-9 items-center gap-2 rounded-full px-3.5 text-sm transition-colors ${
+                      active
+                        ? "bg-accent font-medium text-on-accent"
+                        : "border border-line text-mute hover:border-accent hover:text-ink"
+                    }`}
+                  >
+                    {t}
+                    <span className="tabular-nums opacity-70">{count(t)}</span>
+                  </button>
+                </li>
+              );
+            })}
+          </ul>
 
-        <div className="relative min-w-[240px]">
-          <Search className="w-3.5 h-3.5 text-[#6E7588] absolute left-3 top-1/2 -translate-y-1/2" />
-          <input
-            type="text"
-            placeholder="Search essays & reflections..."
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full pl-9 pr-3 py-1.5 rounded-sm bg-[#0D0E12] border border-[#20232E] text-xs text-[#EDEFEF] placeholder-[#5A6072] font-mono focus:outline-none focus:border-[#383E54] transition-colors"
-          />
+          <label className="relative block lg:w-64">
+            <span className="sr-only">Search articles</span>
+            <Search className="pointer-events-none absolute left-4 top-1/2 h-4 w-4 -translate-y-1/2 text-mute" />
+            <input
+              type="search"
+              value={query}
+              onChange={(e) => setQuery(e.target.value)}
+              placeholder="Search articles"
+              className="h-9 w-full rounded-full border border-line bg-transparent pl-10 pr-4 text-sm text-ink placeholder:text-mute focus:border-accent focus:outline-none"
+            />
+          </label>
         </div>
       </div>
 
-      {filteredArticles.length === 0 ? (
-        <div className="p-8 text-center border border-[#20232E] bg-[#14161E] text-xs font-mono text-[#7B8296]">
-          No essays found matching your query.
-        </div>
+      {shown.length === 0 ? (
+        <p className="py-16 text-center text-mute">No articles match that search.</p>
       ) : (
-        <div className="space-y-10">
-          {/* Featured Essay Banner */}
-          {featuredArticle && (
-            <div className="border border-[#20232E] bg-[#14161E] p-8 sm:p-10 space-y-4">
-              <div className="flex flex-wrap items-center gap-3 text-xs font-mono text-[#71788E]">
-                <span className="px-2 py-0.5 bg-[#1E2230] text-[#9AA1B2] border border-[#2B3044] uppercase tracking-wider text-[10px]">
-                  Featured Essay
-                </span>
-                <span>{featuredArticle.date}</span>
-                <span>•</span>
-                <span>{featuredArticle.readTime}</span>
-              </div>
-
-              <h2 className="font-serif text-2xl sm:text-3xl font-normal text-[#EDEFEF] hover:text-white transition-colors leading-tight">
-                <Link href={`/writing/${featuredArticle.slug}`}>
-                  {featuredArticle.title}
-                </Link>
-              </h2>
-
-              <p className="font-serif text-base text-[#C5CAD6] italic">
-                {featuredArticle.subtitle}
-              </p>
-
-              <p className="text-xs sm:text-sm text-[#8A92A6] leading-relaxed max-w-3xl">
-                {featuredArticle.excerpt}
-              </p>
-
-              <div className="pt-2">
-                <Link
-                  href={`/writing/${featuredArticle.slug}`}
-                  className="inline-flex items-center gap-2 px-4 py-2 rounded-sm bg-[#1F2433] hover:bg-[#282F44] text-[#EDEFEF] text-xs font-mono border border-[#2F364C] transition-colors"
-                >
-                  <span>Read Full Essay</span>
-                  <ArrowRight className="w-3.5 h-3.5 text-[#8A90A2]" />
-                </Link>
-              </div>
-            </div>
-          )}
-
-          {/* Ledger of Other Articles */}
-          {regularArticles.length > 0 && (
-            <div className="border border-[#20232E] bg-[#14161E] divide-y divide-[#1D202B]">
-              {regularArticles.map((art) => (
-                <div
-                  key={art.slug}
-                  className="p-6 sm:p-7 flex flex-col md:flex-row md:items-baseline justify-between gap-6 hover:bg-[#181B24] transition-colors"
-                >
-                  <div className="space-y-2 max-w-2xl">
-                    <div className="flex flex-wrap items-baseline gap-3 text-[11px] font-mono text-[#71788E]">
-                      <span className="px-2 py-0.5 bg-[#0D0E12] border border-[#20232E] text-[#9AA1B2]">
-                        {art.topic}
-                      </span>
-                      <span>{art.readTime}</span>
-                      <span>•</span>
-                      <span>{art.date}</span>
-                    </div>
-
-                    <h3 className="font-serif text-xl sm:text-2xl font-normal text-[#EDEFEF] leading-snug">
-                      <Link href={`/writing/${art.slug}`} className="hover:underline">
-                        {art.title}
-                      </Link>
-                    </h3>
-
-                    <p className="text-xs sm:text-sm text-[#8A92A6] leading-relaxed">
-                      {art.excerpt}
-                    </p>
-                  </div>
-
-                  <div className="shrink-0 self-start md:self-baseline">
-                    <Link
-                      href={`/writing/${art.slug}`}
-                      className="font-mono text-xs text-[#EDEFEF] hover:underline flex items-center gap-1.5"
-                    >
-                      <span>Read Essay</span>
-                      <ArrowRight className="w-3.5 h-3.5 text-[#8A90A2]" />
-                    </Link>
-                  </div>
+        <ul className="mt-4 grid gap-3 sm:grid-cols-2 xl:grid-cols-3">
+          {shown.map((a, i) => {
+            const lead = i === 0 && topic === "All" && !q;
+            return (
+              <SpotlightCard as="li" key={a.slug} className={`${card} ${lead ? "sm:col-span-2 xl:col-span-2" : ""}`}>
+                <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
+                  <span className="inline-flex rounded-full bg-accent/15 px-2 py-0.5 text-xs font-medium text-accent">
+                    {a.topic}
+                  </span>
+                  <span className="text-xs text-mute">
+                    {a.date} · {a.readTime}
+                  </span>
                 </div>
-              ))}
-            </div>
-          )}
-        </div>
+
+                <h3 className={`mt-3 font-semibold leading-snug text-ink ${lead ? "text-xl" : "text-base"}`}>
+                  <Link href={`/writing/${a.slug}`} className="after:absolute after:inset-0">
+                    {a.title}
+                  </Link>
+                </h3>
+                <p className="mt-2 text-sm leading-relaxed text-mute line-clamp-2">{a.subtitle}</p>
+                {lead && <p className="mt-2 text-sm leading-relaxed text-mute line-clamp-3">{a.excerpt}</p>}
+
+                <span className="mt-auto inline-flex items-center gap-1.5 pt-4 text-sm font-medium text-accent">
+                  Read article
+                  <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                </span>
+              </SpotlightCard>
+            );
+          })}
+        </ul>
       )}
     </div>
   );

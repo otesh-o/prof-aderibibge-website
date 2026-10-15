@@ -1,18 +1,99 @@
 @import "tailwindcss";
 
+/* Dark is the default. Light is paper with deep blue as the lead colour. */
 :root {
-  --background: #0D0E12;
-  --foreground: #E6E8EE;
-  --panel: #14161E;
-  --panel-border: #20232E;
-  --accent-blue: #2563EB;
+  --bg: #0B0F17;
+  --tile: #111827;
+  --tile2: #1A2233;
+  --line: #1F2937;
+  --ink: #E5E7EB;
+  --mute: #9CA3AF;
+  --accent: #3B82F6;
+  --on-accent: #FFFFFF;
+}
+
+:root[data-theme="light"] {
+  --bg: #F6F3EC;
+  --tile: #FFFFFF;
+  --tile2: #EEF1F6;
+  --line: #D8DDE6;
+  --ink: #0B1B33;
+  --mute: #4F5B6E;
+  --accent: #1D4ED8;
+  --on-accent: #FFFFFF;
+  color-scheme: light;
+
+  /* Older pages use Tailwind's neutral/white utilities: flip them for light. */
+  --color-white: #0B1B33;
+  --color-black: #000000;
+  --color-neutral-100: #0F172A;
+  --color-neutral-200: #1B2740;
+  --color-neutral-300: #2A3752;
+  --color-neutral-400: #4F5B6E;
+  --color-neutral-500: #5F6B7E;
+  --color-neutral-600: #C3CAD6;
+  --color-neutral-700: #D3D9E3;
+  --color-neutral-800: #E3E7EE;
+  --color-neutral-900: #F6F3EC;
+  --color-neutral-950: #FFFFFF;
+  --color-gray-400: #4F5B6E;
+  --color-blue-200: #1E3A8A;
+  --color-blue-400: #1D4ED8;
+  --color-blue-800: #BFD2FA;
+  --color-blue-950: #E3ECFD;
+  --color-slate-200: #1B2740;
+  --color-slate-700: #D3D9E3;
+  --color-slate-900: #F6F3EC;
+}
+
+/* In light mode, a section can opt back into the dark palette with .tone-dark. */
+:root[data-theme="light"] .tone-dark {
+  --bg: #0B0F17;
+  --tile: #111827;
+  --tile2: #1A2233;
+  --line: #1F2937;
+  --ink: #E5E7EB;
+  --mute: #9CA3AF;
+  --accent: #3B82F6;
+  color-scheme: dark;
+
+  --color-white: #ffffff;
+  --color-black: #000000;
+  --color-neutral-100: #f5f5f5;
+  --color-neutral-200: #e5e5e5;
+  --color-neutral-300: #d4d4d4;
+  --color-neutral-400: #a3a3a3;
+  --color-neutral-500: #737373;
+  --color-neutral-600: #525252;
+  --color-neutral-700: #404040;
+  --color-neutral-800: #262626;
+  --color-neutral-900: #171717;
+  --color-neutral-950: #0a0a0a;
+  --color-gray-400: #99a1af;
+  --color-blue-200: #bedbff;
+  --color-blue-400: #51a2ff;
+  --color-blue-800: #193cb8;
+  --color-blue-950: #162456;
+  --color-slate-200: #e2e8f0;
+  --color-slate-700: #314158;
+  --color-slate-900: #0f172b;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-serif: var(--font-newsreader), Georgia, serif;
-  --font-sans: var(--font-jakarta), -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --color-bg: var(--bg);
+  --color-tile: var(--tile);
+  --color-tile2: var(--tile2);
+  --color-line: var(--line);
+  --color-ink: var(--ink);
+  --color-mute: var(--mute);
+  --color-accent: var(--accent);
+  --color-on-accent: var(--on-accent);
+  /* The one serif: his name. Everything else is the sans face. */
+  --font-display: var(--font-source-serif), Georgia, serif;
+  --font-serif: var(--font-plex), system-ui, sans-serif;
+  --font-sans: var(--font-plex), system-ui, -apple-system, "Segoe UI", sans-serif;
+  /* No dev-style monospace: labels use the body face with tabular figures. */
+  --font-mono: var(--font-plex), system-ui, sans-serif;
 }
 
 html {
@@ -21,33 +102,132 @@ html {
 }
 
 body {
-  background-color: #0D0E12;
-  color: #E6E8EE;
-  font-family: var(--font-jakarta), -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: var(--bg);
+  color: var(--ink);
+  font-family: var(--font-sans);
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  text-wrap: pretty;
+  font-variant-numeric: tabular-nums;
+  transition: background-color 0.25s ease, color 0.25s ease;
 }
 
-/* Crisp dark scrollbar */
-::-webkit-scrollbar {
-  width: 6px;
-  height: 6px;
+/* Sections the dock scrolls to stop below the sticky header, not under it. */
+section[id] {
+  scroll-margin-top: 5rem;
 }
 
-::-webkit-scrollbar-track {
-  background: #0D0E12;
+h1, h2, h3 {
+  text-wrap: balance;
 }
 
-::-webkit-scrollbar-thumb {
-  background: #232733;
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 3px;
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background: #343949;
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--line); }
+
+/* Theme toggle shows the icon for the theme you would switch to */
+.theme-to-dark { display: none; }
+:root[data-theme="light"] .theme-to-dark { display: block; }
+:root[data-theme="light"] .theme-to-light { display: none; }
+
+/* Grey concentric rings: one set from the top-right corner, one from the bottom-left. */
+.pattern-rings {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
 }
 
-/* Sharp architectural border utility */
-.panel-border {
-  border: 1px solid #20232E;
+.pattern-rings::before,
+.pattern-rings::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
 }
+
+.pattern-rings::before {
+  background-image: repeating-radial-gradient(
+    circle at 100% 0,
+    transparent 0,
+    transparent 33px,
+    color-mix(in srgb, var(--mute) 24%, transparent) 33px,
+    color-mix(in srgb, var(--mute) 24%, transparent) 36px
+  );
+  -webkit-mask-image: radial-gradient(circle at 100% 0, #000 0, rgba(0, 0, 0, 0.5) 300px, transparent 760px);
+  mask-image: radial-gradient(circle at 100% 0, #000 0, rgba(0, 0, 0, 0.5) 300px, transparent 760px);
+}
+
+.pattern-rings::after {
+  background-image: repeating-radial-gradient(
+    circle at 0 100%,
+    transparent 0,
+    transparent 33px,
+    color-mix(in srgb, var(--mute) 24%, transparent) 33px,
+    color-mix(in srgb, var(--mute) 24%, transparent) 36px
+  );
+  -webkit-mask-image: radial-gradient(circle at 0 100%, #000 0, rgba(0, 0, 0, 0.5) 300px, transparent 760px);
+  mask-image: radial-gradient(circle at 0 100%, #000 0, rgba(0, 0, 0, 0.5) 300px, transparent 760px);
+}
+
+/* Cards that glow where the cursor is (see SpotlightCard). */
+.spotlight {
+  position: relative;
+  overflow: hidden;
+}
+
+.spotlight::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  background: radial-gradient(
+    340px circle at var(--mx, 50%) var(--my, 50%),
+    color-mix(in srgb, var(--accent) 20%, transparent),
+    transparent 70%
+  );
+}
+
+.spotlight:hover::before {
+  opacity: 1;
+}
+
+@media (hover: none) {
+  .spotlight::before {
+    display: none;
+  }
+}
+
+/* Staggered entrance: transform + opacity only, off for reduced motion */
+@keyframes rise {
+  from { opacity: 0; transform: translateY(14px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.rise {
+  animation: rise 0.7s cubic-bezier(0.2, 0.7, 0.2, 1) both;
+  animation-delay: calc(var(--i, 0) * 80ms);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .rise { animation: none; }
+  body { transition: none; }
+}
+
+
+
+
+
+
+
+
+
+

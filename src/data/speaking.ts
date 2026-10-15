@@ -5,10 +5,12 @@ export interface SpeakingEvent {
   location: string;
   date: string;
   year: number;
-  role: "Keynote Speaker" | "Lead Consultant Facilitator" | "Panel Chairman" | "Panellist" | "Guest Lecturer";
+  role: "Keynote Speaker" | "Lead Consultant Facilitator" | "Panel Chairman" | "Panellist" | "Guest Lecturer" | "Award Recipient";
   topic: string;
   isFeatured?: boolean;
   recordingUrl?: string;
+  /** false = a draft entry that has not been confirmed with him; hidden on the Featured page. */
+  confirmed?: boolean;
 }
 
 export const speakingTopics = [
@@ -40,9 +42,9 @@ export const allSpeakingEvents: SpeakingEvent[] = [
     event: "1st Africa Leadership Summit & Awards",
     host: "Global Skills Hub (UK)",
     location: "Accra, Ghana",
-    date: "8 – 10 October 2026",
+    date: "8 - 10 October 2026",
     year: 2026,
-    role: "Keynote Speaker",
+    role: "Award Recipient",
     topic: "Transformative Leadership & Strategic Communication in Africa",
     isFeatured: true,
   },
@@ -78,6 +80,7 @@ export const allSpeakingEvents: SpeakingEvent[] = [
     role: "Panellist",
     topic: "Ethical AI Adoption and Copyright Ambiguities in African Journalism",
     isFeatured: false,
+    confirmed: false,
   },
   {
     id: "spk-5",
@@ -89,6 +92,7 @@ export const allSpeakingEvents: SpeakingEvent[] = [
     role: "Guest Lecturer",
     topic: "Building National Institutions Through Academic Excellence and Character",
     isFeatured: false,
+    confirmed: false,
   },
   {
     id: "spk-6",
@@ -100,5 +104,6 @@ export const allSpeakingEvents: SpeakingEvent[] = [
     role: "Panellist",
     topic: "Rethinking Media and Information Literacy for Digital Democracy",
     isFeatured: false,
+    confirmed: false,
   },
 ];

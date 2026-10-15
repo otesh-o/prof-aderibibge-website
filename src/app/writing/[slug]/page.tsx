@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import { ArrowLeft, Calendar, Clock } from "lucide-react";
+import { ArrowLeft, ArrowRight } from "lucide-react";
 import { articlesData } from "@/data/writing";
 
 interface Props {
@@ -9,21 +9,13 @@ interface Props {
 }
 
 export async function generateStaticParams() {
-  return articlesData.map((article) => ({
-    slug: article.slug,
-  }));
+  return articlesData.map((article) => ({ slug: article.slug }));
 }
 
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const article = articlesData.find((a) => a.slug === slug);
-
-  if (!article) {
-    return {
-      title: "Article Not Found | Prof. Adebola Aderibigbe",
-    };
-  }
-
+  if (!article) return { title: "Article not found | Prof. Adebola Aderibigbe" };
   return {
     title: `${article.title} | Prof. Adebola Aderibigbe`,
     description: article.excerpt,
@@ -33,82 +25,81 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 export default async function ArticleDetailPage({ params }: Props) {
   const { slug } = await params;
   const article = articlesData.find((a) => a.slug === slug);
+  if (!article) notFound();
 
-  if (!article) {
-    notFound();
-  }
+  const more = articlesData.filter((a) => a.slug !== article.slug).slice(0, 3);
 
   return (
-    <article className="py-16 sm:py-24 bg-[#0D0E12]">
-      <div className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+    <article className="mx-auto max-w-[1400px] px-5 pb-12 pt-4 sm:px-8 lg:pt-6">
+      <Link
+        href="/writing"
+        className="group -ml-2 inline-flex h-9 items-center gap-2 rounded-full px-3 text-sm font-medium text-mute transition-colors hover:bg-tile hover:text-ink"
+      >
+        <ArrowLeft className="h-4 w-4 transition-transform duration-300 group-hover:-translate-x-1" />
+        Back to all articles
+      </Link>
 
-        {/* Back Link */}
-        <Link
-          href="/writing"
-          className="inline-flex items-center gap-2 font-mono text-xs text-[#71788E] hover:text-[#EDEFEF] transition-colors"
-        >
-          <ArrowLeft className="w-3.5 h-3.5" />
-          <span>Back to Essays & Reflections</span>
-        </Link>
-
-        {/* Header */}
-        <div className="space-y-4 pb-8 border-b border-[#20232E]">
-          <div className="flex flex-wrap items-baseline gap-3 text-xs font-mono text-[#71788E]">
-            <span className="px-2 py-0.5 bg-[#1E2230] text-[#9AA1B2] border border-[#2B3044] uppercase tracking-wider text-[10px]">
+      <div className="mx-auto mt-4 max-w-[68ch]">
+        <header className="border-b border-line pb-6">
+          <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
+            <span className="inline-flex rounded-full bg-accent/15 px-2.5 py-0.5 text-xs font-medium text-accent">
               {article.topic}
             </span>
-            <span>{article.date}</span>
-            <span>•</span>
-            <span>{article.readTime}</span>
+            <span className="text-sm text-mute">
+              {article.date} · {article.readTime}
+            </span>
           </div>
-
-          <h1 className="font-serif text-3xl sm:text-5xl font-normal text-[#EDEFEF] tracking-tight leading-tight">
+          <h1 className="mt-4 text-3xl font-semibold leading-tight tracking-tight text-ink sm:text-4xl">
             {article.title}
           </h1>
-
-          <p className="font-serif text-lg sm:text-xl text-[#9FA6B2] italic leading-relaxed">
-            {article.subtitle}
+          <p className="mt-3 text-lg leading-relaxed text-mute">{article.subtitle}</p>
+          <p className="mt-4 text-sm text-mute">
+            By <span className="text-ink">Prof. Adebola Adewunmi Aderibigbe</span>, Federal University Oye-Ekiti
           </p>
+        </header>
 
-          <div className="pt-2 flex items-center gap-3 font-mono text-xs text-[#71788E]">
-            <span>By Prof. Adebola Adewunmi Aderibigbe</span>
-            <span>•</span>
-            <span>Federal University Oye-Ekiti</span>
-          </div>
-        </div>
-
-        {/* Article Body */}
-        <div className="space-y-6 text-[#C8CCD6] font-serif text-base sm:text-lg leading-relaxed">
+        <div className="space-y-5 pt-6 text-[17px] leading-[1.8] text-ink">
           {article.content.map((paragraph, idx) => (
-            <p key={idx} className="leading-relaxed">{paragraph}</p>
+            <p key={idx}>{paragraph}</p>
           ))}
         </div>
 
-        {/* Author Bio Ledger in Article */}
-        <div className="p-6 sm:p-8 border border-[#20232E] bg-[#14161E] space-y-3 mt-16">
-          <span className="font-mono text-[10px] uppercase tracking-widest text-[#71788E] block">
-            About the Author
-          </span>
-          <h3 className="font-serif text-lg font-normal text-[#EDEFEF]">
-            Prof. Adebola Adewunmi Aderibigbe
-          </h3>
-          <p className="text-xs sm:text-sm text-[#8A92A6] leading-relaxed">
-            Professor of Mass Communication, Faculty of Communication and Media Studies,
-            Federal University Oye-Ekiti (FUOYE). Specialises in Strategic and Development Communication,
-            emerging tech ethics, and curriculum development.
+        <aside className="mt-10 border-t border-line pt-6">
+          <p className="text-sm text-mute">About the author</p>
+          <p className="mt-1 font-semibold text-ink">Prof. Adebola Adewunmi Aderibigbe</p>
+          <p className="mt-1 text-sm leading-relaxed text-mute">
+            Professor of Mass Communication at the Federal University Oye-Ekiti. He specialises in strategic and
+            development communication, emerging technology ethics and curriculum development.
           </p>
-          <div className="pt-2">
-            <Link
-              href="/about"
-              className="font-mono text-xs text-[#EDEFEF] hover:underline inline-flex items-center gap-1.5"
-            >
-              <span>Read Full Biography & Academic Manifesto</span>
-              <ArrowLeft className="w-3 h-3 rotate-180 text-[#8A90A2]" />
-            </Link>
-          </div>
-        </div>
-
+          <Link
+            href="/about"
+            className="group mt-3 inline-flex items-center gap-1.5 text-sm font-medium text-accent hover:underline"
+          >
+            Read his story
+            <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+          </Link>
+        </aside>
       </div>
+
+      {more.length > 0 && (
+        <section className="mt-12 border-t border-line pt-8">
+          <h2 className="text-xl font-semibold tracking-tight text-ink">More articles</h2>
+          <ul className="mt-4 grid gap-6 md:grid-cols-3">
+            {more.map((a) => (
+              <li key={a.slug} className="border-t border-line pt-3">
+                <p className="text-sm text-mute">
+                  {a.topic} · {a.date}
+                </p>
+                <h3 className="mt-1 font-semibold leading-snug text-ink">
+                  <Link href={`/writing/${a.slug}`} className="transition-colors hover:text-accent">
+                    {a.title}
+                  </Link>
+                </h3>
+              </li>
+            ))}
+          </ul>
+        </section>
+      )}
     </article>
   );
 }

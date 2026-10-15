@@ -158,13 +158,13 @@ export const supervisionsData: SupervisionTopic[] = [
     level: "PhD",
     area: "Generative AI, Disinformation, and Electoral Integrity in West Africa",
     status: "In Progress",
-    year: "2024 – Present",
+    year: "2024 - Present",
   },
   {
     level: "PhD",
     area: "Strategic Communication Frameworks in Public Health Crisis Response",
     status: "In Progress",
-    year: "2023 – Present",
+    year: "2023 - Present",
   },
   {
     level: "MSc",

@@ -75,7 +75,7 @@ export const profileData = {
       host: "Global Skills Hub (UK)",
       location: "Accra, Ghana",
       year: "2026",
-      role: "Keynote Speaker & Awardee",
+      role: "Award recipient",
       topic: "Transformative Leadership & Strategic Communication in Africa",
       featured: true,
     },

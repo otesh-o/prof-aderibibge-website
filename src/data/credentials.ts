@@ -41,7 +41,7 @@ export const careerTimeline: TimelineEvent[] = [
     tag: "Distinction",
   },
   {
-    year: "2020 – Present",
+    year: "2020 - Present",
     role: "Director, Career Services Centre",
     institution: "Federal University Oye-Ekiti (FUOYE)",
     description: "Directing university-wide career guidance, professional skills acquisition, and industry transition for students.",
@@ -210,7 +210,7 @@ export const credentialsCategories: CredentialCategory[] = [
     iconName: "Briefcase",
     items: [
       {
-        primary: "Lead Consultant Facilitator — EU-SDGN II",
+        primary: "Lead Consultant Facilitator - EU-SDGN II",
         secondary: "International Press Council (IPC) & European Union",
         meta: "April 2026",
         description: "Conducted intensive masterclasses for journalists in Ekiti State on ethical coverage and conflict-sensitive reporting for gubernatorial elections.",

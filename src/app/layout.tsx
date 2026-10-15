@@ -1,19 +1,19 @@
 import type { Metadata } from "next";
-import { Newsreader, Plus_Jakarta_Sans } from "next/font/google";
+import { Source_Serif_4, IBM_Plex_Sans } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import NavigationDock from "@/components/NavigationDock";
 import Footer from "@/components/Footer";
 
-const newsreader = Newsreader({
-  variable: "--font-newsreader",
+const sourceSerif = Source_Serif_4({
+  variable: "--font-source-serif",
   subsets: ["latin"],
-  style: ["normal", "italic"],
 });
 
-const plusJakartaSans = Plus_Jakarta_Sans({
-  variable: "--font-jakarta",
+const plexSans = IBM_Plex_Sans({
+  variable: "--font-plex",
   subsets: ["latin"],
+  weight: ["400", "500", "600"],
 });
 
 export const metadata: Metadata = {
@@ -71,7 +71,9 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${newsreader.variable} ${plusJakartaSans.variable} h-full antialiased`}
+      data-theme="light"
+      suppressHydrationWarning
+      className={`${sourceSerif.variable} ${plexSans.variable} h-full antialiased`}
     >
       <head>
         <script
@@ -79,9 +81,9 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="min-h-full flex flex-col bg-[#0D0E12] text-[#E6E8EE] selection:bg-blue-600 selection:text-white">
+      <body className="min-h-full flex flex-col bg-bg text-ink selection:bg-accent selection:text-on-accent">
         <Header />
-        <main className="flex-1 pb-24">{children}</main>
+        <main className="flex-1 pt-20 lg:pt-0">{children}</main>
         <NavigationDock />
         <Footer />
       </body>

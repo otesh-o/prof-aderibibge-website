@@ -1,153 +1,116 @@
 import Link from "next/link";
 import Image from "next/image";
-import { ArrowRight, ExternalLink } from "lucide-react";
+import { ArrowRight, ArrowUpRight } from "lucide-react";
 import { profileData } from "@/data/profile";
+import CountUp from "@/components/CountUp";
+
+const figures = [
+  { value: "18+", label: "years in higher education" },
+  { value: "30+", label: "courses taught" },
+  { value: "10", label: "universities as external examiner" },
+];
+
+const B = ({ children }: { children: React.ReactNode }) => (
+  <strong className="font-medium text-ink">{children}</strong>
+);
+
+const step = (i: number) => ({ "--i": i }) as React.CSSProperties;
 
 export default function HeroSection() {
   return (
-    <section className="relative pt-12 pb-16 lg:py-24 border-b border-[#1E212B] bg-[#0D0E12] overflow-hidden">
-      
-      {/* Blurred Editorial Atmospheric Background Image */}
-      <div className="absolute inset-0 pointer-events-none overflow-hidden">
-        <Image
-          src="/images/lecture-series-auditorium.jpg"
-          alt=""
-          fill
-          priority
-          className="object-cover object-center opacity-[0.22] filter blur-[6px] scale-105 contrast-125 saturate-75"
-        />
-        {/* Multi-directional vignette gradients to softly feather the background out into dark gray */}
-        <div className="absolute inset-0 bg-gradient-to-t from-[#0D0E12] via-[#0D0E12]/75 to-[#0D0E12]/85" />
-        <div className="absolute inset-0 bg-gradient-to-r from-[#0D0E12]/95 via-transparent to-[#0D0E12]/95" />
-        <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_transparent_10%,_#0D0E12_85%)]" />
+    <section className="mx-auto grid max-w-[1400px] items-center gap-8 px-5 py-8 sm:px-8 lg:min-h-[calc(100dvh-4rem)] lg:grid-cols-12 lg:gap-12 lg:py-6">
+      <div className="lg:col-span-4">
+        <div className="relative mx-auto aspect-[4/5] w-full max-w-[280px] overflow-hidden rounded-3xl ring-1 ring-line lg:aspect-auto lg:h-[min(520px,calc(100dvh-8rem))] lg:max-w-none">
+          <Image
+            src="/images/prof-aderibigbe.jpg"
+            alt="Prof. Adebola Adewunmi Aderibigbe"
+            fill
+            priority
+            sizes="(min-width: 1024px) 380px, 300px"
+            className="object-cover object-[50%_20%]"
+          />
+        </div>
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-          
-          {/* Left Column: Portrait Photography Container */}
-          <div className="lg:col-span-5 flex justify-center">
-            <div className="relative w-full max-w-md aspect-[4/5] rounded-xl overflow-hidden bg-[#14161E] border border-[#20232E] shadow-2xl flex flex-col justify-end p-6 group">
-              {/* Professor Portrait */}
-              <Image
-                src="/images/prof-aderibigbe.jpg"
-                alt="Prof. Adebola Adewunmi Aderibigbe"
-                fill
-                priority
-                className="object-cover object-top transition-transform duration-700 group-hover:scale-105"
-                sizes="(max-width: 768px) 100vw, 400px"
-              />
-              {/* Subtle Atmospheric Gradient for legibility */}
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0D0E12] via-[#0D0E12]/30 to-transparent pointer-events-none" />
-
-              {/* Bottom Slate Overlay */}
-              <div className="relative z-10 bg-[#14161E]/90 backdrop-blur-md border border-[#232733] p-4 rounded-lg shadow-lg">
-                <div className="flex items-center justify-between">
-                  <div>
-                    <h3 className="text-sm font-semibold text-white">
-                      {profileData.shortName}
-                    </h3>
-                    <p className="text-xs text-neutral-400 font-mono">
-                      FUOYE · Babcock PhD (2014)
-                    </p>
-                  </div>
-                  <span className="text-[11px] text-neutral-300 font-mono px-2 py-0.5 rounded bg-[#1F232F] border border-[#2A2F40]">
-                    Director, CSC
-                  </span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Right Column: Editorial Hero & Academic Identity */}
-          <div className="lg:col-span-7 space-y-8">
-            <div className="space-y-3">
-              <p className="text-xs font-mono tracking-widest uppercase text-neutral-400">
-                Department of Mass Communication · FUOYE
-              </p>
-
-              <h1 className="font-serif text-4xl sm:text-6xl lg:text-7xl font-normal tracking-tight text-white leading-[1.05]">
-                Adebola Adewunmi Aderibigbe{" "}
-                <span className="text-sm sm:text-lg lg:text-xl font-mono text-neutral-400 font-normal align-middle ml-2">
-                  BSc, MSc, PhD
-                </span>
-              </h1>
-
-              <p className="text-lg sm:text-xl text-neutral-300 font-sans">
-                Professor of Strategic and Development Communication
-              </p>
-            </div>
-
-            {/* Bio paragraph */}
-            <p className="text-sm sm:text-base text-neutral-400 leading-relaxed max-w-2xl">
-              Over eighteen years of academic leadership across mass communication, strategic policy, media literacy,
-              and artificial intelligence ethics. Director of the Career Services Centre at Federal University Oye-Ekiti,
-              mentoring postgraduate scholars and chairing national accreditation panels.
-            </p>
-
-            {/* Credential Strip (Replaces giant numbers) */}
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4 py-4 border-y border-[#20232E] text-xs font-mono">
-              <div>
-                <span className="text-neutral-200 font-semibold block">18+ Years</span>
-                <span className="text-neutral-500">Higher Education</span>
-              </div>
-              <div>
-                <span className="text-neutral-200 font-semibold block">30+ Courses</span>
-                <span className="text-neutral-500">Taught & Created</span>
-              </div>
-              <div>
-                <span className="text-neutral-200 font-semibold block">10+ Universities</span>
-                <span className="text-neutral-500">External Examiner</span>
-              </div>
-              <div>
-                <span className="text-neutral-200 font-semibold block">NUC Chair</span>
-                <span className="text-neutral-500">Accreditation Panels</span>
-              </div>
-            </div>
-
-            {/* Action Buttons */}
-            <div className="flex flex-wrap items-center gap-4 pt-2">
-              <Link
-                href="/contact"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-neutral-100 text-neutral-900 font-medium text-xs hover:bg-white transition-colors"
-              >
-                <span>Contact Office</span>
-                <ArrowRight className="w-3.5 h-3.5" />
-              </Link>
-              <a
-                href="/documents/Prof_Adebola_Aderibigbe_CV.pdf"
-                download
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-[#14161E] text-neutral-200 font-medium text-xs border border-[#232733] hover:border-neutral-500 hover:text-white transition-colors"
-              >
-                <span>Download Verified CV</span>
-              </a>
-
-              {/* Scholar and LinkedIn */}
-              <div className="flex items-center gap-3 sm:ml-auto text-xs font-mono text-neutral-400">
-                <a
-                  href={profileData.socialLinks.googleScholar}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-white transition-colors flex items-center gap-1"
-                >
-                  <span>Google Scholar</span>
-                  <ExternalLink className="w-3 h-3" />
-                </a>
-                <span>·</span>
-                <a
-                  href={profileData.socialLinks.linkedIn}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-white transition-colors flex items-center gap-1"
-                >
-                  <span>LinkedIn</span>
-                  <ExternalLink className="w-3 h-3" />
-                </a>
-              </div>
-            </div>
-          </div>
+      <div className="flex flex-col justify-center gap-5 lg:col-span-8">
+        <div className="rise" style={step(0)}>
+          <h1 className="font-display text-4xl leading-[1.05] tracking-tight text-ink sm:text-5xl">
+            Adebola Adewunmi Aderibigbe
+          </h1>
+          <p className="mt-2 text-lg font-medium tracking-wide text-ink">BSc, MSc, PhD</p>
         </div>
 
+        <div className="rise max-w-[90ch] space-y-3 text-[15px] leading-relaxed text-mute" style={step(2)}>
+          <p>
+            With <B>over 18 years</B> at the front of mass communication, strategic and development communication, media
+            studies and emerging technology discourse, Prof. Adebola Aderibigbe is one of the few professionals who had
+            every reason to leave, and chose instead to stay in Nigeria and build the country&apos;s communicators from
+            within.
+          </p>
+          <p>
+            Winner of the <B>Africa Leadership Award (2026)</B>, the <B>Peter Okebukola Distinction Prize</B> and the{" "}
+            <B>NYSC Presidential Award</B>, and a recipient of <B>Bowen University&apos;s Distinguished Alumni Award</B>,
+            he is a Fellow of the <B>Institute of Security of Nigeria</B> and the{" "}
+            <B>Institute of Corporate Administration</B>, and a charter member of the Nigeria Association of Artificial
+            Intelligence Practitioners.
+          </p>
+          <p>
+            He directs the Career Services Centre at FUOYE, has taught more than thirty university courses, created the
+            Public Speaking Essentials and Principles of Excellent Living modules, and supervises MSc and PhD scholars.
+            His research has appeared in Frontiers in Psychology and has been funded by the Ford Foundation. Nationally,
+            he chairs NUC accreditation panels, examines for universities across the country and advises media and
+            development organisations.
+          </p>
+        </div>
+
+        <dl className="rise grid grid-cols-3 gap-4 border-t border-line pt-4" style={step(3)}>
+          {figures.map((f) => (
+            <div key={f.label}>
+              <dt className="text-2xl font-semibold tabular-nums tracking-tight text-accent sm:text-3xl">
+                <CountUp value={f.value} />
+              </dt>
+              <dd className="mt-0.5 text-sm leading-snug text-mute">{f.label}</dd>
+            </div>
+          ))}
+        </dl>
+
+        <div className="rise flex flex-wrap items-center gap-x-6 gap-y-3" style={step(4)}>
+          <Link
+            href="/about"
+            className="group relative inline-flex h-11 items-center gap-2 overflow-hidden rounded-full bg-[linear-gradient(180deg,color-mix(in_srgb,var(--accent),white_22%)_0%,var(--accent)_55%,color-mix(in_srgb,var(--accent),black_22%)_100%)] pl-6 pr-5 text-sm font-semibold text-on-accent shadow-[inset_0_1px_0_rgba(255,255,255,0.35),0_10px_26px_-10px_var(--accent)] transition-[transform,box-shadow] duration-300 hover:-translate-y-0.5 hover:shadow-[inset_0_1px_0_rgba(255,255,255,0.4),0_16px_32px_-10px_var(--accent)] active:translate-y-0 active:scale-[0.98]"
+          >
+            <span
+              aria-hidden
+              className="pointer-events-none absolute inset-y-0 -left-1/2 w-1/3 -skew-x-12 bg-white/25 opacity-0 transition-all duration-700 group-hover:left-[120%] group-hover:opacity-100"
+            />
+            Read my story
+            <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+          </Link>
+          <Link
+            href="/contact"
+            className="inline-flex h-11 items-center rounded-full border border-line px-6 text-sm font-medium text-ink transition-colors hover:border-accent hover:text-accent active:scale-[0.98]"
+          >
+            Contact Me
+          </Link>
+          <span className="flex items-center gap-5 text-sm text-mute">
+            <a
+              href={profileData.socialLinks.googleScholar}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1 transition-colors hover:text-ink"
+            >
+              Google Scholar <ArrowUpRight className="h-3.5 w-3.5" />
+            </a>
+            <a
+              href={profileData.socialLinks.linkedIn}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-1 transition-colors hover:text-ink"
+            >
+              LinkedIn <ArrowUpRight className="h-3.5 w-3.5" />
+            </a>
+          </span>
+        </div>
       </div>
     </section>
   );

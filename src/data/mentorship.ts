@@ -8,6 +8,8 @@ export interface MasterClass {
   description: string;
   deliverables: string[];
   recordingUrl?: string;
+  /** false = a draft entry that has not been confirmed with him; hidden on the site. */
+  confirmed?: boolean;
 }
 
 export const masterClassesData: MasterClass[] = [
@@ -32,6 +34,7 @@ export const masterClassesData: MasterClass[] = [
     format: "Virtual Masterclass",
     audience: "Young Professionals & University Students",
     status: "Cohort in Progress",
+    confirmed: false,
     date: "Current Cohort (Q4 2026)",
     description:
       "A mentorship immersion focusing on personal character, ethical anchor points, vision articulation, and strategic resilience in competitive environments.",
@@ -47,6 +50,7 @@ export const masterClassesData: MasterClass[] = [
     format: "Recorded Session",
     audience: "MSc and PhD Scholars in Communication and Social Sciences",
     status: "Watch Recording",
+    confirmed: false,
     date: "Recorded Session (2025)",
     description:
       "A masterclass breaking down the art of doctoral writing, theoretical framework selection, defending before external examiners, and publishing in reputable journals.",

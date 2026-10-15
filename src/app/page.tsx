@@ -1,19 +1,23 @@
 import HeroSection from "@/components/home/HeroSection";
+import VideosRow from "@/components/home/VideosRow";
 import CareerTimelineSection from "@/components/home/CareerTimelineSection";
-import FeaturedResearchSection from "@/components/home/FeaturedResearchSection";
-import BentoGrid from "@/components/home/BentoGrid";
-import WhyIStayedBand from "@/components/home/WhyIStayedBand";
+import ResearchSection from "@/components/home/ResearchSection";
+import SpeakingList from "@/components/home/SpeakingList";
+import ArticlesSection from "@/components/home/ArticlesSection";
 import QuoteSection from "@/components/home/QuoteSection";
 
 export default function Home() {
   return (
-    <div className="flex flex-col min-h-screen">
+    <>
       <HeroSection />
       <CareerTimelineSection />
-      <FeaturedResearchSection />
-      <BentoGrid />
-      <WhyIStayedBand />
+      <ResearchSection />
+      <div className="pattern-rings">
+        <VideosRow />
+        <ArticlesSection />
+      </div>
+      <SpeakingList />
       <QuoteSection />
-    </div>
+    </>
   );
 }

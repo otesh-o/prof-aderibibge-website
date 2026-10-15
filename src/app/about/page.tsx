@@ -1,383 +1,297 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Download, ArrowRight } from "lucide-react";
-import { profileData } from "@/data/profile";
-import { careerTimeline } from "@/data/credentials";
+import Image from "next/image";
+import { ArrowLeft, ArrowRight, Download } from "lucide-react";
 
 export const metadata: Metadata = {
-  title: "Biography & Why I Stayed | Prof. Adebola Aderibigbe",
+  title: "About & Why I Stayed | Prof. Adebola Aderibigbe",
   description:
-    "Biography, career timeline, and 'Why I Stayed' position statement of Prof. Adebola Adewunmi Aderibigbe, Professor of Mass Communication at FUOYE.",
+    "Biography, career timeline and the 'Why I Stayed' position of Prof. Adebola Adewunmi Aderibigbe, Professor of Mass Communication at FUOYE.",
 };
+
+const wrap = "mx-auto max-w-[1400px] px-5 sm:px-8";
+
+const stats = [
+  { value: "18+", label: "years in higher education" },
+  { value: "30+", label: "courses taught" },
+  { value: "10", label: "universities as external examiner" },
+  { value: "4", label: "national and continental honours" },
+];
+
+interface Milestone {
+  year: string;
+  mark: string;
+  logo?: string;
+  title: string;
+  text: string;
+  meta: string;
+}
+
+/** Newest first. `logo` is a file in /public/logos; entries without one show a short text mark. */
+const timeline: Milestone[] = [
+  {
+    year: "2026",
+    mark: "IPC / EU",
+    title: "Africa Leadership Award and EU-SDGN II facilitation",
+    text: "Conferred the Africa Leadership Award by Global Skills Hub (UK) in Accra. Lead Consultant Facilitator with the International Press Council and the European Union for election-reporting training in Ekiti.",
+    meta: "Global Skills Hub (UK) · International Press Council · European Union",
+  },
+  {
+    year: "2025",
+    mark: "NUC",
+    logo: "nuc.png",
+    title: "Chairman, NUC Ad-hoc Accreditation Panel",
+    text: "Chaired the national accreditation exercise for Mass Communication at Chrisland University, covering curriculum, staff qualifications and facilities.",
+    meta: "National Universities Commission",
+  },
+  {
+    year: "2024",
+    mark: "Prize",
+    title: "Peter Okebukola Distinction Prize",
+    text: "Recognised for distinguished scholarship, innovation in university teaching and sustained contributions to media education standards.",
+    meta: "Higher education distinction",
+  },
+  {
+    year: "2020 – now",
+    mark: "FUOYE",
+    logo: "fuoye.png",
+    title: "Director, Career Services Centre",
+    text: "Leads university-wide career guidance, internships and industry partnerships at Federal University Oye-Ekiti.",
+    meta: "Federal University Oye-Ekiti",
+  },
+  {
+    year: "2018",
+    mark: "FISN",
+    title: "Fellow, Institute of Security of Nigeria",
+    text: "Elected Fellow for work at the intersection of strategic communication, national security discourse and counter-disinformation.",
+    meta: "Institute of Security of Nigeria",
+  },
+  {
+    year: "2011 – 2014",
+    mark: "Babcock",
+    logo: "babcock.png",
+    title: "PhD, Communication and Media Studies",
+    text: "Doctoral research on strategic communication frameworks for development interventions, community engagement and public sphere governance in Nigeria.",
+    meta: "Babcock University, Ilishan-Remo",
+  },
+  {
+    year: "2008 – 2011",
+    mark: "UNILAG",
+    logo: "unilag.png",
+    title: "MSc, Mass Communication",
+    text: "Graduate work on media theory, broadcasting regulation and public relations policy in West Africa.",
+    meta: "University of Lagos",
+  },
+  {
+    year: "2007",
+    mark: "NYSC",
+    title: "NYSC Presidential Honours Award",
+    text: "Conferred by The Presidency for exemplary national service, youth mobilisation and community development.",
+    meta: "The Presidency, Federal Republic of Nigeria",
+  },
+  {
+    year: "2002 – 2006",
+    mark: "Bowen",
+    logo: "bowen.webp",
+    title: "BSc, Mass Communication",
+    text: "Graduated with top honours. Later received the Bowen Distinguished Alumni Award (2017).",
+    meta: "Bowen University, Iwo",
+  },
+];
+
+const facts = [
+  { label: "PhD", value: "Babcock University, 2014" },
+  { label: "MSc", value: "University of Lagos, 2011" },
+  { label: "BSc", value: "Bowen University, 2006" },
+  { label: "Fellow", value: "Institute of Security of Nigeria; Institute of Corporate Administration" },
+  { label: "Charter member", value: "Nigeria Association of Artificial Intelligence Practitioners" },
+  { label: "Honours", value: "Africa Leadership Award (2026), Peter Okebukola Distinction Prize (2024), Bowen Distinguished Alumni Award (2017), NYSC Presidential Award (2007)" },
+];
 
 export default function AboutPage() {
   return (
-    <div className="py-12 sm:py-20 bg-[#0D0E12]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-20">
-
-        {/* 1. Header & Executive Bio */}
-        <div className="max-w-4xl space-y-4">
-          <p className="text-xs font-mono uppercase tracking-widest text-neutral-400">
-            Curriculum Vitae · Biography
-          </p>
-
-          <h1 className="font-serif text-4xl sm:text-6xl font-normal text-white tracking-tight">
-            Adebola Adewunmi Aderibigbe
-          </h1>
-
-          <p className="text-xl sm:text-2xl text-neutral-300 font-sans">
-            Professor of Mass Communication, Federal University Oye-Ekiti
-          </p>
-
-          <p className="text-base text-neutral-400 leading-relaxed pt-2">
-            Prof. Adebola Adewunmi Aderibigbe is an academic leader and researcher in the Department of Mass Communication,
-            Faculty of Communication and Media Studies at the Federal University Oye-Ekiti (FUOYE), Nigeria.
-            With eighteen years in higher education, his work focuses on strategic and development communication,
-            media literacy, and the governance of emerging media technologies.
-          </p>
-        </div>
-
-        {/* 2. Detailed Biography & Institutional Roles */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-start">
-          <div className="lg:col-span-8 space-y-6 text-neutral-300 leading-relaxed text-base">
-            <h2 className="font-serif text-2xl text-white pb-3 border-b border-[#20232E]">
-              Academic Background & Scholarly Journey
-            </h2>
-            <p>
-              Prof. Aderibigbe earned his Bachelor of Science (BSc) in Mass Communication from Bowen University,
-              Iwo in 2006. He obtained his Master of Science (MSc) from the University of Lagos (UNILAG) in 2011,
-              and his Doctor of Philosophy (PhD) in Communication and Media Studies from Babcock University in 2014.
-            </p>
-            <p>
-              Over eighteen years in university pedagogy, he has developed and taught more than thirty courses,
-              bridging classical communication theory with contemporary media practice. To foster personal character
-              and public rhetoric among undergraduate scholars, he designed signature modules including{" "}
-              <em>Public Speaking Essentials</em> and <em>Principles of Excellent Living</em>.
-            </p>
-            <p>
-              His peer-reviewed scholarship has appeared in international journals including{" "}
-              <em>Frontiers in Psychology</em>, <em>Communication and the Public</em>, and the{" "}
-              <em>Journal of African Union Studies</em>. He has executed competitive research grants from the
-              Ford Foundation and Bowen University.
-            </p>
-
-            <h2 className="font-serif text-2xl text-white pt-6 pb-3 border-b border-[#20232E]">
-              Institutional Administration & National Quality Assurance
-            </h2>
-            <p>
-              Prof. Aderibigbe serves as the Director of the Career Services Centre at FUOYE, leading employability
-              partnerships and mentorship initiatives across all faculties. He is an elected Fellow of the Institute
-              of Security of Nigeria (FISN), a Fellow of the Institute of Corporate Administration (FCIA), and a
-              Charter Member of the Nigeria Association of Artificial Intelligence Practitioners.
-            </p>
-            <p>
-              His statutory contributions to higher education quality include serving as External Examiner for postgraduate
-              and undergraduate degrees across ten Nigerian universities, and chairing National Universities Commission (NUC)
-              accreditation panels.
+    <>
+      {/* Header */}
+      <section className={`${wrap} pb-4 pt-4 lg:pt-6`}>
+        <div className="grid gap-6 lg:grid-cols-12 lg:items-end lg:gap-12">
+          <div className="lg:col-span-7">
+            <Link
+              href="/"
+              className="group -ml-2 mb-2 inline-flex h-9 items-center gap-2 rounded-full px-3 text-sm font-medium text-mute transition-colors hover:bg-tile hover:text-ink"
+            >
+              <ArrowLeft className="h-4 w-4 transition-transform duration-300 group-hover:-translate-x-1" />
+              Back to main site
+            </Link>
+            <p className="text-sm font-medium text-accent">About</p>
+            <h1 className="mt-0.5 text-2xl font-semibold leading-tight tracking-tight text-ink sm:text-3xl">
+              Prof. Adebola Adewunmi Aderibigbe
+            </h1>
+            <p className="mt-1.5 max-w-[62ch] text-[15px] leading-relaxed text-mute">
+              Professor of Mass Communication, Federal University Oye-Ekiti. Strategic and Development
+              Communication.
             </p>
           </div>
 
-          {/* Quick CV & Office Ledger */}
-          <div className="lg:col-span-4 bg-[#14161E] border border-[#20232E] rounded-xl p-6 sm:p-8 space-y-6">
-            <div>
-              <h3 className="font-serif text-xl text-white">
-                Academic Curriculum Vitae
-              </h3>
-              <p className="text-xs text-neutral-400 mt-1">
-                Complete record of publications, panels, and administrative service.
-              </p>
-            </div>
+          <dl className="grid grid-cols-4 gap-x-6 border-t border-line pt-3 lg:col-span-5 lg:border-l lg:border-t-0 lg:pl-8 lg:pt-0">
+            {stats.map((s) => (
+              <div key={s.label}>
+                <dt className="text-lg font-semibold tabular-nums tracking-tight text-accent">{s.value}</dt>
+                <dd className="mt-0.5 text-xs leading-snug text-mute">{s.label}</dd>
+              </div>
+            ))}
+          </dl>
+        </div>
+      </section>
 
-            <div className="pt-2">
+      <div className="border-t border-line">
+        <div className={`${wrap} grid gap-10 py-8 lg:grid-cols-12 lg:gap-14`}>
+          {/* Main column */}
+          <div className="space-y-12 lg:col-span-8">
+            {/* The story: one continuous text, with why he stayed told as part of it */}
+            <section id="biography">
+              <p className="text-sm font-medium text-accent">His story</p>
+              <h2 className="mt-0.5 text-xl font-semibold tracking-tight text-ink">
+                Building Nigeria&apos;s communicators, from Nigeria
+              </h2>
+
+              <div className="mt-4 max-w-[72ch] space-y-4 text-[15px] leading-[1.75] text-mute">
+                <p>
+                  Prof. Aderibigbe is an academic leader and researcher in the Department of Mass Communication,
+                  Faculty of Communication and Media Studies, at the Federal University Oye-Ekiti (FUOYE). In{" "}
+                  <strong className="font-semibold text-ink">over eighteen years</strong> in higher education, his work has centred on <strong className="font-semibold text-ink">strategic and development
+                  communication</strong>, media literacy and the governance of emerging media technologies.
+                </p>
+                <p>
+                  He earned his <strong className="font-semibold text-ink">BSc in Mass Communication from Bowen University in 2006</strong>, his <strong className="font-semibold text-ink">MSc from the
+                  University of Lagos in 2011</strong>, and his <strong className="font-semibold text-ink">PhD in Communication and Media Studies from Babcock
+                  University in 2014</strong>. Since then he has taught <strong className="font-semibold text-ink">more than thirty university courses</strong> and designed
+                  two modules, <strong className="font-semibold text-ink">Public Speaking Essentials and Principles of Excellent Living</strong>, to build
+                  character and public rhetoric among undergraduates.
+                </p>
+                <p>
+                  His peer-reviewed work has appeared in <strong className="font-semibold text-ink">Frontiers in Psychology</strong>, Communication and the Public
+                  and the Journal of African Union Studies, and he has executed research grants from the <strong className="font-semibold text-ink">Ford
+                  Foundation</strong> and Bowen University. He is a <strong className="font-semibold text-ink">Fellow of the Institute of Security of Nigeria</strong> and the{" "}
+                  <strong className="font-semibold text-ink">Institute of Corporate Administration</strong>, and a charter member of the Nigeria Association of
+                  Artificial Intelligence Practitioners.
+                </p>
+                <p id="why-i-stayed" className="scroll-mt-24">
+                  The pull to build a career abroad has touched every university faculty in Nigeria. Foreign
+                  tenure, international endowments and predictable infrastructure are compelling, and many of his
+                  colleagues took that road. <strong className="font-semibold text-ink">He stayed</strong>, on a simple conviction: <strong className="font-semibold text-ink">a sovereign society cannot
+                  outsource the formation of its communicators</strong>. If experienced academics leave the lecture rooms,
+                  there is no one left to hold the standard for the next generation.
+                </p>
+                <p>
+                  Staying is what made the rest possible. He <strong className="font-semibold text-ink">directs the Career Services Centre at FUOYE</strong>,
+                  supervises MSc and PhD scholars who now work in newsrooms and universities, examines for ten
+                  Nigerian universities, and <strong className="font-semibold text-ink">chairs National Universities Commission accreditation panels</strong> that
+                  protect the standard of the degrees themselves. In 2026 he received the <strong className="font-semibold text-ink">Africa Leadership
+                  Award</strong> in Accra and led election-reporting training for journalists in Ekiti with the
+                  International Press Council and the European Union.
+                </p>
+              </div>
+
+              <blockquote className="mt-6 max-w-[72ch] border-l-2 border-accent pl-5">
+                <p className="text-lg font-medium leading-snug text-ink">
+                  “Nigeria will not be built by spectators. It is built by those who choose to plant their feet,
+                  roll up their sleeves, and impart excellence right here.”
+                </p>
+                <footer className="mt-2 text-sm text-mute">Prof. Adebola Adewunmi Aderibigbe</footer>
+              </blockquote>
+            </section>
+
+            {/* Timeline */}
+            <section id="timeline">
+              <div className="flex flex-wrap items-end justify-between gap-3">
+                <div>
+                  <p className="text-sm font-medium text-accent">Experience and education</p>
+                  <h2 className="mt-0.5 text-xl font-semibold tracking-tight text-ink">Chronological record</h2>
+                </div>
+                <Link
+                  href="/research"
+                  className="group inline-flex items-center gap-1.5 text-sm font-medium text-accent hover:underline"
+                >
+                  His research
+                  <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
+                </Link>
+              </div>
+
+              <ol className="relative mt-4 before:absolute before:bottom-8 before:top-8 before:left-[9.25rem] before:hidden before:w-px before:bg-line sm:before:block">
+                {timeline.map((m) => (
+                  <li
+                    key={m.title}
+                    className="grid grid-cols-[3rem_1fr] gap-x-4 gap-y-1 py-4 sm:grid-cols-[6.5rem_3rem_1fr] sm:gap-x-5"
+                  >
+                    <span className="col-span-2 text-sm tabular-nums text-mute sm:col-span-1 sm:pt-3">{m.year}</span>
+                    {m.logo ? (
+                      <span className="relative z-10 h-12 w-12 overflow-hidden rounded-lg bg-white p-1.5 ring-4 ring-bg">
+                        <Image
+                          src={`/logos/${m.logo}`}
+                          alt={`${m.meta} logo`}
+                          fill
+                          sizes="48px"
+                          className="object-contain p-1.5"
+                        />
+                      </span>
+                    ) : (
+                      <span className="relative z-10 flex h-12 w-12 items-center justify-center rounded-lg bg-tile2 px-1 text-center text-[11px] font-semibold leading-tight text-ink ring-4 ring-bg">
+                        {m.mark}
+                      </span>
+                    )}
+                    <div>
+                      <h3 className="font-semibold leading-snug text-ink">{m.title}</h3>
+                      <p className="mt-0.5 text-sm leading-relaxed text-mute">{m.text}</p>
+                      <p className="mt-1 text-xs text-mute">{m.meta}</p>
+                    </div>
+                  </li>
+                ))}
+              </ol>
+            </section>
+          </div>
+
+          {/* Side column */}
+          <aside className="space-y-5 lg:sticky lg:top-24 lg:col-span-4 lg:self-start">
+            <div>
+              <h2 className="font-semibold text-ink">Curriculum vitae</h2>
+              <p className="mt-1 text-sm text-mute">
+                The full record of publications, panels and administrative service.
+              </p>
               <a
                 href="/documents/Prof_Adebola_Aderibigbe_CV.pdf"
                 download
-                className="w-full inline-flex items-center justify-center gap-2 px-4 py-3 rounded-lg bg-neutral-100 text-neutral-900 font-medium text-xs hover:bg-white transition-colors"
+                className="mt-4 inline-flex h-10 w-full items-center justify-center gap-2 rounded-full bg-accent px-4 text-sm font-semibold text-on-accent transition-all hover:brightness-110 active:scale-[0.98]"
               >
-                <Download className="w-4 h-4" />
-                <span>Download Official CV (PDF)</span>
+                <Download className="h-4 w-4" />
+                Download CV (PDF)
               </a>
-              <span className="text-[11px] font-mono text-neutral-500 block text-center mt-2">
-                Verified Copy · October 2026
-              </span>
             </div>
 
-            <div className="pt-6 border-t border-[#20232E] space-y-3 font-mono text-xs">
-              <span className="text-neutral-400 uppercase tracking-widest text-[11px] block">
-                Institutional Affiliation
-              </span>
-              <div className="text-neutral-300 space-y-1">
-                <p>FUOYE · Mass Communication</p>
-                <p>PhD Babcock (2014)</p>
-                <p>MSc UNILAG (2011)</p>
-                <p>BSc Bowen (2006)</p>
-                <p>Africa Leadership Award (2026)</p>
+            <dl className="border-t border-line pt-5">
+              <h2 className="font-semibold text-ink">At a glance</h2>
+              <div className="mt-3 divide-y divide-line">
+                {facts.map((f) => (
+                  <div key={f.label} className="py-2.5 first:pt-0 last:pb-0">
+                    <dt className="text-xs text-mute">{f.label}</dt>
+                    <dd className="mt-0.5 text-sm leading-snug text-ink">{f.value}</dd>
+                  </div>
+                ))}
               </div>
-            </div>
-          </div>
-        </div>
+            </dl>
 
-        {/* 3. The Core Manifesto: "Why I Stayed" */}
-        <div id="why-i-stayed" className="scroll-mt-24 bg-[#111319] border border-[#20232E] rounded-xl p-8 sm:p-12 space-y-8">
-          <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-4 pb-6 border-b border-[#20232E]">
-            <div>
-              <p className="text-xs font-mono uppercase tracking-widest text-neutral-400">
-                Position Statement
-              </p>
-              <h2 className="font-serif text-3xl sm:text-4xl text-white mt-1">
-                Why I Stayed in Nigeria
-              </h2>
-            </div>
-            <span className="font-mono text-xs text-neutral-400">
-              National Stewardship
-            </span>
-          </div>
-
-          <div className="space-y-6 text-neutral-300 leading-relaxed text-base">
-            <div className="space-y-2">
-              <h3 className="font-serif text-lg text-white">1. The Pull</h3>
-              <p className="text-neutral-400">
-                The pull to relocate abroad has touched every university faculty in Nigeria. Foreign tenure, international
-                endowments, and predictable infrastructure are compelling. Many colleagues chose that route, and their
-                international contributions are recognized.
-              </p>
-            </div>
-
-            <div className="space-y-2">
-              <h3 className="font-serif text-lg text-white">2. The Conviction</h3>
-              <p className="text-neutral-400">
-                Yet, the conviction to stay rests on an enduring principle: a sovereign society cannot outsource the formation
-                of its communicators. Communication underpins democratic resilience, policy adoption, and community development.
-                If experienced academics abandon the lecture rooms, who anchors the standards for the next generation?
-              </p>
-            </div>
-
-            <div className="space-y-2">
-              <h3 className="font-serif text-lg text-white">3. What We Built Here</h3>
-              <p className="text-neutral-400">
-                By remaining on ground, we established tangible institutional foundations:
-              </p>
-              <ul className="list-disc list-inside space-y-1.5 pl-2 text-sm text-neutral-300">
-                <li>More than thirty undergraduate and postgraduate courses taught over eighteen years.</li>
-                <li>Postgraduate MSc and PhD scholars supervised into newsroom leadership and academia.</li>
-                <li>Curricular programs including <em>Public Speaking Essentials</em> established.</li>
-                <li>National Universities Commission accreditation panels chaired to safeguard degree standards.</li>
-                <li>FUOYE Career Services Centre directed to prepare graduates for domestic and international employment.</li>
-              </ul>
-            </div>
-
-            <div className="space-y-2 pt-4 border-t border-[#20232E]">
-              <h3 className="font-serif text-lg text-white">4. To the Rising Generation</h3>
-              <p className="font-serif italic text-xl text-neutral-200">
-                “Nigeria will not be built by spectators. It is built by those who choose to plant their feet, roll up their sleeves,
-                and impart excellence right here.”
-              </p>
-              <p className="text-xs font-mono text-neutral-500 pt-1">
-                Prof. Adebola Adewunmi Aderibigbe
-              </p>
-            </div>
-          </div>
-        </div>
-
-        {/* 4. Karpathy-Style Chronological Experience Log */}
-        <div className="space-y-10">
-          <div className="flex flex-col sm:flex-row sm:items-baseline justify-between gap-4 pb-4 border-b border-[#20232E]">
-            <div>
-              <p className="text-xs font-mono uppercase tracking-widest text-neutral-400">
-                Experience & Education
-              </p>
-              <h2 className="font-serif text-3xl sm:text-4xl text-white mt-1">
-                Chronological Record
-              </h2>
-            </div>
             <Link
-              href="/credentials"
-              className="text-xs font-mono text-neutral-400 hover:text-white flex items-center gap-1"
+              href="/contact"
+              className="group flex items-center justify-between border-t border-line pt-5"
             >
-              <span>Verified Dossier</span>
-              <ArrowRight className="w-3.5 h-3.5" />
+              <span>
+                <span className="block font-semibold text-ink group-hover:text-accent">Get in touch</span>
+                <span className="mt-0.5 block text-sm text-mute">Speaking, collaboration, media, mentorship</span>
+              </span>
+              <ArrowRight className="h-5 w-5 shrink-0 text-accent transition-transform duration-300 group-hover:translate-x-1" />
             </Link>
-          </div>
-
-          {/* Timeline Track */}
-          <div className="relative pl-0 sm:pl-4 space-y-12 before:hidden sm:before:block before:absolute before:left-[118px] before:top-3 before:bottom-3 before:w-px before:bg-[#20232E]">
-
-            {/* Item 1: 2026 - Africa Leadership & EU-SDGN II */}
-            <div className="relative flex flex-col sm:flex-row gap-6 sm:gap-10 items-start">
-              <div className="sm:w-24 shrink-0 sm:text-right pt-1 font-mono text-xs text-neutral-400 flex items-center sm:justify-end gap-2">
-                <span>2026</span>
-                <span className="hidden sm:inline-block w-2 h-2 rounded-full bg-neutral-600 ring-4 ring-[#0D0E12] translate-x-[21px] z-10" />
-              </div>
-              <div className="w-14 h-14 shrink-0 rounded-lg bg-[#14161E] border border-[#20232E] flex items-center justify-center font-mono font-bold text-sm text-neutral-300">
-                IPC/EU
-              </div>
-              <div className="flex-1 space-y-2">
-                <p className="text-sm sm:text-base text-neutral-300 leading-relaxed">
-                  Conferred the <strong className="text-white font-semibold">Africa Leadership Award</strong> by the Global Skills Hub (UK) at the 1st Africa Leadership Summit in Accra, Ghana.
-                  Appointed Lead Consultant Facilitator by the <a href="https://ipcng.org" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">International Press Council (IPC)</a> and the European Union (<strong className="text-white font-medium">EU-SDGN II</strong>) to conduct election reporting masterclasses for journalists ahead of the Ekiti State gubernatorial polls.
-                </p>
-                <div className="text-xs font-mono text-neutral-400">
-                  Global Skills Hub (UK) · International Press Council · European Union
-                </div>
-              </div>
-            </div>
-
-            {/* Item 2: 2025 - NUC Accreditation Chairmanship */}
-            <div className="relative flex flex-col sm:flex-row gap-6 sm:gap-10 items-start">
-              <div className="sm:w-24 shrink-0 sm:text-right pt-1 font-mono text-xs text-neutral-400 flex items-center sm:justify-end gap-2">
-                <span>2025</span>
-                <span className="hidden sm:inline-block w-2 h-2 rounded-full bg-neutral-600 ring-4 ring-[#0D0E12] translate-x-[21px] z-10" />
-              </div>
-              <div className="w-14 h-14 shrink-0 rounded-lg bg-[#14161E] border border-[#20232E] flex items-center justify-center font-mono font-bold text-sm text-neutral-300">
-                NUC
-              </div>
-              <div className="flex-1 space-y-2">
-                <p className="text-sm sm:text-base text-neutral-300 leading-relaxed">
-                  Appointed by the <strong className="text-white font-semibold">National Universities Commission (NUC)</strong> as Chairman of the Ad-hoc Accreditation Panel for Mass Communication at Chrisland University. Directed national quality assurance inspection of academic curricula, faculty qualifications, broadcast facilities, and departmental infrastructure.
-                </p>
-                <div className="text-xs font-mono text-neutral-400">
-                  National Universities Commission · Quality Assurance Directorate
-                </div>
-              </div>
-            </div>
-
-            {/* Item 3: 2024 - Peter Okebukola Distinction Prize */}
-            <div className="relative flex flex-col sm:flex-row gap-6 sm:gap-10 items-start">
-              <div className="sm:w-24 shrink-0 sm:text-right pt-1 font-mono text-xs text-neutral-400 flex items-center sm:justify-end gap-2">
-                <span>2024</span>
-                <span className="hidden sm:inline-block w-2 h-2 rounded-full bg-neutral-600 ring-4 ring-[#0D0E12] translate-x-[21px] z-10" />
-              </div>
-              <div className="w-14 h-14 shrink-0 rounded-lg bg-[#14161E] border border-[#20232E] flex items-center justify-center font-mono font-bold text-sm text-neutral-300">
-                PRIZE
-              </div>
-              <div className="flex-1 space-y-2">
-                <p className="text-sm sm:text-base text-neutral-300 leading-relaxed">
-                  Conferred the <strong className="text-white font-semibold">Peter Okebukola Distinction Prize</strong> in recognition of distinguished scholarship, university pedagogy innovations, and sustained contributions to media education standards in Nigeria.
-                </p>
-                <div className="text-xs font-mono text-neutral-400">
-                  Higher Education Distinction Honour
-                </div>
-              </div>
-            </div>
-
-            {/* Item 4: 2020 - Present - Director, Career Services Centre FUOYE */}
-            <div className="relative flex flex-col sm:flex-row gap-6 sm:gap-10 items-start">
-              <div className="sm:w-24 shrink-0 sm:text-right pt-1 font-mono text-xs text-neutral-400 flex items-center sm:justify-end gap-2">
-                <span>2020 – pres</span>
-                <span className="hidden sm:inline-block w-2 h-2 rounded-full bg-neutral-600 ring-4 ring-[#0D0E12] translate-x-[21px] z-10" />
-              </div>
-              <div className="w-14 h-14 shrink-0 rounded-lg bg-[#14161E] border border-[#20232E] flex items-center justify-center font-mono font-bold text-sm text-neutral-300">
-                FUOYE
-              </div>
-              <div className="flex-1 space-y-2">
-                <p className="text-sm sm:text-base text-neutral-300 leading-relaxed">
-                  Appointed <strong className="text-white font-semibold">Director, Career Services Centre</strong> at Federal University Oye-Ekiti (FUOYE). Pioneered university-wide career guidance systems, corporate transition internships, and industry partnerships across eight faculties.
-                </p>
-                <div className="text-xs font-mono text-neutral-400">
-                  Federal University Oye-Ekiti · Directorate Office
-                </div>
-              </div>
-            </div>
-
-            {/* Item 5: 2018 - Fellow, Institute of Security of Nigeria */}
-            <div className="relative flex flex-col sm:flex-row gap-6 sm:gap-10 items-start">
-              <div className="sm:w-24 shrink-0 sm:text-right pt-1 font-mono text-xs text-neutral-400 flex items-center sm:justify-end gap-2">
-                <span>2018</span>
-                <span className="hidden sm:inline-block w-2 h-2 rounded-full bg-neutral-600 ring-4 ring-[#0D0E12] translate-x-[21px] z-10" />
-              </div>
-              <div className="w-14 h-14 shrink-0 rounded-lg bg-[#14161E] border border-[#20232E] flex items-center justify-center font-mono font-bold text-sm text-neutral-300">
-                FISN
-              </div>
-              <div className="flex-1 space-y-2">
-                <p className="text-sm sm:text-base text-neutral-300 leading-relaxed">
-                  Elected <strong className="text-white font-semibold">Fellow of the Institute of Security of Nigeria (FISN)</strong> for research and policy contributions at the nexus of strategic communication, national security discourse, and counter-disinformation.
-                </p>
-                <div className="text-xs font-mono text-neutral-400">
-                  Institute of Security of Nigeria (Chartered)
-                </div>
-              </div>
-            </div>
-
-            {/* Item 6: 2014 - PhD Babcock University */}
-            <div className="relative flex flex-col sm:flex-row gap-6 sm:gap-10 items-start">
-              <div className="sm:w-24 shrink-0 sm:text-right pt-1 font-mono text-xs text-neutral-400 flex items-center sm:justify-end gap-2">
-                <span>2011 – 2014</span>
-                <span className="hidden sm:inline-block w-2 h-2 rounded-full bg-neutral-600 ring-4 ring-[#0D0E12] translate-x-[21px] z-10" />
-              </div>
-              <div className="w-14 h-14 shrink-0 rounded-lg bg-[#14161E] border border-[#20232E] flex items-center justify-center font-mono font-bold text-sm text-neutral-300">
-                BU
-              </div>
-              <div className="flex-1 space-y-2">
-                <p className="text-sm sm:text-base text-neutral-300 leading-relaxed">
-                  Completed <strong className="text-white font-semibold">Doctor of Philosophy (PhD) in Communication and Media Studies</strong> at <a href="https://babcock.edu.ng" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">Babcock University</a>. Doctoral dissertation investigated strategic communication frameworks for development interventions, community engagement, and public sphere governance in Nigeria.
-                </p>
-                <div className="text-xs font-mono text-neutral-400">
-                  Doctoral Dissertation · Babcock University, Ilishan-Remo
-                </div>
-              </div>
-            </div>
-
-            {/* Item 7: 2008 - 2011 - MSc University of Lagos */}
-            <div className="relative flex flex-col sm:flex-row gap-6 sm:gap-10 items-start">
-              <div className="sm:w-24 shrink-0 sm:text-right pt-1 font-mono text-xs text-neutral-400 flex items-center sm:justify-end gap-2">
-                <span>2008 – 2011</span>
-                <span className="hidden sm:inline-block w-2 h-2 rounded-full bg-neutral-600 ring-4 ring-[#0D0E12] translate-x-[21px] z-10" />
-              </div>
-              <div className="w-14 h-14 shrink-0 rounded-lg bg-[#14161E] border border-[#20232E] flex items-center justify-center font-mono font-bold text-sm text-neutral-300">
-                UNILAG
-              </div>
-              <div className="flex-1 space-y-2">
-                <p className="text-sm sm:text-base text-neutral-300 leading-relaxed">
-                  Earned <strong className="text-white font-semibold">Master of Science (MSc) in Mass Communication</strong> at the <a href="https://unilag.edu.ng" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">University of Lagos</a>. Advanced graduate coursework and thesis focused on media theory, broadcasting regulations, and public relations policy in West Africa.
-                </p>
-                <div className="text-xs font-mono text-neutral-400">
-                  University of Lagos · Department of Mass Communication
-                </div>
-              </div>
-            </div>
-
-            {/* Item 8: 2007 - NYSC Presidential Honours Award */}
-            <div className="relative flex flex-col sm:flex-row gap-6 sm:gap-10 items-start">
-              <div className="sm:w-24 shrink-0 sm:text-right pt-1 font-mono text-xs text-neutral-400 flex items-center sm:justify-end gap-2">
-                <span>2007</span>
-                <span className="hidden sm:inline-block w-2 h-2 rounded-full bg-neutral-600 ring-4 ring-[#0D0E12] translate-x-[21px] z-10" />
-              </div>
-              <div className="w-14 h-14 shrink-0 rounded-lg bg-[#14161E] border border-[#20232E] flex items-center justify-center font-mono font-bold text-sm text-neutral-300">
-                NYSC
-              </div>
-              <div className="flex-1 space-y-2">
-                <p className="text-sm sm:text-base text-neutral-300 leading-relaxed">
-                  Conferred the <strong className="text-white font-semibold">NYSC Presidential Honours Award</strong> by The Presidency, Federal Republic of Nigeria. Conferred for exemplary national service, youth mobilization, and community development interventions.
-                </p>
-                <div className="text-xs font-mono text-neutral-400">
-                  The Presidency · Federal Republic of Nigeria
-                </div>
-              </div>
-            </div>
-
-            {/* Item 9: 2002 - 2006 - BSc Bowen University */}
-            <div className="relative flex flex-col sm:flex-row gap-6 sm:gap-10 items-start">
-              <div className="sm:w-24 shrink-0 sm:text-right pt-1 font-mono text-xs text-neutral-400 flex items-center sm:justify-end gap-2">
-                <span>2002 – 2006</span>
-                <span className="hidden sm:inline-block w-2 h-2 rounded-full bg-neutral-600 ring-4 ring-[#0D0E12] translate-x-[21px] z-10" />
-              </div>
-              <div className="w-14 h-14 shrink-0 rounded-lg bg-[#14161E] border border-[#20232E] flex items-center justify-center font-mono font-bold text-sm text-neutral-300">
-                BOWEN
-              </div>
-              <div className="flex-1 space-y-2">
-                <p className="text-sm sm:text-base text-neutral-300 leading-relaxed">
-                  Graduated with a <strong className="text-white font-semibold">Bachelor of Science (BSc) in Mass Communication</strong> from <a href="https://bowen.edu.ng" target="_blank" rel="noopener noreferrer" className="text-blue-400 hover:underline">Bowen University</a>, Iwo. Later conferred the Bowen Distinguished Alumni Award (2017) for exemplary academic trajectory.
-                </p>
-                <div className="text-xs font-mono text-neutral-400">
-                  Bowen University, Iwo · Faculty of Social and Management Sciences
-                </div>
-              </div>
-            </div>
-
-          </div>
+          </aside>
         </div>
-
       </div>
-    </div>
+    </>
   );
 }
