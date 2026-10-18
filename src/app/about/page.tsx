@@ -33,8 +33,8 @@ const timeline: Milestone[] = [
     year: "2026",
     mark: "IPC / EU",
     title: "Africa Leadership Award and EU-SDGN II facilitation",
-    text: "Conferred the Africa Leadership Award by Global Skills Hub (UK) in Accra. Lead Consultant Facilitator with the International Press Council and the European Union for election-reporting training in Ekiti.",
-    meta: "Global Skills Hub (UK) · International Press Council · European Union",
+    text: "Conferred the Africa Leadership Award by Global Skills Hub (UK) in Accra. Resource person for the International Press Centre and the European Union (EU-SDGN II) at the Ekiti governorship election media dialogue, 15 April.",
+    meta: "Global Skills Hub (UK) · International Press Centre · European Union",
   },
   {
     year: "2025",
@@ -188,7 +188,7 @@ export default function AboutPage() {
                   Nigerian universities, and <strong className="font-semibold text-ink">chairs National Universities Commission accreditation panels</strong> that
                   protect the standard of the degrees themselves. In 2026 he received the <strong className="font-semibold text-ink">Africa Leadership
                   Award</strong> in Accra and led election-reporting training for journalists in Ekiti with the
-                  International Press Council and the European Union.
+                  International Press Centre and the European Union.
                 </p>
               </div>
 
@@ -278,6 +278,17 @@ export default function AboutPage() {
                 ))}
               </div>
             </dl>
+
+            <Link
+              href="/gallery"
+              className="group flex items-center justify-between border-t border-line pt-5"
+            >
+              <span>
+                <span className="block font-semibold text-ink group-hover:text-accent">Photo gallery</span>
+                <span className="mt-0.5 block text-sm text-mute">Portraits, lectures and events</span>
+              </span>
+              <ArrowRight className="h-5 w-5 shrink-0 text-accent transition-transform duration-300 group-hover:translate-x-1" />
+            </Link>
 
             <Link
               href="/contact"

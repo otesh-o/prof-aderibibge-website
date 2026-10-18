@@ -5,7 +5,7 @@ export interface SpeakingEvent {
   location: string;
   date: string;
   year: number;
-  role: "Keynote Speaker" | "Lead Consultant Facilitator" | "Panel Chairman" | "Panellist" | "Guest Lecturer" | "Award Recipient";
+  role: "Keynote Speaker" | "Resource Person" | "Panel Chairman" | "Panellist" | "Guest Lecturer" | "Award Recipient";
   topic: string;
   isFeatured?: boolean;
   recordingUrl?: string;
@@ -38,6 +38,17 @@ export const speakingTopics = [
 
 export const allSpeakingEvents: SpeakingEvent[] = [
   {
+    id: "spk-aes4",
+    event: "4th Africa Education Summit, Ghana 2026",
+    host: "University of Professional Studies, Accra",
+    location: "Accra, Ghana",
+    date: "19 - 21 March 2026",
+    year: 2026,
+    role: "Panellist",
+    topic: "Advancing EdTech Integration in African Education: A Unified Roadmap for Action",
+    isFeatured: false,
+  },
+  {
     id: "spk-1",
     event: "1st Africa Leadership Summit & Awards",
     host: "Global Skills Hub (UK)",
@@ -50,13 +61,13 @@ export const allSpeakingEvents: SpeakingEvent[] = [
   },
   {
     id: "spk-2",
-    event: "EU-SDGN II Gubernatorial Election Media Training",
-    host: "International Press Council (IPC) / European Union",
-    location: "Ado-Ekiti, Nigeria",
-    date: "14 April 2026",
+    event: "Ekiti State Governorship Media-Led Stakeholders' Dialogue on Credible Election",
+    host: "International Press Centre (IPC), with the European Union (EU-SDGN II)",
+    location: "Fabian Hotel, Ado-Ekiti, Nigeria",
+    date: "15 April 2026",
     year: 2026,
-    role: "Lead Consultant Facilitator",
-    topic: "Electoral Journalism, Fact-Checking and Conflict-Sensitive Reporting",
+    role: "Resource Person",
+    topic: "Ekiti Governorship Election in the Context of Agenda Setting: Dissecting the Issues, Appraising Media Role",
     isFeatured: true,
   },
   {

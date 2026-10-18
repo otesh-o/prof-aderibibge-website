@@ -4,6 +4,7 @@ import "./globals.css";
 import Header from "@/components/Header";
 import NavigationDock from "@/components/NavigationDock";
 import Footer from "@/components/Footer";
+import { profileData } from "@/data/profile";
 
 const sourceSerif = Source_Serif_4({
   variable: "--font-source-serif",
@@ -17,6 +18,7 @@ const plexSans = IBM_Plex_Sans({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://adebolaaderibigbe.com"),
   title: "Prof. Adebola Aderibigbe | Professor of Mass Communication, FUOYE",
   description:
     "Official academic and professional portal of Prof. Adebola Adewunmi Aderibigbe. Specialising in Strategic and Development Communication at Federal University Oye-Ekiti (FUOYE).",
@@ -30,13 +32,21 @@ export const metadata: Metadata = {
     "African Leadership Award",
   ],
   authors: [{ name: "Prof. Adebola Adewunmi Aderibigbe" }],
+  alternates: { canonical: "/" },
   openGraph: {
     title: "Prof. Adebola Aderibigbe | Official Academic Portal",
     description:
-      "Professor of Mass Communication, FUOYE. Building Nigeria's communicators, from Nigeria.",
+      "Professor of Mass Communication at Federal University Oye-Ekiti. Research, lectures, writing and featured appearances.",
     url: "https://adebolaaderibigbe.com",
     siteName: "Prof. Adebola Aderibigbe",
     type: "website",
+    locale: "en_NG",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Prof. Adebola Aderibigbe | Official Academic Portal",
+    description:
+      "Professor of Mass Communication at Federal University Oye-Ekiti. Research, lectures, writing and featured appearances.",
   },
 };
 
@@ -63,8 +73,9 @@ export default function RootLayout({
     ],
     "url": "https://adebolaaderibigbe.com",
     "sameAs": [
-      "https://scholar.google.com",
-      "https://www.linkedin.com",
+      profileData.socialLinks.googleScholar,
+      profileData.socialLinks.linkedIn,
+      profileData.socialLinks.fuoyeStaffProfile,
     ],
   };
 

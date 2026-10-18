@@ -21,8 +21,8 @@ export interface CredentialCategory {
 export const careerTimeline: TimelineEvent[] = [
   {
     year: "2026",
-    role: "Africa Leadership Award & Lead Consultant Facilitator",
-    institution: "Global Skills Hub (UK) & International Press Council / EU-SDGN II",
+    role: "Africa Leadership Award & EU-SDGN II Resource Person",
+    institution: "Global Skills Hub (UK) & International Press Centre / EU-SDGN II",
     description: "Conferred Africa Leadership Award in Accra. Spearheaded media training for Ekiti gubernatorial election reporting.",
     tag: "Award & Service",
   },
@@ -210,8 +210,8 @@ export const credentialsCategories: CredentialCategory[] = [
     iconName: "Briefcase",
     items: [
       {
-        primary: "Lead Consultant Facilitator - EU-SDGN II",
-        secondary: "International Press Council (IPC) & European Union",
+        primary: "Resource Person - EU-SDGN II",
+        secondary: "International Press Centre (IPC) & European Union",
         meta: "April 2026",
         description: "Conducted intensive masterclasses for journalists in Ekiti State on ethical coverage and conflict-sensitive reporting for gubernatorial elections.",
       },

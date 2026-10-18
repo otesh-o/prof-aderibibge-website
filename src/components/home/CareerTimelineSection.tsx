@@ -52,7 +52,7 @@ export default function CareerTimelineSection() {
                 </div>
                 <div className="flex-1 space-y-1">
                   <p className="text-sm sm:text-base text-neutral-300 leading-relaxed">
-                    Conferred the <strong className="text-white font-semibold">Africa Leadership Award</strong> by Global Skills Hub (UK) in Accra. Lead Consultant Facilitator for <strong className="text-ink font-semibold">EU-SDGN II</strong> & International Press Council electoral training.
+                    Conferred the <strong className="text-white font-semibold">Africa Leadership Award</strong> by Global Skills Hub (UK) in Accra. Resource person at the <strong className="text-ink font-semibold">EU-SDGN II</strong> media dialogue on credible elections in Ekiti, with the International Press Centre.
                   </p>
                   <div className="text-sm text-mute">
                     Accra, Ghana · IPC / European Union
@@ -231,8 +231,8 @@ export default function CareerTimelineSection() {
                 </div>
                 <div className="border-l-2 border-accent pl-4 space-y-1">
                   <span className="text-sm text-mute block">International Development</span>
-                  <p className="font-medium text-white">Lead Consultant Facilitator - EU-SDGN II</p>
-                  <p className="text-mute text-sm">International Press Council & European Union Media Program (2026)</p>
+                  <p className="font-medium text-white">Resource Person - EU-SDGN II</p>
+                  <p className="text-mute text-sm">International Press Centre & European Union Media Program (2026)</p>
                 </div>
               </div>
             </div>

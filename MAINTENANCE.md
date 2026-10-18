@@ -18,6 +18,7 @@ Vercel redeploys automatically. Run `npm run dev` first if you want to check it.
 | Master classes | `src/data/mentorship.ts` |
 | Featured engagements, speaking topics | `src/data/speaking.ts` |
 | Articles | `src/data/writing.ts` |
+| Gallery photos | `src/data/gallery.ts`, files in `public/images/gallery/` |
 | Downloadable PDFs | `public/documents/` |
 | Institution logos | `public/logos/` |
 | Images and portrait | `public/images/` |
@@ -58,7 +59,7 @@ Delete the flag, or set it to `true`, once he confirms an entry.
   location: "City, Country",
   date: "8 - 10 October 2026",
   year: 2026,
-  role: "Keynote Speaker", // "Lead Consultant Facilitator" | "Panel Chairman" | "Panellist" | "Guest Lecturer" | "Award Recipient"
+  role: "Keynote Speaker", // "Resource Person" | "Panel Chairman" | "Panellist" | "Guest Lecturer" | "Award Recipient"
   topic: "Talk title or theme",
   isFeatured: true, // the featured one shows in the strip on the home page
   recordingUrl: "https://youtube.com/watch?v=...", // optional
@@ -118,7 +119,16 @@ Replace `public/documents/Prof_Adebola_Aderibigbe_CV.pdf`, keeping the filename.
 Put the file in `public/images/`, then change the `src` in `src/components/home/HeroSection.tsx`.
 Recommended: about 1200 x 1500 px. The crop is `object-[50%_20%]`; adjust if the face sits low.
 
-## 10. An institution logo
+## 10. Gallery photos
+
+Put each photo in `public/images/gallery/`, then add an entry to `galleryItems` in
+`src/data/gallery.ts` (the file has a ready-to-copy example). `category` is `Portrait`, `Event`,
+`Lecture` or `Award`; give the pixel `width` and `height`; write a real `alt` description.
+Set `confirmed: false` to hold back a photo until he has cleared it. Resize to about 1600px on the
+long edge and export as WebP or JPEG first so the page stays quick. `/gallery` shows an empty state
+until the first photo is added.
+
+## 11. An institution logo
 
 Add a PNG or WebP to `public/logos/`, then add the entry to the timeline in
 `src/components/home/CareerTimelineSection.tsx` (home) and `src/app/about/page.tsx` (`timeline`).

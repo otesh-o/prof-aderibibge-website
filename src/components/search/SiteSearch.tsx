@@ -34,6 +34,7 @@ function buildIndex(): Entry[] {
     { title: "Lectures and teaching", category: "Page", url: "/teaching", subtitle: "Lecture videos, modules, course outlines" },
     { title: "Master classes", category: "Page", url: "/teaching#master-classes", subtitle: "Register interest" },
     { title: "Featured", category: "Page", url: "/featured", subtitle: "Keynotes, panels and appearances" },
+    { title: "Gallery", category: "Page", url: "/gallery", subtitle: "Photographs: portraits, lectures, events" },
     { title: "Personal articles", category: "Page", url: "/writing", subtitle: "Essays and reflections" },
     { title: "Contact", category: "Page", url: "/contact", subtitle: "Invitations, collaboration, media" },
 
@@ -90,7 +91,7 @@ export default function SiteSearch({ onActiveChange }: { onActiveChange?: (open:
   const [open, setOpen] = useState(false);
   const [cursor, setCursor] = useState(0);
 
-  const index = useMemo(buildIndex, []);
+  const index = useMemo(() => buildIndex(), []);
 
   const results = useMemo(() => {
     const terms = query.trim().toLowerCase().split(/\s+/).filter(Boolean);

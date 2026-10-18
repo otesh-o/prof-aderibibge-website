@@ -63,9 +63,9 @@ export const profileData = {
   ] as HeadlineStat[],
 
   socialLinks: {
-    googleScholar: "https://scholar.google.com",
-    linkedIn: "https://www.linkedin.com",
-    fuoyeStaffProfile: "https://fuoye.edu.ng",
+    googleScholar: "https://scholar.google.com/citations?user=PovhL9kAAAAJ&hl=en",
+    linkedIn: "https://www.linkedin.com/in/adebolaaderibigbe/",
+    fuoyeStaffProfile: "https://staff.fuoye.edu.ng/staff/profile/3/prof-adebola-adewunmi-aderibigbe",
     email: "adebola.aderibigbe@fuoye.edu.ng",
   },
 
@@ -80,12 +80,12 @@ export const profileData = {
       featured: true,
     },
     {
-      event: "EU-SDGN II Journalist Preparedness Program",
-      host: "International Press Council (IPC) / EU",
+      event: "Ekiti State Governorship Media-Led Stakeholders' Dialogue on Credible Election",
+      host: "International Press Centre (IPC) / European Union",
       location: "Ado-Ekiti, Nigeria",
       year: "2026",
-      role: "Lead Consultant Facilitator",
-      topic: "Electoral Reporting & Media Integrity for the 2026 Gubernatorial Polls",
+      role: "Resource Person",
+      topic: "Ekiti Governorship Election in the Context of Agenda Setting: Dissecting the Issues, Appraising Media Role",
       featured: true,
     },
     {

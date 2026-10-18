@@ -59,7 +59,6 @@ export const publicationsData: Publication[] = [
     journal: "Frontiers in Psychology",
     year: 2025,
     type: "Journal Article",
-    scholarUrl: "https://scholar.google.com",
     abstract: "Investigates editorial attitudes, perceived professional risks, and workflow augmentations following the adoption of large language models across mainstream Nigerian news establishments.",
   },
   {
@@ -69,7 +68,6 @@ export const publicationsData: Publication[] = [
     journal: "Communication and the Public",
     year: 2024,
     type: "Journal Article",
-    scholarUrl: "https://scholar.google.com",
     abstract: "Examines state-citizen communication deficits and advances a two-way symmetrical strategic communication model for public policy dissemination.",
   },
   {
@@ -79,7 +77,6 @@ export const publicationsData: Publication[] = [
     journal: "Journal of African Union Studies",
     year: 2023,
     type: "Journal Article",
-    scholarUrl: "https://scholar.google.com",
     abstract: "Evaluates the representation and agenda-setting capacity of continental African media in advancing African Union Agenda 2063 goals.",
   },
   {
@@ -89,7 +86,6 @@ export const publicationsData: Publication[] = [
     journal: "African Journalism Studies",
     year: 2022,
     type: "Journal Article",
-    scholarUrl: "https://scholar.google.com",
     abstract: "Presents empirical results from youth digital media consumption audits, advocating for critical information literacy integration in high school and tertiary curricula.",
   },
   {
@@ -99,7 +95,6 @@ export const publicationsData: Publication[] = [
     journal: "ACSPN National Conference Proceedings",
     year: 2025,
     type: "Conference Proceeding",
-    scholarUrl: "https://scholar.google.com",
     abstract: "Proposes modular updates to the CCMAS curriculum for Mass Communication departments to account for prompt engineering, computational journalism, and algorithmic ethics.",
   },
   {
@@ -109,7 +104,6 @@ export const publicationsData: Publication[] = [
     journal: "Journal of Media and Cultural Studies",
     year: 2021,
     type: "Journal Article",
-    scholarUrl: "https://scholar.google.com",
     abstract: "Analyzes commercial sustainability paradigms for radio and television networks contending with YouTube and social streaming shifts.",
   },
   {
@@ -119,17 +113,15 @@ export const publicationsData: Publication[] = [
     journal: "Handbook of Digital Media Ethics (Routledge)",
     year: 2024,
     type: "Book Chapter",
-    scholarUrl: "https://scholar.google.com",
     abstract: "A book chapter examining surveillance risks, dataset biases, and copyright ambiguities in developing media ecosystems.",
   },
   {
     id: "pub-8",
     title: "Electoral Journalism and Conflict-Sensitive Reporting in State Gubernatorial Elections",
-    authors: "Aderibigbe, A. A. for International Press Council",
+    authors: "Aderibigbe, A. A. for International Press Centre",
     journal: "EU-SDGN II Policy Monograph Series",
     year: 2026,
     type: "Policy Report",
-    scholarUrl: "https://scholar.google.com",
     abstract: "A training monograph developed under EU-SDGN II providing practical guidelines for reporters on fake news mitigation and de-escalation rhetoric.",
   },
 ];

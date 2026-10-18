@@ -9,7 +9,7 @@ type Filter = "All" | SpeakingEvent["role"];
 
 const roleLabel: Record<SpeakingEvent["role"], string> = {
   "Keynote Speaker": "Keynote",
-  "Lead Consultant Facilitator": "Facilitator",
+  "Resource Person": "Resource person",
   "Panel Chairman": "Panel chair",
   Panellist: "Panellist",
   "Guest Lecturer": "Guest lecture",
