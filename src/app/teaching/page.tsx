@@ -21,7 +21,7 @@ export default function TeachingPage() {
   const hasFile = (url?: string) => !!url && existsSync(path.join(process.cwd(), "public", url));
 
   const stats = [
-    { value: String(lectureVideosData.length), label: "recorded lectures" },
+    { value: String(lectureVideosData.length), label: lectureVideosData.length === 1 ? "video recording" : "video recordings" },
     { value: String(universityCoursesData.length), label: "course outlines" },
     { value: String(featuredModulesData.length), label: "modules he created" },
     { value: "18+", label: "years of teaching" },

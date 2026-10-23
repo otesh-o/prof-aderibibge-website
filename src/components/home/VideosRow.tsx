@@ -47,9 +47,18 @@ export default function VideosRow() {
                   onClick={() => ready && setPlaying(v.id)}
                   disabled={!ready}
                   aria-label={ready ? `Play ${v.title}` : `${v.title}: recording to be added`}
+                  style={
+                    ready
+                      ? {
+                          backgroundImage: `linear-gradient(to top, rgb(0 0 0 / 0.6), rgb(0 0 0 / 0.1) 60%), url(https://i.ytimg.com/vi/${v.youtubeId}/hqdefault.jpg)`,
+                          backgroundSize: "cover",
+                          backgroundPosition: "center",
+                        }
+                      : undefined
+                  }
                   className="group absolute inset-0 flex flex-col items-start justify-between p-4 text-left disabled:cursor-default"
                 >
-                  <span className="text-sm font-medium text-mute">{v.courseCode}</span>
+                  <span className={`text-sm font-medium ${ready ? "text-white" : "text-mute"}`}>{v.courseCode}</span>
                   <span className="flex w-full items-end justify-between">
                     <span
                       className={`flex h-12 w-12 items-center justify-center rounded-full transition-transform duration-300 ${
@@ -58,7 +67,7 @@ export default function VideosRow() {
                     >
                       <Play className="ml-0.5 h-5 w-5 fill-current" />
                     </span>
-                    <span className="text-sm text-mute">{ready ? v.duration : "Recording to be added"}</span>
+                    <span className={`text-sm ${ready ? "text-white" : "text-mute"}`}>{ready ? v.duration : "Recording to be added"}</span>
                   </span>
                 </button>
               )}

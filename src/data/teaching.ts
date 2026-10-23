@@ -116,36 +116,13 @@ export const universityCoursesData: CourseDetail[] = [
 
 export const lectureVideosData: LectureVideo[] = [
   {
-    id: "lec-1",
-    title: "Strategic Communication in African Governance: Trust, Voice & Accountability",
-    courseCode: "MAC 805",
-    courseTitle: "Advanced Development Communication",
-    duration: "34 mins",
-    youtubeId: "dQw4w9WgXcQ", // Placeholder YouTube ID; lazy loaded
-    description:
-      "A lecture discussing how public institutions in Africa can migrate from propagandist PR to genuine participatory engagement that builds durable public trust.",
-    date: "Semester Lecture Series",
-  },
-  {
-    id: "lec-2",
-    title: "Public Speaking Essentials: Mastering the First Sixty Seconds",
-    courseCode: "PSE 101",
-    courseTitle: "Public Speaking Essentials",
-    duration: "22 mins",
-    youtubeId: "dQw4w9WgXcQ",
-    description:
-      "Techniques for establishing immediate rapport, commanding attention, and deploying hook structures during academic and professional presentations.",
-    date: "Executive Masterclass",
-  },
-  {
-    id: "lec-3",
-    title: "Managing Broadcast Networks in the Age of Streaming Fragmentation",
-    courseCode: "MAC 309",
-    courseTitle: "Broadcast Management & Programming",
-    duration: "41 mins",
-    youtubeId: "dQw4w9WgXcQ",
-    description:
-      "Analytical breakdown of broadcast revenues, NBC regulation nuances, and audience migration to digital streaming channels.",
-    date: "Faculty Lecture Series",
+    id: "idea-tv-innovation-ep2",
+    title: "Innovation Actors & Actions in Africa, Episode 2",
+    courseCode: "TV",
+    courseTitle: "IDEA TV",
+    duration: "Full episode",
+    youtubeId: "jShPlpH0j4I",
+    description: "Television programme from IDEA TV on innovation and the people driving it across Africa.",
+    date: "Television appearance",
   },
 ];
