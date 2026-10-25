@@ -117,12 +117,12 @@ export const universityCoursesData: CourseDetail[] = [
 export const lectureVideosData: LectureVideo[] = [
   {
     id: "idea-tv-innovation-ep2",
-    title: "Innovation Actors & Actions in Africa, Episode 2",
+    title: "Innovation Actors and Actions in Africa, Episode 2",
     courseCode: "TV",
     courseTitle: "IDEA TV",
     duration: "Full episode",
-    youtubeId: "jShPlpH0j4I",
+    youtubeId: "VbnCitTpkWA",
     description: "Television programme from IDEA TV on innovation and the people driving it across Africa.",
-    date: "Television appearance",
+    date: "12 October 2026",
   },
 ];
