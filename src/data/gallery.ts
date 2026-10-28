@@ -37,6 +37,16 @@ export interface GalleryItem {
  */
 export const galleryItems: GalleryItem[] = [
   {
+    id: "portrait-blue-native",
+    src: "/images/gallery/portrait-blue-native.webp",
+    alt: "Prof. Aderibigbe smiling in a blue native outfit and cap with a lanyard, standing beside a robot sculpture and a 3D Printing & Fabrication Centre sign",
+    caption: "At a 3D printing and fabrication centre",
+    category: "Portrait",
+    width: 769,
+    height: 1280,
+  },
+
+  {
     id: "ekiti-2026-presenting-hall",
     src: "/images/gallery/ekiti-2026-presenting-hall.webp",
     alt: "Prof. Aderibigbe presenting at the front of a yellow hall to journalists and stakeholders seated at tables, beneath the Ekiti governorship dialogue banner",
