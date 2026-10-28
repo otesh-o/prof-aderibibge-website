@@ -10,6 +10,7 @@ import {
   PlayCircle,
   PenLine,
   Star,
+  Quote,
   Mail,
   Download,
   Library,
@@ -52,6 +53,7 @@ const pages: DockItem[] = [
   { name: "Research", href: "/#research", icon: BookOpen, section: "research", mobile: true },
   { name: "Lectures", href: "/#lectures", icon: PlayCircle, section: "lectures", mobile: true },
   { name: "Articles", href: "/#articles", icon: PenLine, section: "articles" },
+  { name: "Testimonials", href: "/#testimonials", icon: Quote, section: "testimonials" },
   { name: "Featured", href: "/#featured", icon: Star, section: "featured" },
 ];
 

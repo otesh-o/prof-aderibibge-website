@@ -5,6 +5,7 @@ import ResearchSection from "@/components/home/ResearchSection";
 import SpeakingList from "@/components/home/SpeakingList";
 import ArticlesSection from "@/components/home/ArticlesSection";
 import GalleryStrip from "@/components/home/GalleryStrip";
+import TestimonialsSection from "@/components/home/TestimonialsSection";
 import QuoteSection from "@/components/home/QuoteSection";
 
 export default function Home() {
@@ -18,6 +19,7 @@ export default function Home() {
         <GalleryStrip />
         <ArticlesSection />
       </div>
+      <TestimonialsSection />
       <SpeakingList />
       <QuoteSection />
     </>

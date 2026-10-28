@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Play } from "lucide-react";
 import SpotlightCard from "@/components/SpotlightCard";
+import LocalVideo from "@/components/LocalVideo";
 import { lectureVideosData } from "@/data/teaching";
 
 /** Placeholder id used while real recordings are pending; it must never be embedded or linked. */
@@ -48,12 +49,14 @@ export default function LectureLibrary() {
 
       <ul className="mt-4 grid gap-3 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
         {shown.map((v) => {
-          const ready = v.youtubeId !== PLACEHOLDER_ID;
+          const ready = !!v.youtubeId && v.youtubeId !== PLACEHOLDER_ID;
           const active = playing === v.id;
           return (
             <SpotlightCard as="li" key={v.id} className={card}>
               <div className="relative aspect-video overflow-hidden rounded-lg bg-tile2 ring-1 ring-inset ring-line">
-                {active ? (
+                {v.videoSrc ? (
+                  <LocalVideo src={v.videoSrc} title={v.title} duration={v.duration} label={v.courseCode} compact />
+                ) : active ? (
                   <iframe
                     src={`https://www.youtube-nocookie.com/embed/${v.youtubeId}?autoplay=1&rel=0`}
                     title={v.title}

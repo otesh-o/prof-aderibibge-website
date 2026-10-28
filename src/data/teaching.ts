@@ -25,7 +25,10 @@ export interface LectureVideo {
   courseCode: string;
   courseTitle: string;
   duration: string;
-  youtubeId: string;
+  /** YouTube id, for videos hosted on YouTube. */
+  youtubeId?: string;
+  /** File in /public/videos, for clips we host ourselves. Use this or youtubeId. */
+  videoSrc?: string;
   description: string;
   date: string;
 }
@@ -115,6 +118,16 @@ export const universityCoursesData: CourseDetail[] = [
 ];
 
 export const lectureVideosData: LectureVideo[] = [
+  {
+    id: "fuoye-career-programme",
+    title: "Career insight at the FUOYE Maiden Career Programme",
+    courseCode: "FUOYE",
+    courseTitle: "Federal University Oye-Ekiti",
+    duration: "1 min 36 s",
+    videoSrc: "/videos/fuoye-career-programme.mp4",
+    description: "A short clip of Prof. Aderibigbe sharing career insight with students at the FUOYE Maiden Career Programme.",
+    date: "Maiden Career Programme",
+  },
   {
     id: "idea-tv-innovation-ep2",
     title: "Innovation Actors and Actions in Africa, Episode 2",

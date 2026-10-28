@@ -4,6 +4,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { ArrowRight, Play } from "lucide-react";
 import ScrollRow from "@/components/ScrollRow";
+import LocalVideo from "@/components/LocalVideo";
 import { lectureVideosData } from "@/data/teaching";
 
 /** Placeholder id used while real recordings are pending; it must never be embedded or linked. */
@@ -29,12 +30,14 @@ export default function VideosRow() {
       }
     >
       {lectureVideosData.map((v) => {
-        const ready = v.youtubeId !== PLACEHOLDER_ID;
+        const ready = !!v.youtubeId && v.youtubeId !== PLACEHOLDER_ID;
         const active = playing === v.id;
         return (
           <li key={v.id} className="w-[82%] shrink-0 snap-start sm:w-[400px]">
             <div className="relative aspect-video overflow-hidden rounded-2xl bg-tile2 ring-1 ring-inset ring-line">
-              {active ? (
+              {v.videoSrc ? (
+                <LocalVideo src={v.videoSrc} title={v.title} duration={v.duration} label={v.courseCode} />
+              ) : active ? (
                 <iframe
                   src={`https://www.youtube-nocookie.com/embed/${v.youtubeId}?autoplay=1&rel=0`}
                   title={v.title}
