@@ -129,6 +129,17 @@ export const lectureVideosData: LectureVideo[] = [
     date: "Maiden Career Programme",
   },
   {
+    id: "fuoye-career-programme-highlights",
+    title: "FUOYE career programme: equipping final-year students for the world of work",
+    courseCode: "FUOYE",
+    courseTitle: "Federal University Oye-Ekiti",
+    duration: "58 s",
+    videoSrc: "/videos/fuoye-career-programme-crowd.mp4",
+    description: "Highlights from the career programme for final-year students at the Federal University Oye-Ekiti.",
+    date: "Career programme highlights",
+  },
+
+  {
     id: "idea-tv-innovation-ep2",
     title: "Innovation Actors and Actions in Africa, Episode 2",
     courseCode: "TV",
