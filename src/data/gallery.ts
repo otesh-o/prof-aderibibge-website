@@ -37,6 +37,15 @@ export interface GalleryItem {
  */
 export const galleryItems: GalleryItem[] = [
   {
+    id: "portrait-babcock-regalia",
+    src: "/images/gallery/portrait-babcock-regalia.webp",
+    alt: "Prof. Aderibigbe in maroon and black Babcock University academic regalia with a black cap and a red tie, hands clasped, against a brown studio backdrop",
+    caption: "In Babcock University academic regalia",
+    category: "Portrait",
+    width: 1019,
+    height: 1280,
+  },
+  {
     id: "portrait-blue-native",
     src: "/images/gallery/portrait-blue-native.webp",
     alt: "Prof. Aderibigbe smiling in a blue native outfit and cap with a lanyard, standing beside a robot sculpture and a 3D Printing & Fabrication Centre sign",

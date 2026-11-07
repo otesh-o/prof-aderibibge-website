@@ -22,8 +22,8 @@ export default function HeroSection() {
       <div className="lg:col-span-4">
         <div className="relative mx-auto aspect-[4/5] w-full max-w-[280px] overflow-hidden rounded-3xl ring-1 ring-line lg:aspect-auto lg:h-[min(520px,calc(100dvh-8rem))] lg:max-w-none">
           <Image
-            src="/images/prof-aderibigbe.jpg"
-            alt="Prof. Adebola Adewunmi Aderibigbe"
+            src="/images/prof-aderibigbe.webp"
+            alt="Prof. Adebola Adewunmi Aderibigbe in Federal University Oye-Ekiti academic regalia"
             fill
             priority
             sizes="(min-width: 1024px) 380px, 300px"
